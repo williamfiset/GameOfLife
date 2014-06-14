@@ -1,4 +1,4 @@
-GameOfLife inspired by John Conway for Mobile (IOS)
+GameOfLife inspired by John Conway for IOS
 ==========
 
 
