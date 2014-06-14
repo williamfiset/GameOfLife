@@ -14,6 +14,7 @@
 		C62F5F0D194CE230000D7F9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C62F5F0B194CE230000D7F9E /* Main.storyboard */; };
 		C62F5F0F194CE230000D7F9E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C62F5F0E194CE230000D7F9E /* Images.xcassets */; };
 		C62F5F1B194CE230000D7F9E /* GameOfLifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F5F1A194CE230000D7F9E /* GameOfLifeTests.swift */; };
+		C62F5F25194CE458000D7F9E /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F5F24194CE458000D7F9E /* Tile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 		C62F5F14194CE230000D7F9E /* GameOfLifeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameOfLifeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62F5F19194CE230000D7F9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C62F5F1A194CE230000D7F9E /* GameOfLifeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfLifeTests.swift; sourceTree = "<group>"; };
+		C62F5F24194CE458000D7F9E /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		C62F5F26194CEB9F000D7F9E /* experimentFile.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = experimentFile.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +85,10 @@
 				C62F5F03194CE230000D7F9E /* AppDelegate.swift */,
 				C62F5F05194CE230000D7F9E /* GameScene.sks */,
 				C62F5F07194CE230000D7F9E /* GameScene.swift */,
+				C62F5F24194CE458000D7F9E /* Tile.swift */,
 				C62F5F09194CE230000D7F9E /* GameViewController.swift */,
 				C62F5F0B194CE230000D7F9E /* Main.storyboard */,
+				C62F5F26194CEB9F000D7F9E /* experimentFile.playground */,
 				C62F5F0E194CE230000D7F9E /* Images.xcassets */,
 				C62F5F01194CE230000D7F9E /* Supporting Files */,
 			);
@@ -218,6 +223,7 @@
 				C62F5F08194CE230000D7F9E /* GameScene.swift in Sources */,
 				C62F5F0A194CE230000D7F9E /* GameViewController.swift in Sources */,
 				C62F5F04194CE230000D7F9E /* AppDelegate.swift in Sources */,
+				C62F5F25194CE458000D7F9E /* Tile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,19 +8,19 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene : SKScene {
     
     /* Setup your scene here */
     override func didMoveToView(view: SKView) {
         
-        
+
         
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         /* Called when a touch begins */
         
-        for touch: AnyObject in touches {
+        for touch : AnyObject in touches {
             
         }
         
