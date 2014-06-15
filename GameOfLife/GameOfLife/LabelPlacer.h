@@ -10,6 +10,6 @@
 @import Foundation;
 #import <Foundation/Foundation.h>
 
-@interface LabelPlacer : NSObject
+@interface UIPlacer : NSObject
 + (void) placeLabelsOnView: (UIView*) view ;
 @end

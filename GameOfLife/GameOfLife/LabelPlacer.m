@@ -9,11 +9,11 @@
 @import Foundation;
 #import "LabelPlacer.h"
 
-@implementation LabelPlacer
+@implementation UIPlacer
 
 + (void) placeLabelsOnView: (UIView*) view{
     
-    UILabel *
+
     
 }
 

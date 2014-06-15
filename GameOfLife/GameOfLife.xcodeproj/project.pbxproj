@@ -16,6 +16,7 @@
 		C62F5F0F194CE230000D7F9E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C62F5F0E194CE230000D7F9E /* Images.xcassets */; };
 		C62F5F1B194CE230000D7F9E /* GameOfLifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F5F1A194CE230000D7F9E /* GameOfLifeTests.swift */; };
 		C62F5F25194CE458000D7F9E /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F5F24194CE458000D7F9E /* Tile.swift */; };
+		C67EA17B194D350400F1123B /* GameOfLife.psd in Resources */ = {isa = PBXBuildFile; fileRef = C67EA17A194D350400F1123B /* GameOfLife.psd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		C62F5F1A194CE230000D7F9E /* GameOfLifeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfLifeTests.swift; sourceTree = "<group>"; };
 		C62F5F24194CE458000D7F9E /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		C62F5F26194CEB9F000D7F9E /* experimentFile.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = experimentFile.playground; sourceTree = "<group>"; };
+		C67EA17A194D350400F1123B /* GameOfLife.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = GameOfLife.psd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		C62F5F00194CE230000D7F9E /* GameOfLife */ = {
 			isa = PBXGroup;
 			children = (
+				C67EA178194D34C900F1123B /* ImageFiles */,
 				C62F5F03194CE230000D7F9E /* AppDelegate.swift */,
 				C62F5F07194CE230000D7F9E /* GameScene.swift */,
 				C609FA9B194D2DB100878F30 /* LabelPlacer.h */,
@@ -125,6 +128,14 @@
 				C62F5F19194CE230000D7F9E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C67EA178194D34C900F1123B /* ImageFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C67EA17A194D350400F1123B /* GameOfLife.psd */,
+			);
+			name = ImageFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +220,7 @@
 			files = (
 				C62F5F0F194CE230000D7F9E /* Images.xcassets in Resources */,
 				C62F5F06194CE230000D7F9E /* GameScene.sks in Resources */,
+				C67EA17B194D350400F1123B /* GameOfLife.psd in Resources */,
 				C62F5F0D194CE230000D7F9E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
