@@ -7,13 +7,16 @@
 //
 
 import SpriteKit
+import UIKit
 
 class GameScene : SKScene {
     
     /* Setup your scene here */
     override func didMoveToView(view: SKView) {
         
-
+        let textLabel = UILabel(frame: CGRectMake(200, 200, 100, 60))
+        textLabel.text = "Rip off.."
+        self.view.addSubview( textLabel )
         
     }
     

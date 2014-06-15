@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C609FA9D194D2DB100878F30 /* LabelPlacer.m in Sources */ = {isa = PBXBuildFile; fileRef = C609FA9C194D2DB100878F30 /* LabelPlacer.m */; };
 		C62F5F04194CE230000D7F9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F5F03194CE230000D7F9E /* AppDelegate.swift */; };
 		C62F5F06194CE230000D7F9E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C62F5F05194CE230000D7F9E /* GameScene.sks */; };
 		C62F5F08194CE230000D7F9E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F5F07194CE230000D7F9E /* GameScene.swift */; };
@@ -28,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C609FA9A194D2DB100878F30 /* GameOfLife-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GameOfLife-Bridging-Header.h"; sourceTree = "<group>"; };
+		C609FA9B194D2DB100878F30 /* LabelPlacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelPlacer.h; sourceTree = "<group>"; };
+		C609FA9C194D2DB100878F30 /* LabelPlacer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelPlacer.m; sourceTree = "<group>"; };
 		C62F5EFE194CE230000D7F9E /* GameOfLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameOfLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62F5F02194CE230000D7F9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C62F5F03194CE230000D7F9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,8 +87,10 @@
 			isa = PBXGroup;
 			children = (
 				C62F5F03194CE230000D7F9E /* AppDelegate.swift */,
-				C62F5F05194CE230000D7F9E /* GameScene.sks */,
 				C62F5F07194CE230000D7F9E /* GameScene.swift */,
+				C609FA9B194D2DB100878F30 /* LabelPlacer.h */,
+				C62F5F05194CE230000D7F9E /* GameScene.sks */,
+				C609FA9C194D2DB100878F30 /* LabelPlacer.m */,
 				C62F5F24194CE458000D7F9E /* Tile.swift */,
 				C62F5F09194CE230000D7F9E /* GameViewController.swift */,
 				C62F5F0B194CE230000D7F9E /* Main.storyboard */,
@@ -98,6 +104,7 @@
 		C62F5F01194CE230000D7F9E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C609FA9A194D2DB100878F30 /* GameOfLife-Bridging-Header.h */,
 				C62F5F02194CE230000D7F9E /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -221,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C62F5F08194CE230000D7F9E /* GameScene.swift in Sources */,
+				C609FA9D194D2DB100878F30 /* LabelPlacer.m in Sources */,
 				C62F5F0A194CE230000D7F9E /* GameViewController.swift in Sources */,
 				C62F5F04194CE230000D7F9E /* AppDelegate.swift in Sources */,
 				C62F5F25194CE458000D7F9E /* Tile.swift in Sources */,
@@ -339,9 +347,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = GameOfLife/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GameOfLife/GameOfLife-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -350,9 +361,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = GameOfLife/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GameOfLife/GameOfLife-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -411,6 +424,7 @@
 				C62F5F20194CE230000D7F9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C62F5F21194CE230000D7F9E /* Build configuration list for PBXNativeTarget "GameOfLifeTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +433,7 @@
 				C62F5F23194CE230000D7F9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
