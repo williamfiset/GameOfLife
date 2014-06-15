@@ -23,8 +23,9 @@
     UIButton *resetButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [resetButton addTarget:self action: @selector(pressedReset) forControlEvents:UIControlEventTouchUpInside];
     [resetButton setTitle:@"Reset" forState: UIControlStateNormal];
+    resetButton.titleLabel.font = [UIFont systemFontOfSize: 19.5];
+    [resetButton setTitleColor: [UIColor colorWithRed: 132/255.0 green:37/255.0 blue:78/255.0 alpha: 1] forState: UIControlStateNormal];
     resetButton.frame = CGRectMake(25.0, view.frame.size.height - 80, 80.0, 30.0);
-    resetButton.backgroundColor = [UIColor colorWithRed: 0.196 green:0.3098 blue:0.52 alpha:1.0];
     [view addSubview:resetButton];
     
     
@@ -33,8 +34,10 @@
     UIButton *srButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [srButton addTarget:self action: @selector(pressedStopOrResume) forControlEvents:UIControlEventTouchUpInside];
     [srButton setTitle: @"Stop" forState: UIControlStateNormal];
+    srButton.titleLabel.font = [UIFont systemFontOfSize: 19.5];
+    [srButton setTitleColor: [UIColor colorWithRed: 132/255.0 green:37/255.0 blue:78/255.0 alpha: 1] forState: UIControlStateNormal];
     srButton.frame = CGRectMake(25.0, view.frame.size.height - 40, 80.0, 30.0);
-    srButton.backgroundColor = [UIColor colorWithRed: 0.658 green: 0.3098 blue: 0.72 alpha: 1.0];
+    
     [view addSubview: srButton];
     
     
@@ -52,7 +55,7 @@
                            CGRectMake(slider.frame.origin.x + 60, slider.frame.origin.y - 30, 80, 40)];
     
     speedLabel.text = @"Speed";
-    speedLabel.font = [UIFont fontWithName:@"Cochin" size: 24];
+    speedLabel.font = [UIFont fontWithName: @"Cochin" size: 26];
     [view addSubview: speedLabel];
     
 }

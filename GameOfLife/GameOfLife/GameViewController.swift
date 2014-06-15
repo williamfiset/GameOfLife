@@ -34,8 +34,8 @@ class GameViewController: UIViewController {
             
             // Configure the view.
             let skView = self.view as SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
+//            skView.showsFPS = true
+//            skView.showsNodeCount = true
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
@@ -46,11 +46,17 @@ class GameViewController: UIViewController {
             skView.presentScene(scene)
         }
     }
-
+    
+    // Prevent the screen from turning when iPhone is tilted
     override func shouldAutorotate() -> Bool {
         return false
     }
-
+    
+    // Hides the status bar at the top of the screen
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
     override func supportedInterfaceOrientations() -> Int {
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
             return Int(UIInterfaceOrientationMask.AllButUpsideDown.toRaw())
