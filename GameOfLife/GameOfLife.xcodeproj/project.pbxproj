@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		C62F5F04194CE230000D7F9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F5F03194CE230000D7F9E /* AppDelegate.swift */; };
-		C62F5F06194CE230000D7F9E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C62F5F05194CE230000D7F9E /* GameScene.sks */; };
 		C62F5F08194CE230000D7F9E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F5F07194CE230000D7F9E /* GameScene.swift */; };
 		C62F5F0A194CE230000D7F9E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F5F09194CE230000D7F9E /* GameViewController.swift */; };
 		C62F5F0D194CE230000D7F9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C62F5F0B194CE230000D7F9E /* Main.storyboard */; };
 		C62F5F0F194CE230000D7F9E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C62F5F0E194CE230000D7F9E /* Images.xcassets */; };
 		C62F5F1B194CE230000D7F9E /* GameOfLifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F5F1A194CE230000D7F9E /* GameOfLifeTests.swift */; };
 		C62F5F25194CE458000D7F9E /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F5F24194CE458000D7F9E /* Tile.swift */; };
+		C6535475194DDA0E001043B7 /* circle45.png in Resources */ = {isa = PBXBuildFile; fileRef = C6535473194DDA0E001043B7 /* circle45.png */; };
+		C6535477194DDB3C001043B7 /* circle45@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6535476194DDB3C001043B7 /* circle45@2x.png */; };
+		C6535479194DE146001043B7 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C6535478194DE146001043B7 /* GameScene.sks */; };
 		C67EA17B194D350400F1123B /* GameOfLife.psd in Resources */ = {isa = PBXBuildFile; fileRef = C67EA17A194D350400F1123B /* GameOfLife.psd */; };
 		C67EA17E194D362A00F1123B /* WAFViewPlacer.m in Sources */ = {isa = PBXBuildFile; fileRef = C67EA17D194D362A00F1123B /* WAFViewPlacer.m */; };
 /* End PBXBuildFile section */
@@ -34,7 +36,6 @@
 		C62F5EFE194CE230000D7F9E /* GameOfLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameOfLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62F5F02194CE230000D7F9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C62F5F03194CE230000D7F9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C62F5F05194CE230000D7F9E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		C62F5F07194CE230000D7F9E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		C62F5F09194CE230000D7F9E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C62F5F0C194CE230000D7F9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -44,6 +45,9 @@
 		C62F5F1A194CE230000D7F9E /* GameOfLifeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfLifeTests.swift; sourceTree = "<group>"; };
 		C62F5F24194CE458000D7F9E /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		C62F5F26194CEB9F000D7F9E /* experimentFile.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = experimentFile.playground; sourceTree = "<group>"; };
+		C6535473194DDA0E001043B7 /* circle45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle45.png; sourceTree = "<group>"; };
+		C6535476194DDB3C001043B7 /* circle45@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle45@2x.png"; sourceTree = "<group>"; };
+		C6535478194DE146001043B7 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		C67EA17A194D350400F1123B /* GameOfLife.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = GameOfLife.psd; sourceTree = "<group>"; };
 		C67EA17C194D362A00F1123B /* WAFViewPlacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAFViewPlacer.h; sourceTree = "<group>"; };
 		C67EA17D194D362A00F1123B /* WAFViewPlacer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAFViewPlacer.m; sourceTree = "<group>"; };
@@ -91,8 +95,8 @@
 				C67EA178194D34C900F1123B /* ImageFiles */,
 				C62F5F03194CE230000D7F9E /* AppDelegate.swift */,
 				C62F5F07194CE230000D7F9E /* GameScene.swift */,
-				C62F5F05194CE230000D7F9E /* GameScene.sks */,
 				C62F5F24194CE458000D7F9E /* Tile.swift */,
+				C6535478194DE146001043B7 /* GameScene.sks */,
 				C62F5F09194CE230000D7F9E /* GameViewController.swift */,
 				C67EA17C194D362A00F1123B /* WAFViewPlacer.h */,
 				C67EA17D194D362A00F1123B /* WAFViewPlacer.m */,
@@ -130,10 +134,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C67EA178194D34C900F1123B /* ImageFiles */ = {
+		C6535460194DD312001043B7 /* imgs */ = {
+			isa = PBXGroup;
+			children = (
+				C6535476194DDB3C001043B7 /* circle45@2x.png */,
+				C6535473194DDA0E001043B7 /* circle45.png */,
+			);
+			name = imgs;
+			sourceTree = "<group>";
+		};
+		C6535461194DD350001043B7 /* Ps & Ai Files */ = {
 			isa = PBXGroup;
 			children = (
 				C67EA17A194D350400F1123B /* GameOfLife.psd */,
+			);
+			name = "Ps & Ai Files";
+			sourceTree = "<group>";
+		};
+		C67EA178194D34C900F1123B /* ImageFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C6535461194DD350001043B7 /* Ps & Ai Files */,
+				C6535460194DD312001043B7 /* imgs */,
 			);
 			name = ImageFiles;
 			sourceTree = "<group>";
@@ -218,9 +240,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6535475194DDA0E001043B7 /* circle45.png in Resources */,
+				C6535477194DDB3C001043B7 /* circle45@2x.png in Resources */,
 				C62F5F0F194CE230000D7F9E /* Images.xcassets in Resources */,
-				C62F5F06194CE230000D7F9E /* GameScene.sks in Resources */,
 				C67EA17B194D350400F1123B /* GameOfLife.psd in Resources */,
+				C6535479194DE146001043B7 /* GameScene.sks in Resources */,
 				C62F5F0D194CE230000D7F9E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

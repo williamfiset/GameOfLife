@@ -7,8 +7,6 @@
         <!--Game View Controller - Title-->
         <scene sceneID="CtS-rA-C9T">
             <objects>
-                <pinchGestureRecognizer id="XPP-Ua-Nz1"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
                 <viewController id="LVB-YS-i5n" customClass="GameViewController" customModule="GameOfLife" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PCf-gQ-wO7"/>
@@ -32,6 +30,8 @@
                     <navigationItem key="navigationItem" title="Title" id="ZNf-PG-dd6"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
+                <pinchGestureRecognizer id="XPP-Ua-Nz1"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>

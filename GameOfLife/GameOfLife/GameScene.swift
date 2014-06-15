@@ -16,7 +16,7 @@ class GameScene : SKScene {
         
         self.backgroundColor = UIColor.whiteColor()
         
-        WAFViewPlacer.placeMainSceneViews(self.view)
+        WAFViewPlacer.placeMainSceneViews(view)
         
     }
     

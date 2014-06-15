@@ -10,6 +10,7 @@ import Foundation
 import CoreGraphics
 
 
+
 enum Color : String {
     
     case Black = "Black"
@@ -35,6 +36,7 @@ struct Tile {
     static var activeCells = Tile[]()
     static var deadCells = Tile[]()
     
+    // Designated Initializer
     init (xPos x : Int , yPos y : Int, width : Int, height : Int, alive : Bool) {
         
         self.x = x
@@ -44,14 +46,12 @@ struct Tile {
         
         Tile.tilesOnScreen++
         Tile.activeCells.append(self)
-        
     }
     
     // Convenience Initializer
     init (xPos x : Int, yPos y : Int, alive : Bool){
         self.init(xPos: x, yPos: y, width: 40, height: 40, alive : alive)
     }
-    
 
     
 }
