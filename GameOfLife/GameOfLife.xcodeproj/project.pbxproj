@@ -17,6 +17,7 @@
 		C6535475194DDA0E001043B7 /* circle45.png in Resources */ = {isa = PBXBuildFile; fileRef = C6535473194DDA0E001043B7 /* circle45.png */; };
 		C6535477194DDB3C001043B7 /* circle45@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6535476194DDB3C001043B7 /* circle45@2x.png */; };
 		C6535479194DE146001043B7 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C6535478194DE146001043B7 /* GameScene.sks */; };
+		C653547B194DE370001043B7 /* circle.ai in Resources */ = {isa = PBXBuildFile; fileRef = C653547A194DE370001043B7 /* circle.ai */; };
 		C67EA17B194D350400F1123B /* GameOfLife.psd in Resources */ = {isa = PBXBuildFile; fileRef = C67EA17A194D350400F1123B /* GameOfLife.psd */; };
 		C67EA17E194D362A00F1123B /* WAFViewPlacer.m in Sources */ = {isa = PBXBuildFile; fileRef = C67EA17D194D362A00F1123B /* WAFViewPlacer.m */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		C6535473194DDA0E001043B7 /* circle45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle45.png; sourceTree = "<group>"; };
 		C6535476194DDB3C001043B7 /* circle45@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle45@2x.png"; sourceTree = "<group>"; };
 		C6535478194DE146001043B7 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		C653547A194DE370001043B7 /* circle.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = circle.ai; sourceTree = "<group>"; };
 		C67EA17A194D350400F1123B /* GameOfLife.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = GameOfLife.psd; sourceTree = "<group>"; };
 		C67EA17C194D362A00F1123B /* WAFViewPlacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAFViewPlacer.h; sourceTree = "<group>"; };
 		C67EA17D194D362A00F1123B /* WAFViewPlacer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAFViewPlacer.m; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 		C6535461194DD350001043B7 /* Ps & Ai Files */ = {
 			isa = PBXGroup;
 			children = (
+				C653547A194DE370001043B7 /* circle.ai */,
 				C67EA17A194D350400F1123B /* GameOfLife.psd */,
 			);
 			name = "Ps & Ai Files";
@@ -244,6 +247,7 @@
 				C6535477194DDB3C001043B7 /* circle45@2x.png in Resources */,
 				C62F5F0F194CE230000D7F9E /* Images.xcassets in Resources */,
 				C67EA17B194D350400F1123B /* GameOfLife.psd in Resources */,
+				C653547B194DE370001043B7 /* circle.ai in Resources */,
 				C6535479194DE146001043B7 /* GameScene.sks in Resources */,
 				C62F5F0D194CE230000D7F9E /* Main.storyboard in Resources */,
 			);

@@ -18,6 +18,8 @@
 
 @implementation WAFViewPlacer
 
+
+/* Places all the menu objects on the screen (Labels, Sliders, buttons... ) */
 + (void) placeMainSceneViews:(UIView *) view {
     
     
