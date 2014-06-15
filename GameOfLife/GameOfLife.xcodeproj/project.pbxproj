@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C609FA9D194D2DB100878F30 /* LabelPlacer.m in Sources */ = {isa = PBXBuildFile; fileRef = C609FA9C194D2DB100878F30 /* LabelPlacer.m */; };
 		C62F5F04194CE230000D7F9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F5F03194CE230000D7F9E /* AppDelegate.swift */; };
 		C62F5F06194CE230000D7F9E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C62F5F05194CE230000D7F9E /* GameScene.sks */; };
 		C62F5F08194CE230000D7F9E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F5F07194CE230000D7F9E /* GameScene.swift */; };
@@ -17,6 +16,7 @@
 		C62F5F1B194CE230000D7F9E /* GameOfLifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F5F1A194CE230000D7F9E /* GameOfLifeTests.swift */; };
 		C62F5F25194CE458000D7F9E /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F5F24194CE458000D7F9E /* Tile.swift */; };
 		C67EA17B194D350400F1123B /* GameOfLife.psd in Resources */ = {isa = PBXBuildFile; fileRef = C67EA17A194D350400F1123B /* GameOfLife.psd */; };
+		C67EA17E194D362A00F1123B /* WAFViewPlacer.m in Sources */ = {isa = PBXBuildFile; fileRef = C67EA17D194D362A00F1123B /* WAFViewPlacer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,8 +31,6 @@
 
 /* Begin PBXFileReference section */
 		C609FA9A194D2DB100878F30 /* GameOfLife-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GameOfLife-Bridging-Header.h"; sourceTree = "<group>"; };
-		C609FA9B194D2DB100878F30 /* LabelPlacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelPlacer.h; sourceTree = "<group>"; };
-		C609FA9C194D2DB100878F30 /* LabelPlacer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelPlacer.m; sourceTree = "<group>"; };
 		C62F5EFE194CE230000D7F9E /* GameOfLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameOfLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62F5F02194CE230000D7F9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C62F5F03194CE230000D7F9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +45,8 @@
 		C62F5F24194CE458000D7F9E /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		C62F5F26194CEB9F000D7F9E /* experimentFile.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = experimentFile.playground; sourceTree = "<group>"; };
 		C67EA17A194D350400F1123B /* GameOfLife.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = GameOfLife.psd; sourceTree = "<group>"; };
+		C67EA17C194D362A00F1123B /* WAFViewPlacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAFViewPlacer.h; sourceTree = "<group>"; };
+		C67EA17D194D362A00F1123B /* WAFViewPlacer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAFViewPlacer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,11 +91,11 @@
 				C67EA178194D34C900F1123B /* ImageFiles */,
 				C62F5F03194CE230000D7F9E /* AppDelegate.swift */,
 				C62F5F07194CE230000D7F9E /* GameScene.swift */,
-				C609FA9B194D2DB100878F30 /* LabelPlacer.h */,
 				C62F5F05194CE230000D7F9E /* GameScene.sks */,
-				C609FA9C194D2DB100878F30 /* LabelPlacer.m */,
 				C62F5F24194CE458000D7F9E /* Tile.swift */,
 				C62F5F09194CE230000D7F9E /* GameViewController.swift */,
+				C67EA17C194D362A00F1123B /* WAFViewPlacer.h */,
+				C67EA17D194D362A00F1123B /* WAFViewPlacer.m */,
 				C62F5F0B194CE230000D7F9E /* Main.storyboard */,
 				C62F5F26194CEB9F000D7F9E /* experimentFile.playground */,
 				C62F5F0E194CE230000D7F9E /* Images.xcassets */,
@@ -240,10 +240,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C62F5F08194CE230000D7F9E /* GameScene.swift in Sources */,
-				C609FA9D194D2DB100878F30 /* LabelPlacer.m in Sources */,
 				C62F5F0A194CE230000D7F9E /* GameViewController.swift in Sources */,
 				C62F5F04194CE230000D7F9E /* AppDelegate.swift in Sources */,
 				C62F5F25194CE458000D7F9E /* Tile.swift in Sources */,
+				C67EA17E194D362A00F1123B /* WAFViewPlacer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

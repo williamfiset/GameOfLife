@@ -4,9 +4,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
     </dependencies>
     <scenes>
-        <!--Game View Controller-->
+        <!--Game View Controller - Title-->
         <scene sceneID="CtS-rA-C9T">
             <objects>
+                <pinchGestureRecognizer id="XPP-Ua-Nz1"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
                 <viewController id="LVB-YS-i5n" customClass="GameViewController" customModule="GameOfLife" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PCf-gQ-wO7"/>
@@ -16,10 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="XPP-Ua-Nz1" appends="YES" id="vMe-lY-PID"/>
+                        </connections>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="1wC-c0-6Si"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="AeD-Do-xFk"/>
+                        <barButtonItem title="Item" id="Rob-Fa-PhN"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Title" id="ZNf-PG-dd6"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
