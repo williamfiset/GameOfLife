@@ -46,14 +46,16 @@ struct Grid {
                 
                 
                 var tile = SKSpriteNode(color: UIColor.blackColor(), size: tileDimension)
-                tile.position = CGPoint(x: x * tileSize, y: y * tileSize)
+                tile.position = CGPoint(x: x * tileSize + tileSize/2, y: y * tileSize)
                 
 
                 // Place each tile in thier respective groups
                 if isAlive(tile) { Grid.activeCells.append(tile) }
                 else { Grid.deadCells.append(tile) }
-
+           
                 Grid.cells.append(tile)
+                
+
                 
             }
         }
@@ -69,7 +71,8 @@ struct Grid {
     }
     
     static func placeGridOnScreen (scene : SKScene) {
-        println(cells.count)
+        
+        println("Cells: \(cells.count)")
         for tile in cells {
             scene.addChild(tile)
         }
