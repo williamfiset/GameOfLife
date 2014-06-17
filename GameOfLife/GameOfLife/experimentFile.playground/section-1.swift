@@ -1,9 +1,12 @@
 // Playground - noun: a place where people can play
 
+import CoreGraphics
+import Foundation
 
-println("Play!")
+var _set = NSSet(array: [
+    "s", "e", "t"
+    ])
 
-var start = 345.0
-for _ in 0..30{
-    start = start * 1.2
+for item : AnyObject in _set  {
+    println(item)
 }

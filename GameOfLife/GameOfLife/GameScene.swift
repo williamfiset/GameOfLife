@@ -7,9 +7,15 @@
 //
 
 import SpriteKit
+import CoreGraphics
 
 var sceneHeight : Int = 0
 var sceneWidth : Int = 0
+var verticalTileLimit : Float = 0.0
+
+let screenHeight = 1136
+let screenWidth = 640
+
 
 class GameScene : SKScene {
     
@@ -18,27 +24,36 @@ class GameScene : SKScene {
         
         sceneHeight = Int(self.size.height)
         sceneWidth = Int(self.size.width)
+        verticalTileLimit = Float(sceneHeight) * 0.20
+        println( "VerticalTileLimit: \(verticalTileLimit)" )
         
         self.backgroundColor = UIColor.grayColor()
         
         WAFViewPlacer.placeMainSceneViews(view)
         
-        let grid = Grid(horizontalTiles:5, verticalTiles: 6, tileSize: 50)
+        let grid = Grid(horizontalTiles: 10 , verticalTiles: 15 , tileSize: 20)
         Grid.placeGridOnScreen(self)
-       
+        
+        let redBar = SKSpriteNode(color: UIColor.redColor(), size: CGSize(width: screenWidth, height: 2))
+        redBar.position = CGPoint(x: 0.0, y: verticalTileLimit )
+        self.addChild(redBar)
         
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        /* Called when a touch begins */
-        
-        for touch : AnyObject in touches {
-            
-        }
-        
-    }
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+

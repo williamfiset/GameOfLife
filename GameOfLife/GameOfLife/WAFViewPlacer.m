@@ -11,7 +11,6 @@
 @import UIKit;
 @import Foundation;
 
-
 #import "WAFViewPlacer.h"
 #define SLIDER_WIDTH 165
 
@@ -91,6 +90,9 @@
 }
 
 + (void) pressedReset {
+    
+    
+    
     printf("Pressed Reset!\n");
 }
 

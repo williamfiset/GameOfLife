@@ -10,10 +10,6 @@ import Foundation
 import SpriteKit
 
 
-let screenHeight = 1136
-let screenWidth = 640
-
-
 
 struct Grid {
     
@@ -32,31 +28,37 @@ struct Grid {
     
     init ( horizontalTiles : Int , verticalTiles : Int , tileSize : Int ) {
         
-        println("SceneWidth: \(sceneWidth) & \((horizontalTiles * tileSize))")
-        println("SceneHeight: \(sceneHeight) & \((verticalTiles * tileSize))")
-        
+        // Checks if 
         assert( (horizontalTiles * tileSize) < sceneWidth, "Grid Does not fit on screen, -- ")
         assert( (verticalTiles * tileSize) < sceneHeight, "Grid Does not fit on screen | ")
         
         Grid.emptyGrid()
 
         let tileDimension = CGSize(width: tileSize, height: tileSize)
+        let startX = abs(sceneWidth -  (tileSize * horizontalTiles) ) / 2
+        let startY = abs( (sceneHeight - Int(verticalTileLimit)) - (tileSize * verticalTiles) ) / 2
+        
         
         var height = sceneHeight
         
-        let startX = abs(sceneWidth - (tileSize * horizontalTiles)) / 8
+        println("startX: \(startX) startY: \(startY)")
         
-        
-        println("startX: \(startX)")
         
         for y in 0...verticalTiles {
             for x in 0...horizontalTiles {
                 
-                var tile = SKSpriteNode(color: UIColor.blackColor(), size: tileDimension)
+                // Too many vertical tiles
+                if Float((height - (y * tileSize) - tileSize - startY )) < verticalTileLimit {
+                    return
+                }
+                
+                let nodeColor = arc4random() % 2 == 0 ? UIColor.blackColor() : UIColor.whiteColor()
+                
+                var tile = SKSpriteNode(color: nodeColor, size: tileDimension)
                 
                 // anchorPoint means that the image is relative to the top left
                 tile.anchorPoint = CGPoint(x: 0, y: 1)
-                tile.position = CGPoint(x: startX + x * tileSize , y: height - (y * tileSize))
+                tile.position = CGPoint(x: startX + x * tileSize - tileSize/2 , y:  height - (y * tileSize) - startY)
                 
                 
                 // Place each tile in thier respective groups
