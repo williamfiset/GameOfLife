@@ -8,11 +8,16 @@
 
 import SpriteKit
 
+var sceneHeight : Int = 0
+var sceneWidth : Int = 0
 
 class GameScene : SKScene {
     
     /* Setup your scene here */
     override func didMoveToView(view: SKView) {
+        
+        sceneHeight = Int(self.size.height)
+        sceneWidth = Int(self.size.width)
         
         self.backgroundColor = UIColor.grayColor()
         
@@ -20,7 +25,7 @@ class GameScene : SKScene {
         
         let grid = Grid(horizontalTiles:5, verticalTiles: 6, tileSize: 50)
         Grid.placeGridOnScreen(self)
-        
+       
         
     }
     

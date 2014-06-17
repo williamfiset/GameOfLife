@@ -13,7 +13,6 @@
 		C62F5F0D194CE230000D7F9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C62F5F0B194CE230000D7F9E /* Main.storyboard */; };
 		C62F5F0F194CE230000D7F9E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C62F5F0E194CE230000D7F9E /* Images.xcassets */; };
 		C62F5F1B194CE230000D7F9E /* GameOfLifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F5F1A194CE230000D7F9E /* GameOfLifeTests.swift */; };
-		C62F5F25194CE458000D7F9E /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F5F24194CE458000D7F9E /* Tile.swift */; };
 		C6535475194DDA0E001043B7 /* circle45.png in Resources */ = {isa = PBXBuildFile; fileRef = C6535473194DDA0E001043B7 /* circle45.png */; };
 		C6535477194DDB3C001043B7 /* circle45@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6535476194DDB3C001043B7 /* circle45@2x.png */; };
 		C6535479194DE146001043B7 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C6535478194DE146001043B7 /* GameScene.sks */; };
@@ -45,7 +44,6 @@
 		C62F5F14194CE230000D7F9E /* GameOfLifeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameOfLifeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62F5F19194CE230000D7F9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C62F5F1A194CE230000D7F9E /* GameOfLifeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfLifeTests.swift; sourceTree = "<group>"; };
-		C62F5F24194CE458000D7F9E /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		C62F5F26194CEB9F000D7F9E /* experimentFile.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = experimentFile.playground; sourceTree = "<group>"; };
 		C6535473194DDA0E001043B7 /* circle45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle45.png; sourceTree = "<group>"; };
 		C6535476194DDB3C001043B7 /* circle45@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle45@2x.png"; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 				C62F5F03194CE230000D7F9E /* AppDelegate.swift */,
 				C62F5F07194CE230000D7F9E /* GameScene.swift */,
 				C62F5F09194CE230000D7F9E /* GameViewController.swift */,
-				C62F5F24194CE458000D7F9E /* Tile.swift */,
 				C66FCF561950847100B66BDF /* Grid.swift */,
 				C6535478194DE146001043B7 /* GameScene.sks */,
 				C67EA17C194D362A00F1123B /* WAFViewPlacer.h */,
@@ -273,7 +270,6 @@
 				C62F5F08194CE230000D7F9E /* GameScene.swift in Sources */,
 				C62F5F0A194CE230000D7F9E /* GameViewController.swift in Sources */,
 				C62F5F04194CE230000D7F9E /* AppDelegate.swift in Sources */,
-				C62F5F25194CE458000D7F9E /* Tile.swift in Sources */,
 				C67EA17E194D362A00F1123B /* WAFViewPlacer.m in Sources */,
 				C66FCF571950847100B66BDF /* Grid.swift in Sources */,
 			);
