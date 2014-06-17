@@ -7,16 +7,28 @@
 //
 
 import SpriteKit
-import UIKit
+
 
 class GameScene : SKScene {
     
     /* Setup your scene here */
     override func didMoveToView(view: SKView) {
         
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.grayColor()
         
         WAFViewPlacer.placeMainSceneViews(view)
+        
+        let grid = Grid(horizontalTiles: 5, verticalTiles: 5, tileSize: 50)
+        Grid.placeGridOnScreen(self)
+        
+        println("Gets here")
+        
+        let node = SKSpriteNode(color: UIColor.blueColor(), size: CGSize(width: 50, height: 60))
+        node.position = CGPoint(x: 200, y: 200)
+        
+        
+        
+        self.addChild(node)
         
     }
     

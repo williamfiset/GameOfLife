@@ -31,7 +31,7 @@
     resetButton.titleLabel.font = [UIFont systemFontOfSize: 20.5];
     [resetButton setTitleColor: [UIColor colorWithRed: 0 green: 91/255.0 blue: 255.0 alpha: 1] forState: UIControlStateNormal];
     resetButton.frame = CGRectMake(25.0, view.frame.size.height - 80, 80.0, 30.0);
-    
+
     
   /* Stop/Resume Button */
     
@@ -41,9 +41,6 @@
     srButton.titleLabel.font = [UIFont systemFontOfSize: 20.5];
     [srButton setTitleColor: [UIColor colorWithRed: 0 green: 91/255.0 blue: 255.0 alpha: 1] forState: UIControlStateNormal];
     srButton.frame = CGRectMake(25.0, view.frame.size.height - 40, 80.0, 30.0);
-    
-    NSLog(@"%@", srButton.titleLabel.font);
-    
     
   /* Slider */
     
