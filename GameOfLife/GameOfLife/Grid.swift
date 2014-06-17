@@ -45,6 +45,7 @@ struct Grid {
             for y in 0..verticalTiles {
                 
                 
+                
                 var tile = SKSpriteNode(color: UIColor.blackColor(), size: tileDimension)
                 
                 // anchorPoint means that the image is relative to the top left 
