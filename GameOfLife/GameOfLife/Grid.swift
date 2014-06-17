@@ -46,6 +46,9 @@ struct Grid {
                 
                 
                 var tile = SKSpriteNode(color: UIColor.blackColor(), size: tileDimension)
+                
+                // anchorPoint means that the image is relative to the top left 
+                tile.anchorPoint = CGPoint(x: 0, y: 1)
                 tile.position = CGPoint(x: x * tileSize + tileSize/2, y: y * tileSize)
                 
 

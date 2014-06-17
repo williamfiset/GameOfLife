@@ -18,7 +18,7 @@ class GameScene : SKScene {
         
         WAFViewPlacer.placeMainSceneViews(view)
         
-        let grid = Grid(horizontalTiles:6, verticalTiles: 8, tileSize: 50)
+        let grid = Grid(horizontalTiles:5, verticalTiles: 6, tileSize: 50)
         Grid.placeGridOnScreen(self)
         
         
