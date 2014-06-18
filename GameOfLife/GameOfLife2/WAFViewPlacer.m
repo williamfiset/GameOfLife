@@ -44,20 +44,21 @@
     /* Slider */
     
     UIImage *sliderThumbImage = [UIImage imageNamed: @"circle45.png"];
-    NSLog(@"%@", sliderThumbImage);
     
-    UISlider *speedSlider = [[UISlider alloc] initWithFrame:
+    speedSlider = [[UISlider alloc] initWithFrame:
                              CGRectMake( view.frame.size.width - SLIDER_WIDTH - 20, view.frame.size.height - 45, SLIDER_WIDTH, 50)];
     [speedSlider setThumbImage: sliderThumbImage forState: UIControlStateNormal];
     
     
     
-    UISlider *sizeSlider = [[UISlider alloc] initWithFrame:
+    sizeSlider = [[UISlider alloc] initWithFrame:
                             CGRectMake( view.frame.size.width - SLIDER_WIDTH - 20, view.frame.size.height - 90, SLIDER_WIDTH, 50)];
     [sizeSlider setThumbImage: sliderThumbImage forState: UIControlStateNormal];
     
     [sizeSlider setMaximumValue: 50];
     [sizeSlider setMinimumValue: 5];
+    [sizeSlider setValue: 10];
+    
     
     /* Labels */
     

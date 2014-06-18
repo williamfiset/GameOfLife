@@ -7,8 +7,12 @@
 //
 
 @class UIView;
+@class UISlider;
 
 #import <Foundation/Foundation.h>
+
+UISlider *sizeSlider = nil;
+UISlider *speedSlider = nil;
 
 @interface WAFViewPlacer : NSObject
 

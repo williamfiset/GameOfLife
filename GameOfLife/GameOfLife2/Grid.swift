@@ -13,8 +13,6 @@ import SpriteKit
 
 struct Grid {
     
-    static var tilesOnGrid = 0
-    
     static var activeCells = SKSpriteNode[]()
     static var deadCells = SKSpriteNode[]()
     static var cells = SKSpriteNode[]()
@@ -26,7 +24,7 @@ struct Grid {
     }
     
     
-    init ( tileSize : Int ) {
+    init ( tileSize : Int , scene : SKScene) {
         
         let horizontalTiles = sceneWidth / tileSize
         let verticalTiles = (sceneHeight - Int(verticalTileLimit)) / tileSize
@@ -71,15 +69,25 @@ struct Grid {
             }
         }
         
-        
-        
     }
     
     static func emptyGrid() {
         
-        Grid.tilesOnGrid = 0
+        for tile in Grid.activeCells {
+            tile.removeFromParent()
+        }
+
+        for tile in Grid.deadCells {
+            tile.removeFromParent()
+        }
+        
+        for tile in Grid.cells {
+            tile.removeFromParent()
+        }
+        
         Grid.activeCells = []
         Grid.deadCells = []
+        Grid.cells = []
         
     }
     
