@@ -13,13 +13,20 @@
 #import "WAFViewPlacer.h"
 
 #define SLIDER_WIDTH 165
+#define VERTICAL_SPACING 7
 
-
-
-static UISlider *sizeSlider;
-static UISlider *speedSlider;
+// static
 static UISegmentedControl *sizeSegment;
 static UISegmentedControl *speedSegment;
+static UISegmentedControl *modeSegment;
+static UIButton *randomButton;
+static UIButton *createButton;
+
+
+// Global
+const NSDictionary *segmentSpeeds;
+NSArray *segmentSizes;
+
 
 // Private Variables
 @interface WAFViewPlacer ()
@@ -32,130 +39,113 @@ static UISegmentedControl *speedSegment;
 
 /* Places all the menu objects on the screen (Labels, Sliders, buttons... ) */
 + (void) placeMainSceneViews:(UIView *) view {
+
     
+    segmentSpeeds = [NSDictionary dictionaryWithObjects: @[ @1.5, @0.75, @0] forKeys: @[ @"Slow", @"Med", @"Fast"] ];
+    segmentSizes =  @[ @"12", @"16", @"20", @"24", @"32", @"40"] ;
     
+  /* Buttons */
     
-  /* Reset Button */
+    randomButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+    [randomButton setFrame: CGRectMake( 10, view.frame.size.height - 100, 150, 60)];
+    [randomButton setTitle: @"Randomize" forState: UIControlStateNormal];
+    [randomButton.titleLabel setFont:[UIFont fontWithName: @"Helvetica-Bold" size:20.5]];
     
-    UIButton *resetButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-    [resetButton addTarget: self action: @selector(pressedReset) forControlEvents: UIControlEventTouchUpInside];
-    [resetButton setTitle: @"Reset" forState: UIControlStateNormal];
-    resetButton.titleLabel.font = [UIFont systemFontOfSize: 20.5];
-    [resetButton setTitleColor: [UIColor colorWithRed: 0 green: 91/255.0 blue: 255.0 alpha: 1] forState: UIControlStateNormal];
-    resetButton.frame = CGRectMake(25.0, view.frame.size.height - 80, 80.0, 30.0);
+//    createButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+//    [createButton setFrame: CGRectMake( 35, view.frame.size.height - 80, 100, 40)];
+//    [createButton setTitle: @"Create" forState: UIControlStateNormal];
+//    [createButton.titleLabel setFont:[UIFont fontWithName: @"Helvetica-Bold" size:14.5]];
     
-    
-  /* Stop/Resume Button */
-    
-    UIButton *srButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-    [srButton addTarget: self action: @selector (pressedStopOrResume) forControlEvents: UIControlEventTouchUpInside];
-    [srButton setTitle: @"Stop" forState: UIControlStateNormal];
-    srButton.titleLabel.font = [UIFont systemFontOfSize: 20.5];
-    [srButton setTitleColor: [UIColor colorWithRed: 0 green: 91/255.0 blue: 255.0 alpha: 1] forState: UIControlStateNormal];
-    srButton.frame = CGRectMake(25.0, view.frame.size.height - 40, 80.0, 30.0);
     
   /* SegmentControl */
     
-   
     
-    sizeSegment = [[UISegmentedControl alloc] initWithItems: @[ @"12", @"16", @"20", @"24", @"32", @"40"] ];
+    modeSegment = [[UISegmentedControl alloc] initWithItems: @[ @"Stop" , @"Start" ]];
+    [modeSegment setFrame: CGRectMake( 20, view.frame.size.height - 35 , 120, 25)];
+    [modeSegment setTintColor: [UIColor whiteColor]];
+    [modeSegment setSelectedSegmentIndex: 0];
+    
+    
+    sizeSegment = [[UISegmentedControl alloc] initWithItems: segmentSizes];
     [sizeSegment setFrame: CGRectMake(view.frame.size.width * 0.5 , view.frame.size.height - 75 , 150, 25)];
-    [sizeSegment setSelectedSegmentIndex: 1];
-    [sizeSegment addTarget: self action: @selector(respondToSpeedSegment:) forControlEvents: UIControlEventValueChanged];
     [sizeSegment setTintColor: [UIColor whiteColor]];
+    [sizeSegment setSelectedSegmentIndex: 2]; // 20
     
     
     
-    speedSegment = [[UISegmentedControl alloc] initWithItems: @[ @"Stop", @"Slow", @"Med", @"Fast"] ];
+    speedSegment = [[UISegmentedControl alloc] initWithItems: [segmentSpeeds allKeys] ];
     [speedSegment setFrame: CGRectMake(view.frame.size.width * 0.5 , view.frame.size.height - 35 , 150, 25)];
-    [speedSegment addTarget: self action: @selector(respondToSpeedSegment:) forControlEvents: UIControlEventValueChanged];
-    [speedSegment setSelectedSegmentIndex: 0];
     [speedSegment setTintColor: [UIColor whiteColor]];
+    [speedSegment setSelectedSegmentIndex: 1]; // Med
+
     
-    
-    
-    
-    UIImage *sliderThumbImage = [UIImage imageNamed: @"circle45.png"];
-    
-    
-    speedSlider = [[UISlider alloc] initWithFrame:
-                   CGRectMake( view.frame.size.width - SLIDER_WIDTH - 20, view.frame.size.height - 45, SLIDER_WIDTH, 50)];
-    [speedSlider setThumbImage: sliderThumbImage forState: UIControlStateNormal];
-    
-    // SpeedSlider interval is between 0.0 - 2s
-    [speedSlider setMaximumValue: 1.0];
-    [speedSlider setMinimumValue: 0.00];
-    [speedSlider setValue: 0.00];
-    
-    
-    
-    sizeSlider = [[UISlider alloc] initWithFrame:
-                            CGRectMake( view.frame.size.width - SLIDER_WIDTH - 20, view.frame.size.height - 90, SLIDER_WIDTH, 50)];
-    [sizeSlider setThumbImage: sliderThumbImage forState: UIControlStateNormal];
-    
-    // Block widths & lengths vary between 8 - 48
-    [sizeSlider setMaximumValue: 48];
-    [sizeSlider setMinimumValue: 12];
-    [sizeSlider setValue: 12];
-    
+   
     
   /* Labels */
     
     
-    // speed Label
+    // Reproduction Speed
     UILabel *speedLabel = [[UILabel alloc] initWithFrame:
-                           CGRectMake(speedSlider.frame.origin.x + 60, speedSlider.frame.origin.y - 23, 100, 50)];
+                           CGRectMake(speedSegment.frame.origin.x + 30, speedSegment.frame.origin.y - sizeSegment.frame.size.height - VERTICAL_SPACING, 100, 50)];
     
     [speedLabel setValue: @"Reproduction Speed" forKey: @"text"];
     [speedLabel setFont: [UIFont fontWithName: @"Helvetica" size: 10]];
     
-    // Size Label
+    
+    // Critter Size
     UILabel *sizeLabel = [[UILabel alloc] initWithFrame:
-                          CGRectMake(sizeSlider.frame.origin.x + 80, sizeSlider.frame.origin.y - 18, 100, 50)];
+                          CGRectMake(sizeSegment.frame.origin.x + 57, sizeSegment.frame.origin.y - sizeSegment.frame.size.height - VERTICAL_SPACING, 100, 50)];
     
     [sizeLabel setValue: @"Critter Size" forKey: @"text"];
     [sizeLabel setFont: [UIFont fontWithName: @"Helvetica" size: 10]];
     
     
+    
+    // Play Mode
+    UILabel *playModeLabel = [[UILabel alloc] initWithFrame:
+                          CGRectMake(modeSegment.frame.origin.x + 40, modeSegment.frame.origin.y - sizeSegment.frame.size.height - VERTICAL_SPACING, 100, 50)];
+    
+    [playModeLabel setValue: @"Play Mode" forKey: @"text"];
+    [playModeLabel setFont: [UIFont fontWithName: @"Helvetica" size: 10]];
+    
+    
+    
+    
+    
   /* Place Things on Screen */
     
+    
+    // Buttons
+    [view addSubview: randomButton];
+    [view addSubview: createButton];
+    
+    // Control Segments
     [view addSubview: speedSegment];
     [view addSubview: sizeSegment];
+    [view addSubview: modeSegment];
     
+    // Labels
     [view addSubview: sizeLabel];
     [view addSubview: speedLabel];
+    [view addSubview: playModeLabel];
     
-    [view addSubview: resetButton];
-    [view addSubview: srButton];
-    
-//    [view addSubview: speedSlider];
-//    [view addSubview: sizeSlider];
  
 }
 
-+ (void) respondToSpeedSegment: (id) sender {
-    
-    NSLog(@"Clicked on Segment");
+
++ (double) segmentLoopSpeed {
+
+    NSString *key = [speedSegment titleForSegmentAtIndex: speedSegment.selectedSegmentIndex];
+    return [segmentSpeeds[key] doubleValue];
+
 }
 
-+ (void) pressedReset {
-
-    printf("Pressed Reset!\n");
++ (int) segmentSizeValue {
+    return [segmentSizes[sizeSegment.selectedSegmentIndex] intValue] ;
 }
 
-+ (void) pressedStopOrResume {
-    printf("%s \n", "Pressed Stop or Resume!");
-    
-}
-
-
-+ (int) sizeSliderValue {
-    return (int) sizeSlider.value;
-}
-
-
-+ (double) speedSliderValue {
-    return (double) speedSlider.value;
++ (int) segmentMode {
+    return 0;
 }
 
 

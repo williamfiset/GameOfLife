@@ -10,15 +10,16 @@ import Foundation
 import SpriteKit
 
 
-
 struct Grid {
+    
+//    var isAlive = false
     
     static var activeCells = SKSpriteNode[]()
     static var deadCells = SKSpriteNode[]()
     static var cells = SKSpriteNode[]()
     
     // Defines whether a tile is Black or White
-    let isAlive : (SKSpriteNode) -> Bool = {
+    static let isAlive : (SKSpriteNode) -> Bool = {
         (node : SKSpriteNode) -> Bool in
         node.color == UIColor.blackColor()
     }
@@ -62,7 +63,7 @@ struct Grid {
                 
                 
                 // Place each tile in thier respective groups
-                if isAlive(tile) { Grid.activeCells.append(tile) }
+                if Grid.isAlive(tile) { Grid.activeCells.append(tile) }
                 else { Grid.deadCells.append(tile) }
                 
                 Grid.cells.append(tile)
@@ -70,6 +71,17 @@ struct Grid {
         }
         
     }
+    
+    static func getNode( point : CGPoint) -> SKSpriteNode? {
+        
+        for aNode in cells {
+            if aNode.frame.contains(point) {
+                return aNode
+            }
+        }
+        return nil
+    }
+    
     
     static func emptyGrid() {
         
@@ -101,7 +113,11 @@ struct Grid {
     
 }
 
-
+class Tile : SKSpriteNode {
+    
+    
+    
+}
 
 
 

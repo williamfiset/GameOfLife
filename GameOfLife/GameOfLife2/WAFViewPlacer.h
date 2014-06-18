@@ -7,20 +7,24 @@
 //
 
 @class UIView;
-@class UISlider;
 
 #import <Foundation/Foundation.h>
 
-
 @interface WAFViewPlacer : NSObject
 
-+ (void) pressedReset;
-+ (void) pressedStopOrResume;
-+ (void) respondToSpeedSegment: (id) sender;
 
 + (void) placeMainSceneViews: (UIView*) view;
 
-+ (double) speedSliderValue;
-+ (int) sizeSliderValue;
+// Allows you to get the values on the segments
++ (double) segmentLoopSpeed;
++ (int) segmentSizeValue;
++ (int) segmentMode;
 
 @end
+
+/*
+
+ Random , create
+ Start, Stop
+
+*/

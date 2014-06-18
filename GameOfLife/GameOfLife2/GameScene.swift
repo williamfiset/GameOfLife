@@ -38,10 +38,10 @@ class GameScene : SKScene {
         self.backgroundColor = UIColor(red: 122/255.0, green: 122/255.0, blue: 122/255.0, alpha: 1)
         WAFViewPlacer.placeMainSceneViews(view)
 
-        let grid = Grid( tileSize : Int(WAFViewPlacer.sizeSliderValue()) , scene : self)
+        let grid = Grid( tileSize : Int(WAFViewPlacer.segmentSizeValue()) , scene : self)
         Grid.placeGridOnScreen(self)
         
-        oldSizeSliderValue = Int(WAFViewPlacer.sizeSliderValue())
+        oldSizeSliderValue = Int(WAFViewPlacer.segmentSizeValue())
 
         // temporary red bar
 //        let redBar = SKSpriteNode(color: UIColor.redColor(), size: CGSize(width: screenWidth, height: 2))
@@ -55,20 +55,20 @@ class GameScene : SKScene {
         
         
         // Changes Loop Speed (determined by slider)
-        let pauseTime = NSTimeInterval(NSNumber(double: WAFViewPlacer.speedSliderValue()))
+        let pauseTime = NSTimeInterval(NSNumber(double: WAFViewPlacer.segmentLoopSpeed()))
         NSThread.sleepForTimeInterval(pauseTime)
 
-        let newSizeSliderValue = (Int(WAFViewPlacer.sizeSliderValue()) / 4 ) * 4
+        let newSizeSliderValue = (Int(WAFViewPlacer.segmentSizeValue()) / 4 ) * 4
         
         // Change the tileSize every difference of four pixels
         if (newSizeSliderValue % 4 == 0 && oldSizeSliderValue != newSizeSliderValue) {
             
             Grid.emptyGrid()
-            Grid(tileSize: Int(WAFViewPlacer.sizeSliderValue()) , scene : self)
+            Grid(tileSize: Int(WAFViewPlacer.segmentSizeValue()) , scene : self)
             Grid.placeGridOnScreen(self)
             oldSizeSliderValue = newSizeSliderValue
+            
         }
-
 
 
 

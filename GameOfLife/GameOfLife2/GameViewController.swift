@@ -28,6 +28,31 @@ class GameViewController: UIViewController {
         
        
     }
+
+    override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
+        
+        for anObject : AnyObject in touches! {
+            
+            if let touch = anObject as? UITouch {
+                
+                var touchLocation = touch.locationInView(self.view)
+                touchLocation.y = self.view.frame.size.height - touchLocation.y
+                
+                if let node = Grid.getNode(touchLocation) {
+                    print("\nColor: \(node.color) \n Black: \(UIColor.blackColor()) \n White: \(UIColor.whiteColor())\n")
+                    if Grid.isAlive(node) {
+                        node.color = UIColor.whiteColor()
+                        println("White?")
+                    }else{
+                        node.color = UIColor.blackColor()
+                        println("Black")
+                    }
+                    
+                }
+            }
+        }
+    }
+    
     
     // Prevent the screen from turning when iPhone is tilted
     override func shouldAutorotate() -> Bool {
