@@ -7,7 +7,7 @@
         <!--Game View Controller-->
         <scene sceneID="CtS-rA-C9T">
             <objects>
-                <viewController id="LVB-YS-i5n" customClass="GameViewController" customModule="GameOfLife2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LVB-YS-i5n" customClass="GameViewController" customModule="GameOfLife4" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PCf-gQ-wO7"/>
                         <viewControllerLayoutGuide type="bottom" id="b3d-qh-BLL"/>

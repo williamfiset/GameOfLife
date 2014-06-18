@@ -8,6 +8,7 @@
 
 import SpriteKit
 import CoreGraphics
+import Foundation
 
 var sceneHeight : Int = 0
 var sceneWidth : Int = 0
@@ -31,7 +32,7 @@ class GameScene : SKScene {
         
         WAFViewPlacer.placeMainSceneViews(view)
         
-        let grid = Grid(horizontalTiles: 10 , verticalTiles: 15 , tileSize: 20)
+        let grid = Grid( tileSize : 10)
         Grid.placeGridOnScreen(self)
         
         let redBar = SKSpriteNode(color: UIColor.redColor(), size: CGSize(width: screenWidth, height: 2))
@@ -42,6 +43,10 @@ class GameScene : SKScene {
     
     
     override func update(currentTime: CFTimeInterval) {
+        
+        // Loop Speed (determined by slider)
+//        NSThread.sleepForTimeInterval(1.0)
+        
         /* Called before each frame is rendered */
     }
 }

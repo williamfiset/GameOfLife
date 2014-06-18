@@ -25,7 +25,7 @@
     /* Reset Button */
     
     UIButton *resetButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-    [resetButton addTarget: self action: @selector(pressedReset) forControlEvents:UIControlEventTouchUpInside];
+    [resetButton addTarget: self action: @selector(pressedReset) forControlEvents: UIControlEventTouchUpInside];
     [resetButton setTitle: @"Reset" forState: UIControlStateNormal];
     resetButton.titleLabel.font = [UIFont systemFontOfSize: 20.5];
     [resetButton setTitleColor: [UIColor colorWithRed: 0 green: 91/255.0 blue: 255.0 alpha: 1] forState: UIControlStateNormal];
@@ -44,7 +44,7 @@
     /* Slider */
     
     UIImage *sliderThumbImage = [UIImage imageNamed: @"circle45.png"];
-    
+    NSLog(@"%@", sliderThumbImage);
     
     UISlider *speedSlider = [[UISlider alloc] initWithFrame:
                              CGRectMake( view.frame.size.width - SLIDER_WIDTH - 20, view.frame.size.height - 45, SLIDER_WIDTH, 50)];
@@ -55,6 +55,9 @@
     UISlider *sizeSlider = [[UISlider alloc] initWithFrame:
                             CGRectMake( view.frame.size.width - SLIDER_WIDTH - 20, view.frame.size.height - 90, SLIDER_WIDTH, 50)];
     [sizeSlider setThumbImage: sliderThumbImage forState: UIControlStateNormal];
+    
+    [sizeSlider setMaximumValue: 50];
+    [sizeSlider setMinimumValue: 5];
     
     /* Labels */
     

@@ -16,6 +16,10 @@
 		C6626E1E1951085000630399 /* GameOfLife2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6626E1D1951085000630399 /* GameOfLife2Tests.swift */; };
 		C6626E2A1951096A00630399 /* WAFViewPlacer.m in Sources */ = {isa = PBXBuildFile; fileRef = C6626E291951096A00630399 /* WAFViewPlacer.m */; };
 		C6626E2C195109A600630399 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6626E2B195109A600630399 /* Grid.swift */; };
+		C6A5C8AD19511DC3007256A0 /* circle.ai in Resources */ = {isa = PBXBuildFile; fileRef = C6A5C8A819511DC3007256A0 /* circle.ai */; };
+		C6A5C8AE19511DC3007256A0 /* circle45.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A5C8A919511DC3007256A0 /* circle45.png */; };
+		C6A5C8AF19511DC3007256A0 /* circle45@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A5C8AA19511DC3007256A0 /* circle45@2x.png */; };
+		C6A5C8B019511DC3007256A0 /* GameOfLife.psd in Resources */ = {isa = PBXBuildFile; fileRef = C6A5C8AC19511DC3007256A0 /* GameOfLife.psd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,11 @@
 		C6626E281951096A00630399 /* WAFViewPlacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAFViewPlacer.h; sourceTree = "<group>"; };
 		C6626E291951096A00630399 /* WAFViewPlacer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAFViewPlacer.m; sourceTree = "<group>"; };
 		C6626E2B195109A600630399 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		C6A5C8A819511DC3007256A0 /* circle.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = circle.ai; sourceTree = "<group>"; };
+		C6A5C8A919511DC3007256A0 /* circle45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle45.png; sourceTree = "<group>"; };
+		C6A5C8AA19511DC3007256A0 /* circle45@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle45@2x.png"; sourceTree = "<group>"; };
+		C6A5C8AB19511DC3007256A0 /* experimentFile.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = experimentFile.playground; sourceTree = "<group>"; };
+		C6A5C8AC19511DC3007256A0 /* GameOfLife.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = GameOfLife.psd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,15 +94,13 @@
 		C6626E031951085000630399 /* GameOfLife2 */ = {
 			isa = PBXGroup;
 			children = (
+				C6A5C8B119511DEC007256A0 /* ImgFiles */,
 				C6626E061951085000630399 /* AppDelegate.swift */,
 				C6626E2B195109A600630399 /* Grid.swift */,
-				C6626E081951085000630399 /* GameScene.sks */,
 				C6626E0A1951085000630399 /* GameScene.swift */,
 				C6626E0C1951085000630399 /* GameViewController.swift */,
 				C6626E281951096A00630399 /* WAFViewPlacer.h */,
 				C6626E291951096A00630399 /* WAFViewPlacer.m */,
-				C6626E0E1951085000630399 /* Main.storyboard */,
-				C6626E111951085000630399 /* Images.xcassets */,
 				C6626E041951085000630399 /* Supporting Files */,
 				C6626E271951096900630399 /* GameOfLife2-Bridging-Header.h */,
 			);
@@ -103,6 +110,10 @@
 		C6626E041951085000630399 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C6626E111951085000630399 /* Images.xcassets */,
+				C6626E081951085000630399 /* GameScene.sks */,
+				C6A5C8AB19511DC3007256A0 /* experimentFile.playground */,
+				C6626E0E1951085000630399 /* Main.storyboard */,
 				C6626E051951085000630399 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -124,6 +135,33 @@
 				C6626E1C1951085000630399 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C6A5C8B119511DEC007256A0 /* ImgFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C6A5C8B319511E15007256A0 /* Ai & Ps Files */,
+				C6A5C8B219511E05007256A0 /* img */,
+			);
+			name = ImgFiles;
+			sourceTree = "<group>";
+		};
+		C6A5C8B219511E05007256A0 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				C6A5C8A919511DC3007256A0 /* circle45.png */,
+				C6A5C8AA19511DC3007256A0 /* circle45@2x.png */,
+			);
+			name = img;
+			sourceTree = "<group>";
+		};
+		C6A5C8B319511E15007256A0 /* Ai & Ps Files */ = {
+			isa = PBXGroup;
+			children = (
+				C6A5C8A819511DC3007256A0 /* circle.ai */,
+				C6A5C8AC19511DC3007256A0 /* GameOfLife.psd */,
+			);
+			name = "Ai & Ps Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,9 +244,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6A5C8AE19511DC3007256A0 /* circle45.png in Resources */,
+				C6A5C8AF19511DC3007256A0 /* circle45@2x.png in Resources */,
 				C6626E121951085000630399 /* Images.xcassets in Resources */,
 				C6626E091951085000630399 /* GameScene.sks in Resources */,
 				C6626E101951085000630399 /* Main.storyboard in Resources */,
+				C6A5C8B019511DC3007256A0 /* GameOfLife.psd in Resources */,
+				C6A5C8AD19511DC3007256A0 /* circle.ai in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

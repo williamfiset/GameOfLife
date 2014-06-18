@@ -26,12 +26,11 @@ struct Grid {
     }
     
     
-    init ( horizontalTiles : Int , verticalTiles : Int , tileSize : Int ) {
+    init ( tileSize : Int ) {
         
-        // Checks if
-        assert( (horizontalTiles * tileSize) < sceneWidth, "Grid Does not fit on screen, -- ")
-        assert( (verticalTiles * tileSize) < sceneHeight, "Grid Does not fit on screen | ")
-        
+        let horizontalTiles = sceneWidth / tileSize
+        let verticalTiles = (sceneHeight - Int(verticalTileLimit)) / tileSize
+ 
         Grid.emptyGrid()
         
         let tileDimension = CGSize(width: tileSize, height: tileSize)
@@ -41,13 +40,16 @@ struct Grid {
         
         var height = sceneHeight
         
-        println("startX: \(startX) startY: \(startY)")
-        
         
         for y in 0...verticalTiles {
             for x in 0...horizontalTiles {
                 
-                // Too many vertical tiles
+                // Stops row
+                if ( (startX + (x * tileSize) + tileSize) > sceneWidth ) {
+                    break
+                }
+                
+                // Stops Columns from forming
                 if Float((height - (y * tileSize) - tileSize - startY )) < verticalTileLimit {
                     return
                 }
@@ -58,7 +60,7 @@ struct Grid {
                 
                 // anchorPoint means that the image is relative to the top left
                 tile.anchorPoint = CGPoint(x: 0, y: 1)
-                tile.position = CGPoint(x: startX + x * tileSize - tileSize/2 , y:  height - (y * tileSize) - startY)
+                tile.position = CGPoint(x: startX + x * tileSize, y:  height - (y * tileSize) - startY) //  - tileSize/2
                 
                 
                 // Place each tile in thier respective groups
@@ -82,8 +84,7 @@ struct Grid {
     }
     
     static func placeGridOnScreen (scene : SKScene) {
-        
-        println("Cells: \(cells.count)")
+
         for tile in cells {
             scene.addChild(tile)
         }
