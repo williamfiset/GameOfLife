@@ -16,6 +16,7 @@
 
 + (void) pressedReset;
 + (void) pressedStopOrResume;
++ (void) respondToSpeedSegment: (id) sender;
 
 + (void) placeMainSceneViews: (UIView*) view;
 

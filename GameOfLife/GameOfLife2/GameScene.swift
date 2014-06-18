@@ -32,10 +32,10 @@ class GameScene : SKScene {
         // Define constants
         sceneHeight = Int(self.size.height)
         sceneWidth = Int(self.size.width)
-        verticalTileLimit = Float(sceneHeight) * 0.20
+        verticalTileLimit = 90.0 // hardcoding this is the best option because of different screen sizes
         
         // Create background and places buttons on the screen
-        self.backgroundColor = UIColor(red: 76/255.0, green: 95/255.0, blue: 116/255.0, alpha: 1)
+        self.backgroundColor = UIColor(red: 122/255.0, green: 122/255.0, blue: 122/255.0, alpha: 1)
         WAFViewPlacer.placeMainSceneViews(view)
 
         let grid = Grid( tileSize : Int(WAFViewPlacer.sizeSliderValue()) , scene : self)
@@ -44,9 +44,9 @@ class GameScene : SKScene {
         oldSizeSliderValue = Int(WAFViewPlacer.sizeSliderValue())
 
         // temporary red bar
-        let redBar = SKSpriteNode(color: UIColor.redColor(), size: CGSize(width: screenWidth, height: 2))
-        redBar.position = CGPoint(x: 0.0, y: verticalTileLimit )
-        self.addChild(redBar)
+//        let redBar = SKSpriteNode(color: UIColor.redColor(), size: CGSize(width: screenWidth, height: 2))
+//        redBar.position = CGPoint(x: Int(0.0), y: Int(verticalTileLimit) )
+//        self.addChild(redBar)
         
     }
     

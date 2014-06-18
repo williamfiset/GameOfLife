@@ -102,7 +102,6 @@
 				C6626E281951096A00630399 /* WAFViewPlacer.h */,
 				C6626E291951096A00630399 /* WAFViewPlacer.m */,
 				C6626E041951085000630399 /* Supporting Files */,
-				C6626E271951096900630399 /* GameOfLife2-Bridging-Header.h */,
 			);
 			path = GameOfLife2;
 			sourceTree = "<group>";
@@ -114,6 +113,7 @@
 				C6626E081951085000630399 /* GameScene.sks */,
 				C6A5C8AB19511DC3007256A0 /* experimentFile.playground */,
 				C6626E0E1951085000630399 /* Main.storyboard */,
+				C6626E271951096900630399 /* GameOfLife2-Bridging-Header.h */,
 				C6626E051951085000630399 /* Info.plist */,
 			);
 			name = "Supporting Files";
