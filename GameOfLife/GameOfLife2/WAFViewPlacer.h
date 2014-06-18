@@ -11,8 +11,6 @@
 
 #import <Foundation/Foundation.h>
 
-UISlider *sizeSlider = nil;
-UISlider *speedSlider = nil;
 
 @interface WAFViewPlacer : NSObject
 
@@ -21,5 +19,7 @@ UISlider *speedSlider = nil;
 
 + (void) placeMainSceneViews: (UIView*) view;
 
++ (double) speedSliderValue;
++ (int) sizeSliderValue;
 
 @end

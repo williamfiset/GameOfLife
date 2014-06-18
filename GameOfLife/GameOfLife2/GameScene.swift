@@ -23,24 +23,26 @@ class GameScene : SKScene {
     
     var oldSizeSliderValue : Int = 0
     
-    
     /* Setup your scene here */
     override func didMoveToView(view: SKView) {
+        
+        // Is this needed?
+        super.didMoveToView(view)
         
         // Define constants
         sceneHeight = Int(self.size.height)
         sceneWidth = Int(self.size.width)
         verticalTileLimit = Float(sceneHeight) * 0.20
-
         
-        self.backgroundColor = UIColor.grayColor()
+        // Create background and places buttons on the screen
+        self.backgroundColor = UIColor(red: 76/255.0, green: 95/255.0, blue: 116/255.0, alpha: 1)
         WAFViewPlacer.placeMainSceneViews(view)
 
-        let grid = Grid( tileSize : Int(sizeSlider.value) , scene : self)
+        let grid = Grid( tileSize : Int(WAFViewPlacer.sizeSliderValue()) , scene : self)
         Grid.placeGridOnScreen(self)
         
-        oldSizeSliderValue = 10
-        
+        oldSizeSliderValue = Int(WAFViewPlacer.sizeSliderValue())
+
         // temporary red bar
         let redBar = SKSpriteNode(color: UIColor.redColor(), size: CGSize(width: screenWidth, height: 2))
         redBar.position = CGPoint(x: 0.0, y: verticalTileLimit )
@@ -51,16 +53,18 @@ class GameScene : SKScene {
     /* Called before each frame is rendered */
     override func update(currentTime: CFTimeInterval) {
         
-        // Loop Speed (determined by slider)
-        NSThread.sleepForTimeInterval(0.1)
         
-        let newSizeSliderValue = Int(sizeSlider.value)
-        
+        // Changes Loop Speed (determined by slider)
+        let pauseTime = NSTimeInterval(NSNumber(double: WAFViewPlacer.speedSliderValue()))
+        NSThread.sleepForTimeInterval(pauseTime)
 
-        if newSizeSliderValue < oldSizeSliderValue - 2 || newSizeSliderValue > oldSizeSliderValue + 2  {
-            println("EXE")
+        let newSizeSliderValue = (Int(WAFViewPlacer.sizeSliderValue()) / 4 ) * 4
+        
+        // Change the tileSize every difference of four pixels
+        if (newSizeSliderValue % 4 == 0 && oldSizeSliderValue != newSizeSliderValue) {
+            
             Grid.emptyGrid()
-            Grid(tileSize: Int(sizeSlider.value), scene : self)
+            Grid(tileSize: Int(WAFViewPlacer.sizeSliderValue()) , scene : self)
             Grid.placeGridOnScreen(self)
             oldSizeSliderValue = newSizeSliderValue
         }

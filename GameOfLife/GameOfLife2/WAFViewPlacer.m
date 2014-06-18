@@ -10,9 +10,20 @@
 
 @import UIKit;
 @import Foundation;
-
 #import "WAFViewPlacer.h"
+
 #define SLIDER_WIDTH 165
+
+
+
+static UISlider *sizeSlider;
+static UISlider *speedSlider;
+
+
+// Private Variables
+@interface WAFViewPlacer ()
+
+@end
 
 
 @implementation WAFViewPlacer
@@ -22,7 +33,8 @@
 + (void) placeMainSceneViews:(UIView *) view {
     
     
-    /* Reset Button */
+    
+  /* Reset Button */
     
     UIButton *resetButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [resetButton addTarget: self action: @selector(pressedReset) forControlEvents: UIControlEventTouchUpInside];
@@ -32,7 +44,7 @@
     resetButton.frame = CGRectMake(25.0, view.frame.size.height - 80, 80.0, 30.0);
     
     
-    /* Stop/Resume Button */
+  /* Stop/Resume Button */
     
     UIButton *srButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [srButton addTarget: self action: @selector (pressedStopOrResume) forControlEvents: UIControlEventTouchUpInside];
@@ -41,13 +53,19 @@
     [srButton setTitleColor: [UIColor colorWithRed: 0 green: 91/255.0 blue: 255.0 alpha: 1] forState: UIControlStateNormal];
     srButton.frame = CGRectMake(25.0, view.frame.size.height - 40, 80.0, 30.0);
     
-    /* Slider */
+  /* Slider */
     
     UIImage *sliderThumbImage = [UIImage imageNamed: @"circle45.png"];
+    
     
     speedSlider = [[UISlider alloc] initWithFrame:
                              CGRectMake( view.frame.size.width - SLIDER_WIDTH - 20, view.frame.size.height - 45, SLIDER_WIDTH, 50)];
     [speedSlider setThumbImage: sliderThumbImage forState: UIControlStateNormal];
+    
+    // SpeedSlider interval is between 0.0 - 2s
+    [speedSlider setMaximumValue: 1.0];
+    [speedSlider setMinimumValue: 0.00];
+    [speedSlider setValue: 0.4];
     
     
     
@@ -55,12 +73,13 @@
                             CGRectMake( view.frame.size.width - SLIDER_WIDTH - 20, view.frame.size.height - 90, SLIDER_WIDTH, 50)];
     [sizeSlider setThumbImage: sliderThumbImage forState: UIControlStateNormal];
     
-    [sizeSlider setMaximumValue: 50];
-    [sizeSlider setMinimumValue: 5];
-    [sizeSlider setValue: 10];
+    // Block widths & lengths vary between 8 - 48
+    [sizeSlider setMaximumValue: 48];
+    [sizeSlider setMinimumValue: 8];
+    [sizeSlider setValue: 8];
     
     
-    /* Labels */
+  /* Labels */
     
     
     // speed Label
@@ -78,7 +97,7 @@
     [sizeLabel setFont: [UIFont fontWithName: @"Helvetica" size: 10]];
     
     
-    /* Place Things on Screen */
+  /* Place Things on Screen */
     
     [view addSubview: sizeLabel];
     [view addSubview: speedLabel];
@@ -88,15 +107,11 @@
     
     [view addSubview: speedSlider];
     [view addSubview: sizeSlider];
-    
-    
-    
+ 
 }
 
 + (void) pressedReset {
-    
-    
-    
+
     printf("Pressed Reset!\n");
 }
 
@@ -104,6 +119,17 @@
     printf("%s \n", "Pressed Stop or Resume!");
     
 }
+
+
++ (int) sizeSliderValue {
+    return (int) sizeSlider.value;
+}
+
+
++ (double) speedSliderValue {
+    return (double) speedSlider.value;
+}
+
 
 @end
 
