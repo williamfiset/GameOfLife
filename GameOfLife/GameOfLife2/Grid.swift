@@ -12,18 +12,12 @@ import SpriteKit
 
 struct Grid {
     
-//    var isAlive = false
     
-    static var activeCells = SKSpriteNode[]()
-    static var deadCells = SKSpriteNode[]()
-    static var cells = SKSpriteNode[]()
+    static var activeCells = Tile[]()
+    static var deadCells = Tile[]()
+    static var cells = Tile[]()
     
-    // Defines whether a tile is Black or White
-    static let isAlive : (SKSpriteNode) -> Bool = {
-        (node : SKSpriteNode) -> Bool in
-        node.color == UIColor.blackColor()
-    }
-    
+   
     
     init ( tileSize : Int , scene : SKScene) {
         
@@ -53,9 +47,18 @@ struct Grid {
                     return
                 }
                 
-                let nodeColor = arc4random() % 2 == 0 ? UIColor.blackColor() : UIColor.whiteColor()
                 
-                var tile = SKSpriteNode(color: nodeColor, size: tileDimension)
+                var nodeColor = UIColor.blackColor()
+                var isAlive = false
+                if arc4random() % 2 == 0 {
+                    nodeColor = UIColor.whiteColor()
+                    isAlive = true
+                }
+                
+                
+                
+                
+                var tile = Tile(color: nodeColor, size: tileDimension, isAlive: isAlive)
                 
                 // anchorPoint means that the image is relative to the top left
                 tile.anchorPoint = CGPoint(x: 0, y: 1)
@@ -63,16 +66,15 @@ struct Grid {
                 
                 
                 // Place each tile in thier respective groups
-                if Grid.isAlive(tile) { Grid.activeCells.append(tile) }
+                if tile.isAlive { Grid.activeCells.append(tile) }
                 else { Grid.deadCells.append(tile) }
                 
                 Grid.cells.append(tile)
             }
         }
-        
     }
     
-    static func getNode( point : CGPoint) -> SKSpriteNode? {
+    static func getNode( point : CGPoint) -> Tile? {
         
         for aNode in cells {
             if aNode.frame.contains(point) {
@@ -84,6 +86,7 @@ struct Grid {
     
     
     static func emptyGrid() {
+        
         
         for tile in Grid.activeCells {
             tile.removeFromParent()
@@ -115,7 +118,15 @@ struct Grid {
 
 class Tile : SKSpriteNode {
     
+    var isAlive : Bool = false
     
+    init(color: UIColor!, size: CGSize, isAlive : Bool) {
+        
+        // Superclass designated constructor
+        super.init(texture: nil, color: color, size: size)
+        self.isAlive = isAlive
+
+    }
     
 }
 

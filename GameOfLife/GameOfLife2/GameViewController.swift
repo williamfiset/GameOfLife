@@ -38,9 +38,8 @@ class GameViewController: UIViewController {
                 var touchLocation = touch.locationInView(self.view)
                 touchLocation.y = self.view.frame.size.height - touchLocation.y
                 
-                if let node = Grid.getNode(touchLocation) {
-                    print("\nColor: \(node.color) \n Black: \(UIColor.blackColor()) \n White: \(UIColor.whiteColor())\n")
-                    if Grid.isAlive(node) {
+                if let node : Tile = Grid.getNode(touchLocation) {
+                    if node.isAlive {
                         node.color = UIColor.whiteColor()
                         println("White?")
                     }else{

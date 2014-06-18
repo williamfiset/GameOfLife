@@ -40,8 +40,7 @@ NSArray *segmentSizes;
 /* Places all the menu objects on the screen (Labels, Sliders, buttons... ) */
 + (void) placeMainSceneViews:(UIView *) view {
 
-    
-    segmentSpeeds = [NSDictionary dictionaryWithObjects: @[ @1.5, @0.75, @0] forKeys: @[ @"Slow", @"Med", @"Fast"] ];
+    segmentSpeeds = [NSDictionary dictionaryWithObjects: @[ @1.5, @0.75, @0 ] forKeys: @[ @"Slow", @"Med", @"Fast" ] ];
     segmentSizes =  @[ @"12", @"16", @"20", @"24", @"32", @"40"] ;
     
   /* Buttons */
