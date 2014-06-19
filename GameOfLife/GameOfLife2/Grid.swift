@@ -121,7 +121,8 @@ struct Grid {
 class Tile : SKSpriteNode {
     
     var isAlive : Bool = false
-
+    var touched = false
+    
     let row, column : Int
     
     init(color: UIColor!, size: CGSize, isAlive : Bool, row : Int, column : Int) {

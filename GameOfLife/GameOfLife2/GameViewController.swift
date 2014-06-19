@@ -10,8 +10,11 @@ import UIKit
 import SpriteKit
 
 
+
+
 class GameViewController: UIViewController {
     
+    var touchedNodes : Tile[] = []
     
     override func viewDidLoad() {
         
@@ -28,25 +31,63 @@ class GameViewController: UIViewController {
         
        
     }
+    
+    override func touchesMoved(touches: NSSet!, withEvent event: UIEvent!) {
 
-    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
-
-        for anObject : AnyObject in touches! {
-            if let touch = anObject as? UITouch {
-                
-                // Gets the correct touch position by flipping the Y-Axis
-                var touchLocation = touch.locationInView(self.view)
-                touchLocation.y = self.view.frame.size.height - touchLocation.y
-                
-                // Swaps Tile color of the tile that was touched
-                if let node : Tile = Grid.getNode(touchLocation) {
-                    node.swapColor()
+        // If the game in not running the user may draw
+        if !WAFViewPlacer.isStartButtonSelected() {
+            
+            for anObject : AnyObject in touches! {
+                if let touch = anObject as? UITouch {
+                    
+                    // Gets the correct touch position by flipping the Y-Axis
+                    var touchLocation = touch.locationInView(self.view)
+                    touchLocation.y = self.view.frame.size.height - touchLocation.y
+                    
+                    
+                    // Swaps Tile color of the tile that was touched
+                    if let node : Tile = Grid.getNode(touchLocation) {
+                        
+                        if !node.touched{
+                            node.swapColor()
+                            node.touched = true
+                            touchedNodes.append(node)
+                        }
+                    }
                 }
-                
+            }
+        }
+    }
+    
+    override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!)  {
+
+        // Reset all posibility for a block to be converted
+        for touchedNode in touchedNodes {
+            touchedNode.touched = false
+        }
+        
+        if touchedNodes.count == 0 && !WAFViewPlacer.isStartButtonSelected(){
+
+            for anObject : AnyObject in touches! {
+                if let touch = anObject as? UITouch {
+                    
+                    // Gets the correct touch position by flipping the Y-Axis
+                    var touchLocation = touch.locationInView(self.view)
+                    touchLocation.y = self.view.frame.size.height - touchLocation.y
+                    
+                    // Swaps Tile color of the tile that was touched
+                    if let node : Tile = Grid.getNode(touchLocation) {
+                        node.swapColor()
+                    }
+                    
+                }
             }
         }
         
+        // Empty touched nodes
+        touchedNodes = []
     }
+    
     
     
     // Prevent the screen from turning when iPhone is tilted

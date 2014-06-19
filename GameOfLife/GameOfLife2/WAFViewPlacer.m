@@ -43,7 +43,7 @@ NSArray *segmentSizes;
 
     segmentSpeeds = [NSDictionary dictionaryWithObjects: @[ @1.5, @0.75, @0 ] forKeys: @[ @"Slow", @"Med", @"Fast" ] ];
     segmentSizes =  @[ @"12", @"16", @"20", @"24", @"32", @"40" ];
-    gameModes = @{ @"Start" : @true , @"Stop" : @false };
+    gameModes = @{ @"Play" : @true , @"Stop" : @false };
     
   /* Buttons */
     
@@ -96,11 +96,11 @@ NSArray *segmentSizes;
     
     
     
-    // Play Mode
+    // Mode Label
     UILabel *playModeLabel = [[UILabel alloc] initWithFrame:
-                          CGRectMake(modeSegment.frame.origin.x + 40, modeSegment.frame.origin.y - sizeSegment.frame.size.height - VERTICAL_SPACING, 100, 50)];
+                          CGRectMake(modeSegment.frame.origin.x + 50, modeSegment.frame.origin.y - sizeSegment.frame.size.height - VERTICAL_SPACING, 100, 50)];
     
-    [playModeLabel setValue: @"Play Mode" forKey: @"text"];
+    [playModeLabel setValue: @"Mode" forKey: @"text"];
     [playModeLabel setFont: [UIFont fontWithName: @"Helvetica" size: 10]];
     
     

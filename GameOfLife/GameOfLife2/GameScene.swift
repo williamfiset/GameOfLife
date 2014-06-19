@@ -69,8 +69,6 @@ class GameScene : SKScene {
             
         }
         
-
-        
     }
 }
 
