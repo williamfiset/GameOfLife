@@ -16,9 +16,12 @@ struct Grid {
     static var rowCells : Dictionary < Int, Tile[] > = Dictionary()
     static var columnCells : Dictionary < Int, Tile[] > = Dictionary()
     static var horizontalTiles = 0, verticalTiles = 0
+    static var tileSize : Int = 0
+    
     
     init ( tileSize : Int , scene : SKScene) {
         
+        Grid.tileSize = tileSize
         Grid.horizontalTiles = sceneWidth / tileSize
         Grid.verticalTiles = (sceneHeight - Int(verticalTileLimit)) / tileSize
  
@@ -89,11 +92,43 @@ struct Grid {
     
     static func getNode( point : CGPoint) -> Tile? {
         
-        for aNode in cells {
-            if aNode.frame.contains(point) {
-                return aNode
+        
+        let rowNumber =  verticalTiles - ((Int(point.y) - Int(verticalTileLimit) + Grid.tileSize/2) / Grid.tileSize)
+        let columnNumber = Int(point.x) / Grid.tileSize
+        
+//        var rowTiles : Tile[] = []
+//        var columnTiles : Tile[] = []
+//        
+//        for rowIndex in [rowNumber - 1, rowNumber, rowNumber + 1] {
+//            if let row = rowCells[rowIndex] {
+//                rowTiles.extend(row)
+//            }
+//        }
+//
+//        for columnIndex in [columnNumber - 1, columnNumber, columnNumber + 1] {
+//            if let column = columnCells[columnIndex] {
+//                columnTiles.extend(column)
+//            }
+//        }
+  
+        
+        if let row = rowCells[rowNumber] {
+            if let column = columnCells[columnNumber] {
+
+                for rowTile in row {
+                    for columnTile in column {
+                        if rowTile === columnTile {
+                            return rowTile
+                        }
+                    }
+                }
+                
             }
         }
+        
+        println("Could not find Block at: \(rowNumber),\(columnNumber)")
+
+        
         return nil
     }
     

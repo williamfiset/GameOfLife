@@ -3,10 +3,6 @@
 import CoreGraphics
 import Foundation
 
-var _set = NSSet(array: [
-    "s", "e", "t"
-    ])
-
-for item : AnyObject in _set  {
-    println(item)
-}
+var t = [1, 2, 3]
+t.extend([4,5,6])
+println(t)
