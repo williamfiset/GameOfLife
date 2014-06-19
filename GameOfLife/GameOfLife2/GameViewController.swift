@@ -41,7 +41,6 @@ class GameViewController: UIViewController {
                 // Swaps Tile color of the tile that was touched
                 if let node : Tile = Grid.getNode(touchLocation) {
                     node.swapColor()
-                    
                 }
                 
             }

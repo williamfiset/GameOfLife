@@ -15,28 +15,29 @@ struct Grid {
     static var cells = Tile[]()
     static var rowCells : Dictionary < Int, Tile[] > = Dictionary()
     static var columnCells : Dictionary < Int, Tile[] > = Dictionary()
+    static var horizontalTiles = 0, verticalTiles = 0
     
     init ( tileSize : Int , scene : SKScene) {
         
-        let horizontalTiles = sceneWidth / tileSize
-        let verticalTiles = (sceneHeight - Int(verticalTileLimit)) / tileSize
+        Grid.horizontalTiles = sceneWidth / tileSize
+        Grid.verticalTiles = (sceneHeight - Int(verticalTileLimit)) / tileSize
  
         Grid.emptyGrid()
         
         let tileDimension = CGSize(width: tileSize, height: tileSize)
-        let startX = abs(sceneWidth -  (tileSize * horizontalTiles) ) / 2
-        let startY = abs( (sceneHeight - Int(verticalTileLimit)) - (tileSize * verticalTiles) ) / 2
+        let startX = abs(sceneWidth -  (tileSize * Grid.horizontalTiles) ) / 2
+        let startY = abs( (sceneHeight - Int(verticalTileLimit)) - (tileSize * Grid.verticalTiles) ) / 2
         
         
         var height = sceneHeight
         var rowIndex = 0
         
-        for y in 0...verticalTiles {
+        for y in 0...Grid.verticalTiles {
             
             var row : Tile[] = []
             var column : Tile[] = [] // columns must be added as you go
             
-            for x in 0...horizontalTiles {
+            for x in 0...Grid.horizontalTiles {
                 
                 // Stops row
                 if ( (startX + (x * tileSize) + tileSize) > sceneWidth ) {
@@ -59,7 +60,7 @@ struct Grid {
 
                 
                 
-                var tile = Tile(color: nodeColor, size: tileDimension, isAlive: isAlive, row: x, column: y)
+                var tile = Tile(color: nodeColor, size: tileDimension, isAlive: isAlive, row: y, column: x)
                 
                 // anchorPoint means that the image is relative to the top left
                 tile.anchorPoint = CGPoint(x: 0, y: 1)
@@ -67,7 +68,6 @@ struct Grid {
 
                 
                 Grid.cells.append(tile)
-                
                 row.append(tile)
                 
                 // Add elements to the columns as they go
@@ -84,7 +84,6 @@ struct Grid {
             Grid.rowCells.updateValue( row, forKey: rowIndex)
             rowIndex++
 
-            
         }
     }
     
@@ -135,26 +134,62 @@ class Tile : SKSpriteNode {
             color = UIColor.whiteColor()
         
         // White
-        }else{
+        } else {
             isAlive = true
             color = UIColor.blackColor()
         }
         
     }
     
-    
-    func getAdjacentBlocks() {
+    // Gets all the blocks around
+    func getAdjacentBlocks() -> Tile[]  {
+        
+        // Performs as check on the row to put the right blocks in the blockList
+        func addBlock (inout blockList : Tile[], tile: Tile) -> Bool {
+            
+            if tile.column + 1 == column || tile.column == column || tile.column - 1 == column {
+                blockList.append(tile)
+                return true
+            }
+            return false
+        }
+        
         
         var blocks : Tile[] = []
+        
+        for rowNumber in [row - 1, row, row + 1]{
+            if let row = Grid.rowCells[rowNumber]{
+                
+                var itemsAdded = 0
+                for tile : Tile in row {
+                    
+                    if tile === self { continue }
+                    if addBlock(&blocks, tile) { itemsAdded++ }
+                    if itemsAdded == 3 { break; }
+                    
+                }
+            }
+        }
 
+        return blocks
+        
     }
-    
-    
     
 }
 
 
+/*
 
+Any live cell with fewer than two live neighbours dies, as if caused by under-population.
+Any live cell with two or three live neighbours lives on to the next generation.
+Any live cell with more than three live neighbours dies, as if by overcrowding.
+Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+
+If The cell is white and it has less than 2 neighbors or has more than 3 neighbors the cell dies
+of over population. However, if the critter as exactly three live neighbors then it respawns.
+
+
+*/
 
 
 

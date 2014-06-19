@@ -48,10 +48,6 @@ class GameScene : SKScene {
     
     /* Called before each frame is rendered */
     override func update(currentTime: CFTimeInterval) {
-        
-        for (key, value : Tile[]) in Grid.columnCells {
-            println("Key: \(key) Values: \(value.count)")
-        }
 
         let newSizeSliderValue = (Int(WAFViewPlacer.segmentSizeValue()) / 4 ) * 4
         
