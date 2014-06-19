@@ -97,6 +97,15 @@ struct Grid {
         return nil
     }
     
+    // Counts all alive cells in a given array of tiles
+    static func countAliveCells( tiles : Tile[] ) -> Int {
+        
+        var aliveCells = 0
+        for cell in tiles {
+            if cell.isAlive { aliveCells++ }
+        }
+        return aliveCells
+    }
     
     static func emptyGrid() {
         for tile in Grid.cells { tile.removeFromParent() }
@@ -112,6 +121,7 @@ struct Grid {
 class Tile : SKSpriteNode {
     
     var isAlive : Bool = false
+
     let row, column : Int
     
     init(color: UIColor!, size: CGSize, isAlive : Bool, row : Int, column : Int) {
@@ -154,9 +164,9 @@ class Tile : SKSpriteNode {
             return false
         }
         
-        
         var blocks : Tile[] = []
         
+        // Searches for the three blocks in the row, those left, middle and right of the current block
         for rowNumber in [row - 1, row, row + 1]{
             if let row = Grid.rowCells[rowNumber]{
                 
@@ -170,10 +180,10 @@ class Tile : SKSpriteNode {
                 }
             }
         }
-
         return blocks
-        
     }
+    
+
     
 }
 
