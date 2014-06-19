@@ -75,7 +75,7 @@ NSArray *segmentSizes;
     speedSegment = [[UISegmentedControl alloc] initWithItems: [segmentSpeeds allKeys] ];
     [speedSegment setFrame: CGRectMake(view.frame.size.width * 0.5 , view.frame.size.height - 35 , 150, 25)];
     [speedSegment setTintColor: [UIColor whiteColor]];
-    [speedSegment setSelectedSegmentIndex: 1]; // Med
+    [speedSegment setSelectedSegmentIndex: 2]; // Fast
 
     
    

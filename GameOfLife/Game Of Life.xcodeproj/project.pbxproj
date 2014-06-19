@@ -33,7 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C6626E011951085000630399 /* GameOfLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameOfLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6626E011951085000630399 /* Game Of Life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Game Of Life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6626E051951085000630399 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6626E061951085000630399 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6626E081951085000630399 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 		C6626E0C1951085000630399 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C6626E0F1951085000630399 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6626E111951085000630399 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C6626E171951085000630399 /* GameOfLifeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameOfLifeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6626E171951085000630399 /* Game Of LifeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Game Of LifeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6626E1C1951085000630399 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6626E1D1951085000630399 /* GameOfLife2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfLife2Tests.swift; sourceTree = "<group>"; };
 		C6626E271951096900630399 /* GameOfLife2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GameOfLife2-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -85,8 +85,8 @@
 		C6626E021951085000630399 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C6626E011951085000630399 /* GameOfLife.app */,
-				C6626E171951085000630399 /* GameOfLifeTests.xctest */,
+				C6626E011951085000630399 /* Game Of Life.app */,
+				C6626E171951085000630399 /* Game Of LifeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,9 +168,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C6626E001951085000630399 /* GameOfLife */ = {
+		C6626E001951085000630399 /* Game Of Life */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C6626E211951085000630399 /* Build configuration list for PBXNativeTarget "GameOfLife" */;
+			buildConfigurationList = C6626E211951085000630399 /* Build configuration list for PBXNativeTarget "Game Of Life" */;
 			buildPhases = (
 				C6626DFD1951085000630399 /* Sources */,
 				C6626DFE1951085000630399 /* Frameworks */,
@@ -180,14 +180,14 @@
 			);
 			dependencies = (
 			);
-			name = GameOfLife;
+			name = "Game Of Life";
 			productName = GameOfLife2;
-			productReference = C6626E011951085000630399 /* GameOfLife.app */;
+			productReference = C6626E011951085000630399 /* Game Of Life.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C6626E161951085000630399 /* GameOfLifeTests */ = {
+		C6626E161951085000630399 /* Game Of LifeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C6626E241951085000630399 /* Build configuration list for PBXNativeTarget "GameOfLifeTests" */;
+			buildConfigurationList = C6626E241951085000630399 /* Build configuration list for PBXNativeTarget "Game Of LifeTests" */;
 			buildPhases = (
 				C6626E131951085000630399 /* Sources */,
 				C6626E141951085000630399 /* Frameworks */,
@@ -198,9 +198,9 @@
 			dependencies = (
 				C6626E191951085000630399 /* PBXTargetDependency */,
 			);
-			name = GameOfLifeTests;
+			name = "Game Of LifeTests";
 			productName = GameOfLife2Tests;
-			productReference = C6626E171951085000630399 /* GameOfLifeTests.xctest */;
+			productReference = C6626E171951085000630399 /* Game Of LifeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -221,7 +221,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C6626DFC1951085000630399 /* Build configuration list for PBXProject "GameOfLife" */;
+			buildConfigurationList = C6626DFC1951085000630399 /* Build configuration list for PBXProject "Game Of Life" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -234,8 +234,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C6626E001951085000630399 /* GameOfLife */,
-				C6626E161951085000630399 /* GameOfLifeTests */,
+				C6626E001951085000630399 /* Game Of Life */,
+				C6626E161951085000630399 /* Game Of LifeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -290,7 +290,7 @@
 /* Begin PBXTargetDependency section */
 		C6626E191951085000630399 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C6626E001951085000630399 /* GameOfLife */;
+			target = C6626E001951085000630399 /* Game Of Life */;
 			targetProxy = C6626E181951085000630399 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -392,7 +392,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = GameOfLife2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = GameOfLife;
+				PRODUCT_NAME = "Game Of Life";
 				SWIFT_OBJC_BRIDGING_HEADER = "GameOfLife2/GameOfLife2-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -406,7 +406,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = GameOfLife2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = GameOfLife;
+				PRODUCT_NAME = "Game Of Life";
 				SWIFT_OBJC_BRIDGING_HEADER = "GameOfLife2/GameOfLife2-Bridging-Header.h";
 			};
 			name = Release;
@@ -426,7 +426,7 @@
 				INFOPLIST_FILE = GameOfLife2Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = GameOfLifeTests;
+				PRODUCT_NAME = "Game Of LifeTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -442,7 +442,7 @@
 				INFOPLIST_FILE = GameOfLife2Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = GameOfLifeTests;
+				PRODUCT_NAME = "Game Of LifeTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
@@ -450,7 +450,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C6626DFC1951085000630399 /* Build configuration list for PBXProject "GameOfLife" */ = {
+		C6626DFC1951085000630399 /* Build configuration list for PBXProject "Game Of Life" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C6626E1F1951085000630399 /* Debug */,
@@ -459,7 +459,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C6626E211951085000630399 /* Build configuration list for PBXNativeTarget "GameOfLife" */ = {
+		C6626E211951085000630399 /* Build configuration list for PBXNativeTarget "Game Of Life" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C6626E221951085000630399 /* Debug */,
@@ -468,7 +468,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C6626E241951085000630399 /* Build configuration list for PBXNativeTarget "GameOfLifeTests" */ = {
+		C6626E241951085000630399 /* Build configuration list for PBXNativeTarget "Game Of LifeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C6626E251951085000630399 /* Debug */,

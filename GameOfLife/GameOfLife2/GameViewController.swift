@@ -29,27 +29,24 @@ class GameViewController: UIViewController {
        
     }
 
-    override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
-        
+    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+
         for anObject : AnyObject in touches! {
-            
             if let touch = anObject as? UITouch {
                 
+                // Gets the correct touch position by flipping the Y-Axis
                 var touchLocation = touch.locationInView(self.view)
                 touchLocation.y = self.view.frame.size.height - touchLocation.y
                 
+                // Swaps Tile color of the tile that was touched
                 if let node : Tile = Grid.getNode(touchLocation) {
-                    if node.isAlive {
-                        node.color = UIColor.whiteColor()
-                        println("White?")
-                    }else{
-                        node.color = UIColor.blackColor()
-                        println("Black")
-                    }
+                    node.swapColor()
                     
                 }
+                
             }
         }
+        
     }
     
     

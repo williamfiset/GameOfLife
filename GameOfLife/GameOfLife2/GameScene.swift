@@ -43,20 +43,15 @@ class GameScene : SKScene {
         
         oldSizeSliderValue = Int(WAFViewPlacer.segmentSizeValue())
 
-        // temporary red bar
-//        let redBar = SKSpriteNode(color: UIColor.redColor(), size: CGSize(width: screenWidth, height: 2))
-//        redBar.position = CGPoint(x: Int(0.0), y: Int(verticalTileLimit) )
-//        self.addChild(redBar)
         
     }
     
     /* Called before each frame is rendered */
     override func update(currentTime: CFTimeInterval) {
         
-        
-        // Changes Loop Speed (determined by slider)
-        let pauseTime = NSTimeInterval(NSNumber(double: WAFViewPlacer.segmentLoopSpeed()))
-        NSThread.sleepForTimeInterval(pauseTime)
+        for (key, value : Tile[]) in Grid.columnCells {
+            println("Key: \(key) Values: \(value.count)")
+        }
 
         let newSizeSliderValue = (Int(WAFViewPlacer.segmentSizeValue()) / 4 ) * 4
         
@@ -69,10 +64,10 @@ class GameScene : SKScene {
             oldSizeSliderValue = newSizeSliderValue
             
         }
-
-
-
         
+        // Changes Loop Speed (determined by slider)
+        let pauseTime = NSTimeInterval(NSNumber(double: WAFViewPlacer.segmentLoopSpeed()))
+        NSThread.sleepForTimeInterval(pauseTime)
         
     }
 }
