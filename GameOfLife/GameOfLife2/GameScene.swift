@@ -61,9 +61,15 @@ class GameScene : SKScene {
             
         }
         
-        // Changes Loop Speed (determined by slider)
-        let pauseTime = NSTimeInterval(NSNumber(double: WAFViewPlacer.segmentLoopSpeed()))
-        NSThread.sleepForTimeInterval(pauseTime)
+        if (WAFViewPlacer.isStartButtonSelected()){
+
+            // Changes Loop Speed (determined by slider)
+            let pauseTime = NSTimeInterval(NSNumber(double: WAFViewPlacer.segmentLoopSpeed()))
+            NSThread.sleepForTimeInterval(pauseTime)
+            
+        }
+        
+
         
     }
 }

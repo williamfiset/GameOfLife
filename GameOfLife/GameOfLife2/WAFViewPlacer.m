@@ -19,12 +19,13 @@
 static UISegmentedControl *sizeSegment;
 static UISegmentedControl *speedSegment;
 static UISegmentedControl *modeSegment;
+
 static UIButton *randomButton;
-static UIButton *createButton;
 
 
 // Global
 const NSDictionary *segmentSpeeds;
+const NSDictionary *gameModes;
 NSArray *segmentSizes;
 
 
@@ -41,7 +42,8 @@ NSArray *segmentSizes;
 + (void) placeMainSceneViews:(UIView *) view {
 
     segmentSpeeds = [NSDictionary dictionaryWithObjects: @[ @1.5, @0.75, @0 ] forKeys: @[ @"Slow", @"Med", @"Fast" ] ];
-    segmentSizes =  @[ @"12", @"16", @"20", @"24", @"32", @"40"] ;
+    segmentSizes =  @[ @"12", @"16", @"20", @"24", @"32", @"40" ];
+    gameModes = @{ @"Start" : @true , @"Stop" : @false };
     
   /* Buttons */
     
@@ -49,17 +51,11 @@ NSArray *segmentSizes;
     [randomButton setFrame: CGRectMake( 10, view.frame.size.height - 100, 150, 60)];
     [randomButton setTitle: @"Randomize" forState: UIControlStateNormal];
     [randomButton.titleLabel setFont:[UIFont fontWithName: @"Helvetica-Bold" size:20.5]];
-    
-//    createButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-//    [createButton setFrame: CGRectMake( 35, view.frame.size.height - 80, 100, 40)];
-//    [createButton setTitle: @"Create" forState: UIControlStateNormal];
-//    [createButton.titleLabel setFont:[UIFont fontWithName: @"Helvetica-Bold" size:14.5]];
-    
-    
+
   /* SegmentControl */
     
     
-    modeSegment = [[UISegmentedControl alloc] initWithItems: @[ @"Stop" , @"Start" ]];
+    modeSegment = [[UISegmentedControl alloc] initWithItems: [gameModes allKeys] ];
     [modeSegment setFrame: CGRectMake( 20, view.frame.size.height - 35 , 120, 25)];
     [modeSegment setTintColor: [UIColor whiteColor]];
     [modeSegment setSelectedSegmentIndex: 0];
@@ -116,7 +112,6 @@ NSArray *segmentSizes;
     
     // Buttons
     [view addSubview: randomButton];
-    [view addSubview: createButton];
     
     // Control Segments
     [view addSubview: speedSegment];
@@ -143,8 +138,8 @@ NSArray *segmentSizes;
     return [segmentSizes[sizeSegment.selectedSegmentIndex] intValue] ;
 }
 
-+ (int) segmentMode {
-    return 0;
++ (BOOL) isStartButtonSelected {
+    return [gameModes[ [modeSegment titleForSegmentAtIndex: modeSegment.selectedSegmentIndex ] ] boolValue] ;
 }
 
 

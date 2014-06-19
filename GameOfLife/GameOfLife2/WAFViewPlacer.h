@@ -18,7 +18,7 @@
 // Allows you to get the values on the segments
 + (double) segmentLoopSpeed;
 + (int) segmentSizeValue;
-+ (int) segmentMode;
++ (BOOL) isStartButtonSelected;
 
 @end
 
