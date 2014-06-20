@@ -24,12 +24,13 @@ struct Grid {
         Grid.tileSize = tileSize
         Grid.horizontalTiles = sceneWidth / tileSize
         Grid.verticalTiles = (sceneHeight - Int(verticalTileLimit)) / tileSize
- 
+        
+        
         Grid.emptyGrid()
         
         let tileDimension = CGSize(width: tileSize, height: tileSize)
         let startX = abs(sceneWidth -  (tileSize * Grid.horizontalTiles) ) / 2
-        let startY = abs( (sceneHeight - Int(verticalTileLimit)) - (tileSize * Grid.verticalTiles) ) / 2
+        let startY = 0 // abs( (sceneHeight - Int(verticalTileLimit)) - (tileSize * Grid.verticalTiles) ) / 2
         
         
         var height = sceneHeight

@@ -42,7 +42,7 @@ NSArray *segmentSizes;
 + (void) placeMainSceneViews:(UIView *) view {
 
     segmentSpeeds = [NSDictionary dictionaryWithObjects: @[ @1.5, @0.75, @0 ] forKeys: @[ @"Slow", @"Med", @"Fast" ] ];
-    segmentSizes =  @[ @"12", @"16", @"20", @"24", @"32", @"40" ];
+    segmentSizes =  @[ @"10", @"16", @"20", @"32", @"40", @"64" ];
     gameModes = @{ @"Play" : @true , @"Stop" : @false };
     
   /* Buttons */
