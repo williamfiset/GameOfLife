@@ -10,10 +10,13 @@
 
 @class UISegmentedControl;
 
+BOOL timeToRandomizeGrid;
+
 @interface WAFTouchEventHandler : NSObject
 
 + (void) tileSizeChanged: (UISegmentedControl  *) selector;
 + (void) gameModeChanged: (UISegmentedControl  *) selector;
 + (void) loopSpeedChanged: (UISegmentedControl *) selector;
++ (void) randomizeCells;
 
 @end

@@ -22,7 +22,7 @@ let screenWidth = 640
 class GameScene : SKScene {
     
     
-    var oldSizeSliderValue : Int = 0
+    var oldTileSize : Int = 0
     
     /* Setup your scene here */
     override func didMoveToView(view: SKView) {
@@ -34,6 +34,7 @@ class GameScene : SKScene {
         sceneHeight = Int(self.size.height)
         sceneWidth = Int(self.size.width)
         verticalTileLimit = 90.0 // hardcoding this is the best option because of different screen sizes
+        timeToRandomizeGrid = false
         
         // Create background and places buttons on the screen
         self.backgroundColor = UIColor(red: 122/255.0, green: 122/255.0, blue: 122/255.0, alpha: 1)
@@ -42,7 +43,7 @@ class GameScene : SKScene {
         let grid = Grid( tileSize : Int(WAFViewPlacer.segmentSizeValue()) , scene : self)
         Grid.placeGridOnScreen(self)
         
-        oldSizeSliderValue = Int(WAFViewPlacer.segmentSizeValue())
+        oldTileSize = Int(WAFViewPlacer.segmentSizeValue())
 
         
     }
@@ -50,24 +51,33 @@ class GameScene : SKScene {
     /* Called before each frame is rendered */
     override func update(currentTime: CFTimeInterval) {
 
-        let newSizeSliderValue = (Int(WAFViewPlacer.segmentSizeValue()) / 4 ) * 4
+        let newTileSize = (Int(WAFViewPlacer.segmentSizeValue()) / 4 ) * 4
+        
+        println("\(timeToRandomizeGrid)")
         
         // Change the tileSize every difference of four pixels
-        if (newSizeSliderValue % 4 == 0 && oldSizeSliderValue != newSizeSliderValue) {
+        if (newTileSize % 4 == 0 && oldTileSize != newTileSize) { // or time to randomize Grid
             
-            Grid.emptyGrid()
-            Grid(tileSize: Int(WAFViewPlacer.segmentSizeValue()) , scene : self)
-            Grid.placeGridOnScreen(self)
-            oldSizeSliderValue = newSizeSliderValue
+            Grid.createNewGrid(self)
+
+            oldTileSize = newTileSize
+            
+        } else if (Bool(timeToRandomizeGrid)){
+            
+            Grid.createNewGrid(self)
+            oldTileSize = newTileSize
+            timeToRandomizeGrid = false;
             
         }
         
-        if (WAFViewPlacer.isStartButtonSelected()){
+        if (WAFViewPlacer.isStartButtonSelected() && Bool(justChangedTileSize) ){
 
             // Changes Loop Speed (determined by slider)
             let pauseTime = NSTimeInterval(NSNumber(double: WAFViewPlacer.segmentLoopSpeed()))
             NSThread.sleepForTimeInterval(pauseTime)
             
+        }else {
+            justChangedTileSize = false
         }
         
     }

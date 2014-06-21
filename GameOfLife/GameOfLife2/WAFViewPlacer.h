@@ -23,9 +23,12 @@ UIButton *randomButton;
 
 // Constant View Properties
 static NSDictionary *segmentSpeeds;
+
 static NSDictionary *gameModes;
 static NSArray *segmentSizes;
 
+
+BOOL justChangedTileSize;
 
 
 @interface WAFViewPlacer : NSObject

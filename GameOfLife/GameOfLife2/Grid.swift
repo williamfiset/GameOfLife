@@ -10,38 +10,39 @@ import Foundation
 import SpriteKit
 
 
-struct Grid {
+// All global Varibles
+var cells = Tile[]()
+var rowCells : Dictionary < Int, Tile[] > = Dictionary()
+var columnCells : Dictionary < Int, Tile[] > = Dictionary()
+var horizontalTiles = 0, verticalTiles = 0
+var currentTileSize : Int = 0
 
-    static var cells = Tile[]()
-    static var rowCells : Dictionary < Int, Tile[] > = Dictionary()
-    static var columnCells : Dictionary < Int, Tile[] > = Dictionary()
-    static var horizontalTiles = 0, verticalTiles = 0
-    static var tileSize : Int = 0
+
+@objc class Grid  {
     
     
     init ( tileSize : Int , scene : SKScene) {
         
-        Grid.tileSize = tileSize
-        Grid.horizontalTiles = sceneWidth / tileSize
-        Grid.verticalTiles = (sceneHeight - Int(verticalTileLimit)) / tileSize
-        
+        currentTileSize = tileSize
+        horizontalTiles = sceneWidth / tileSize
+        verticalTiles = (sceneHeight - Int(verticalTileLimit)) / tileSize
         
         Grid.emptyGrid()
         
         let tileDimension = CGSize(width: tileSize, height: tileSize)
-        let startX = abs(sceneWidth -  (tileSize * Grid.horizontalTiles) ) / 2
+        let startX = abs(sceneWidth -  (tileSize * horizontalTiles) ) / 2
         let startY = 0 // abs( (sceneHeight - Int(verticalTileLimit)) - (tileSize * Grid.verticalTiles) ) / 2
         
         
         var height = sceneHeight
         var rowIndex = 0
         
-        for y in 0...Grid.verticalTiles {
+        for y in 0...verticalTiles {
             
             var row : Tile[] = []
             var column : Tile[] = [] // columns must be added as you go
             
-            for x in 0...Grid.horizontalTiles {
+            for x in 0...horizontalTiles {
                 
                 // Stops row
                 if ( (startX + (x * tileSize) + tileSize) > sceneWidth ) {
@@ -71,47 +72,31 @@ struct Grid {
                 tile.position = CGPoint(x: startX + x * tileSize, y:  height - (y * tileSize) - startY) //  - tileSize/2
 
                 
-                Grid.cells.append(tile)
+                cells.append(tile)
                 row.append(tile)
                 
                 // Add elements to the columns as they go
-                if var column = Grid.columnCells[x] {
+                if var column = columnCells[x] {
                     column.append(tile)
-                    Grid.columnCells[x] = column
+                    columnCells[x] = column
                 }else{
-                    Grid.columnCells[x] = [tile]
+                    columnCells[x] = [tile]
                 }
                 
                 
             }
             
-            Grid.rowCells.updateValue( row, forKey: rowIndex)
+            rowCells.updateValue( row, forKey: rowIndex)
             rowIndex++
 
         }
     }
     
-    static func getNode( point : CGPoint) -> Tile? {
+    class func getNode( point : CGPoint) -> Tile? {
         
         
-        let rowNumber =  verticalTiles - ((Int(point.y) - Int(verticalTileLimit) + Grid.tileSize/2) / Grid.tileSize)
-        let columnNumber = Int(point.x) / Grid.tileSize
-        
-//        var rowTiles : Tile[] = []
-//        var columnTiles : Tile[] = []
-//        
-//        for rowIndex in [rowNumber - 1, rowNumber, rowNumber + 1] {
-//            if let row = rowCells[rowIndex] {
-//                rowTiles.extend(row)
-//            }
-//        }
-//
-//        for columnIndex in [columnNumber - 1, columnNumber, columnNumber + 1] {
-//            if let column = columnCells[columnIndex] {
-//                columnTiles.extend(column)
-//            }
-//        }
-  
+        let rowNumber =  verticalTiles - ((Int(point.y) - Int(verticalTileLimit) + currentTileSize/2) / currentTileSize)
+        let columnNumber = Int(point.x) / currentTileSize
         
         if let row = rowCells[rowNumber] {
             if let column = columnCells[columnNumber] {
@@ -134,7 +119,7 @@ struct Grid {
     }
     
     // Counts all alive cells in a given array of tiles
-    static func countAliveCells( tiles : Tile[] ) -> Int {
+    class func countAliveCells( tiles : Tile[] ) -> Int {
         
         var aliveCells = 0
         for cell in tiles {
@@ -143,14 +128,24 @@ struct Grid {
         return aliveCells
     }
     
-    static func emptyGrid() {
-        for tile in Grid.cells { tile.removeFromParent() }
-        Grid.cells = []
+    class func emptyGrid() {
+        for tile in cells { tile.removeFromParent() }
+        cells = []
     }
     
-    static func placeGridOnScreen (scene : SKScene) {
+    class func placeGridOnScreen (scene : SKScene) {
         for tile in cells { scene.addChild(tile) }
     }
+    
+    class func createNewGrid ( scene : SKScene ) {
+        
+        Grid.emptyGrid()
+        Grid(tileSize: Int(WAFViewPlacer.segmentSizeValue()) , scene : scene)
+        Grid.placeGridOnScreen(scene)
+        
+    }
+    
+    
     
 }
 
@@ -205,7 +200,7 @@ class Tile : SKSpriteNode {
         
         // Searches for the three blocks in the row, those left, middle and right of the current block
         for rowNumber in [row - 1, row, row + 1]{
-            if let row = Grid.rowCells[rowNumber]{
+            if let row = rowCells[rowNumber]{
                 
                 var itemsAdded = 0
                 for tile : Tile in row {

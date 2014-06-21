@@ -29,8 +29,11 @@
 
 + (void) initVariables {
     
+    justChangedTileSize = NO;
+    
     // Creates all the menu item text and constants
     segmentSpeeds = [NSDictionary dictionaryWithObjects: @[ @1.5, @0.75, @0 ] forKeys: @[ @"Slow", @"Med", @"Fast" ] ];
+    
     segmentSizes =  @[ @"10", @"16", @"20", @"32", @"40", @"64" ];
     gameModes = @{ @"Play" : @true , @"Stop" : @false };
     
@@ -53,9 +56,10 @@
     [randomButton setFrame: CGRectMake( 10, view.frame.size.height - 100, 150, 60)];
     [randomButton setTitle: @"Randomize" forState: UIControlStateNormal];
     [randomButton.titleLabel setFont:[UIFont fontWithName: @"Helvetica-Bold" size:20.5]];
-
-  /* SegmentControl */
+    [randomButton addTarget: [WAFTouchEventHandler class] action: @selector(randomizeCells) forControlEvents: UIControlEventTouchDown];
     
+  /* SegmentControl */
+
     
     [modeSegment setFrame: CGRectMake( 20, view.frame.size.height - 35 , 120, 25)];
     [modeSegment setTintColor: [UIColor whiteColor]];
