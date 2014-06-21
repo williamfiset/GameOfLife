@@ -53,8 +53,6 @@ class GameScene : SKScene {
 
         let newTileSize = (Int(WAFViewPlacer.segmentSizeValue()) / 4 ) * 4
         
-        println("\(timeToRandomizeGrid)")
-        
         // Change the tileSize every difference of four pixels
         if (newTileSize % 4 == 0 && oldTileSize != newTileSize) { // or time to randomize Grid
             
@@ -70,13 +68,20 @@ class GameScene : SKScene {
             
         }
         
-        if (WAFViewPlacer.isStartButtonSelected() && Bool(justChangedTileSize) ){
+        // Play Mode is active, time to shuffle critters
+        if (WAFViewPlacer.isStartButtonSelected()) {
+            Grid.applyGameRules()
+        }
+        
+        
+        
+        if (WAFViewPlacer.isStartButtonSelected()){ //  && Bool(justChangedTileSize) 
 
             // Changes Loop Speed (determined by slider)
-            let pauseTime = NSTimeInterval(NSNumber(double: WAFViewPlacer.segmentLoopSpeed()))
-            NSThread.sleepForTimeInterval(pauseTime)
+//            let pauseTime = NSTimeInterval( NSNumber(double: WAFViewPlacer.segmentLoopSpeed()) )
+//            NSThread.sleepForTimeInterval(pauseTime)
             
-        }else {
+        } else {
             justChangedTileSize = false
         }
         

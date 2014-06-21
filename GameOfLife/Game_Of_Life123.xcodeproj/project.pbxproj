@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C6626E071951085000630399 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6626E061951085000630399 /* AppDelegate.swift */; };
-		C6626E091951085000630399 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C6626E081951085000630399 /* GameScene.sks */; };
 		C6626E0B1951085000630399 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6626E0A1951085000630399 /* GameScene.swift */; };
 		C6626E0D1951085000630399 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6626E0C1951085000630399 /* GameViewController.swift */; };
 		C6626E101951085000630399 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6626E0E1951085000630399 /* Main.storyboard */; };
@@ -37,7 +36,6 @@
 		C6626E011951085000630399 /* Game_Of_Life123.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game_Of_Life123.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6626E051951085000630399 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6626E061951085000630399 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C6626E081951085000630399 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		C6626E0A1951085000630399 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		C6626E0C1951085000630399 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C6626E0F1951085000630399 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				C6626E111951085000630399 /* Images.xcassets */,
-				C6626E081951085000630399 /* GameScene.sks */,
 				C6A5C8AB19511DC3007256A0 /* experimentFile.playground */,
 				C6626E0E1951085000630399 /* Main.storyboard */,
 				C6626E271951096900630399 /* GameOfLife2-Bridging-Header.h */,
@@ -253,7 +250,6 @@
 				C6A5C8AE19511DC3007256A0 /* circle45.png in Resources */,
 				C6A5C8AF19511DC3007256A0 /* circle45@2x.png in Resources */,
 				C6626E121951085000630399 /* Images.xcassets in Resources */,
-				C6626E091951085000630399 /* GameScene.sks in Resources */,
 				C6626E101951085000630399 /* Main.storyboard in Resources */,
 				C6A5C8B019511DC3007256A0 /* GameOfLife.psd in Resources */,
 				C6A5C8AD19511DC3007256A0 /* circle.ai in Resources */,
