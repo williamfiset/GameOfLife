@@ -4,4 +4,4 @@
 
 
 #import "WAFViewPlacer.h"
-#import "Game_Of_Life-Swift.h"
+#import "GameOfLife2-Bridging-Header.h"

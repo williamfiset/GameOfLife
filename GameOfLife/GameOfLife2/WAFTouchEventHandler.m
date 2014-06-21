@@ -11,7 +11,7 @@
 #import "WAFTouchEventHandler.h"
 #import "WAFViewPlacer.h"
 #import <Foundation/Foundation.h>
-#import "Game_Of_Life-Swift.h"
+#import "GameOfLife2-Bridging-Header.h"
 
 
 @implementation WAFTouchEventHandler
