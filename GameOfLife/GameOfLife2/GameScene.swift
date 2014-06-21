@@ -21,6 +21,7 @@ let screenWidth = 640
 
 class GameScene : SKScene {
     
+    
     var oldSizeSliderValue : Int = 0
     
     /* Setup your scene here */

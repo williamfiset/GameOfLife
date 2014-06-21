@@ -6,12 +6,29 @@
 //  Copyright (c) 2014 William Fiset. All rights reserved.
 //
 
-@class UIView;
-
 #import <Foundation/Foundation.h>
+#import "WAFTouchEventHandler.h"
+
+@class UIView;
+@class UISegmentedControl;
+@class UIButton, NSArray;
+@class NSDictionary;
+
+
+// Views
+UISegmentedControl *sizeSegment;
+UISegmentedControl *speedSegment;
+UISegmentedControl *modeSegment;
+UIButton *randomButton;
+
+// Constant View Properties
+static NSDictionary *segmentSpeeds;
+static NSDictionary *gameModes;
+static NSArray *segmentSizes;
+
+
 
 @interface WAFViewPlacer : NSObject
-
 
 + (void) placeMainSceneViews: (UIView*) view;
 
@@ -22,9 +39,13 @@
 
 @end
 
-/*
 
- Random , create
- Start, Stop
 
-*/
+
+
+
+
+
+
+
+

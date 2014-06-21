@@ -10,44 +10,46 @@
 
 @import UIKit;
 @import Foundation;
+
 #import "WAFViewPlacer.h"
+#import "WAFTouchEventHandler.h"
 
 #define SLIDER_WIDTH 165
 #define VERTICAL_SPACING 7
 
-// static
-static UISegmentedControl *sizeSegment;
-static UISegmentedControl *speedSegment;
-static UISegmentedControl *modeSegment;
-
-static UIButton *randomButton;
-
-
-// Global
-const NSDictionary *segmentSpeeds;
-const NSDictionary *gameModes;
-NSArray *segmentSizes;
-
 
 // Private Variables
 @interface WAFViewPlacer ()
-
++ (void) initVariables;
 @end
 
 
 @implementation WAFViewPlacer
 
 
-/* Places all the menu objects on the screen (Labels, Sliders, buttons... ) */
-+ (void) placeMainSceneViews:(UIView *) view {
-
++ (void) initVariables {
+    
+    // Creates all the menu item text and constants
     segmentSpeeds = [NSDictionary dictionaryWithObjects: @[ @1.5, @0.75, @0 ] forKeys: @[ @"Slow", @"Med", @"Fast" ] ];
     segmentSizes =  @[ @"10", @"16", @"20", @"32", @"40", @"64" ];
     gameModes = @{ @"Play" : @true , @"Stop" : @false };
     
+    // Creates all the View Objects
+    randomButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+    modeSegment = [[UISegmentedControl alloc] initWithItems: [gameModes allKeys] ];
+    sizeSegment = [[UISegmentedControl alloc] initWithItems: segmentSizes];
+    speedSegment = [[UISegmentedControl alloc] initWithItems: [segmentSpeeds allKeys] ];
+
+}
+
+
+/* Places all the menu objects on the screen (Labels, Sliders, buttons... ) */
++ (void) placeMainSceneViews:(UIView *) view {
+    
+    [self initVariables];
+    
   /* Buttons */
     
-    randomButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [randomButton setFrame: CGRectMake( 10, view.frame.size.height - 100, 150, 60)];
     [randomButton setTitle: @"Randomize" forState: UIControlStateNormal];
     [randomButton.titleLabel setFont:[UIFont fontWithName: @"Helvetica-Bold" size:20.5]];
@@ -55,23 +57,22 @@ NSArray *segmentSizes;
   /* SegmentControl */
     
     
-    modeSegment = [[UISegmentedControl alloc] initWithItems: [gameModes allKeys] ];
     [modeSegment setFrame: CGRectMake( 20, view.frame.size.height - 35 , 120, 25)];
     [modeSegment setTintColor: [UIColor whiteColor]];
     [modeSegment setSelectedSegmentIndex: 0];
     
     
-    sizeSegment = [[UISegmentedControl alloc] initWithItems: segmentSizes];
     [sizeSegment setFrame: CGRectMake(view.frame.size.width * 0.5 , view.frame.size.height - 75 , 150, 25)];
     [sizeSegment setTintColor: [UIColor whiteColor]];
-    [sizeSegment setSelectedSegmentIndex: 2]; // 20
+    [sizeSegment setSelectedSegmentIndex: 2]; // tileSize of 20
+    [sizeSegment addTarget: [WAFTouchEventHandler class]
+                    action: @selector(tileSizeChanged:)
+          forControlEvents: UIControlEventValueChanged];
     
     
-    
-    speedSegment = [[UISegmentedControl alloc] initWithItems: [segmentSpeeds allKeys] ];
     [speedSegment setFrame: CGRectMake(view.frame.size.width * 0.5 , view.frame.size.height - 35 , 150, 25)];
     [speedSegment setTintColor: [UIColor whiteColor]];
-    [speedSegment setSelectedSegmentIndex: 2]; // Fast
+    [speedSegment setSelectedSegmentIndex: 2]; // Loop Speed of Fast (0 pause)
 
     
    
@@ -81,7 +82,7 @@ NSArray *segmentSizes;
     
     // Reproduction Speed
     UILabel *speedLabel = [[UILabel alloc] initWithFrame:
-                           CGRectMake(speedSegment.frame.origin.x + 30, speedSegment.frame.origin.y - sizeSegment.frame.size.height - VERTICAL_SPACING, 100, 50)];
+                           CGRectMake(speedSegment.frame.origin.x + 30, speedSegment.frame.origin.y - speedSegment.frame.size.height - VERTICAL_SPACING, 100, 50)];
     
     [speedLabel setValue: @"Reproduction Speed" forKey: @"text"];
     [speedLabel setFont: [UIFont fontWithName: @"Helvetica" size: 10]];
@@ -98,7 +99,7 @@ NSArray *segmentSizes;
     
     // Mode Label
     UILabel *playModeLabel = [[UILabel alloc] initWithFrame:
-                          CGRectMake(modeSegment.frame.origin.x + 50, modeSegment.frame.origin.y - sizeSegment.frame.size.height - VERTICAL_SPACING, 100, 50)];
+                          CGRectMake(modeSegment.frame.origin.x + 50, modeSegment.frame.origin.y - modeSegment.frame.size.height - VERTICAL_SPACING, 100, 50)];
     
     [playModeLabel setValue: @"Mode" forKey: @"text"];
     [playModeLabel setFont: [UIFont fontWithName: @"Helvetica" size: 10]];
@@ -114,8 +115,8 @@ NSArray *segmentSizes;
     [view addSubview: randomButton];
     
     // Control Segments
-    [view addSubview: speedSegment];
     [view addSubview: sizeSegment];
+    [view addSubview: speedSegment];
     [view addSubview: modeSegment];
     
     // Labels
