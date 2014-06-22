@@ -11,12 +11,12 @@ import SpriteKit
 
 
 // All global Varibles
-var cells = Tile[]()
+
 var rowCells : Dictionary < Int, Tile[] > = Dictionary()
 var columnCells : Dictionary < Int, Tile[] > = Dictionary()
 var horizontalTiles = 0, verticalTiles = 0
 var currentTileSize : Int = 0
-
+var gridCells : Array< Array <Tile> > = []
 
 @objc class Grid  {
     
@@ -72,10 +72,7 @@ var currentTileSize : Int = 0
                 // anchorPoint means that the image is relative to the top left
                 tile.anchorPoint = CGPoint(x: 0, y: 1)
                 tile.position = CGPoint(x: startX + (x * tileSize), y:  height - (y * tileSize) - startY) //  - tileSize/2
-
                 
-                cells.append(tile)
-                row.append(tile)
                 
                 // Add elements to the columns as they go
                 if var column = columnCells[x] {
@@ -86,12 +83,30 @@ var currentTileSize : Int = 0
                 }
                 
                 
+                row.append(tile)
+                
             }
             
             rowCells.updateValue( row, forKey: rowIndex)
+            gridCells.append(row)
             rowIndex++
 
         }
+       
+    }
+    
+    class func getNode ( row : Int, _ column : Int) -> Tile? {
+        
+        // println("Column: \(column) VerticalTiles: \(verticalTiles) Row: \(row) HorizontalTiles: \(horizontalTiles)")
+        if row >= 0 && row < horizontalTiles {
+            // Vertical Tiles is <= because when creating cells there's a ... 'for y in 0...verticalTiles'
+            if column >= 0 && column <= verticalTiles {
+                return gridCells[column][row]
+            }
+        }
+
+        return nil
+
     }
     
     class func getNode( point : CGPoint) -> Tile? {
@@ -99,27 +114,11 @@ var currentTileSize : Int = 0
         let rowNumber : Int =  abs(((( Int(point.y) - sceneHeight) / currentTileSize ) * currentTileSize) / currentTileSize)
         let columnNumber : Int = Int(point.x) / currentTileSize
        
-        
-        if let row = rowCells[rowNumber] {
-            if let column = columnCells[columnNumber] {
+        return Grid.getNode(columnNumber, rowNumber)
 
-                for rowTile in row {
-                    for columnTile in column {
-                        
-                        if rowTile === columnTile {
-                            return rowTile
-                        }
-                        
-                    }
-                }
-                
-            }
-        }
-        
-        println("Block not found at: \(rowNumber), \(columnNumber)")
-        
-        return nil
     }
+    
+
     
     
     /*
@@ -138,43 +137,47 @@ var currentTileSize : Int = 0
     */
     class func applyGameRules() {
 
-                    let methodStart = NSDate()
+        let methodStart = NSDate()
         
-        for cell : Tile in cells {
-            
-
-            
-            /* ... Do whatever you need to do ... */
-            
-           
-            let aliveNeighbors = Grid.countAliveCells(cell.getAdjacentBlocks())
-            
-
-            
-            if cell.isAlive {
+        for tiles in gridCells {
+            for cell in tiles {
                 
-                // under-population or overcrowding
-                if aliveNeighbors < 2 || aliveNeighbors > 3 {
-                    cell.willChangeColor = true
-                }
-            
-            // Cell is dead
-            } else {
                 
-                // Reproduction
-                if aliveNeighbors == 3 {
-                    cell.willChangeColor = true
+                let aliveNeighbors = Grid.countAliveCells(cell.getAdjacentBlocks())
+                
+                if cell.isAlive {
+                    
+                    // under-population or overcrowding
+                    if aliveNeighbors < 2 || aliveNeighbors > 3 {
+                        cell.willChangeColor = true
+                    }
+                    
+                    // Cell is dead
+                } else {
+                    
+                    // Reproduction
+                    if aliveNeighbors == 3 {
+                        cell.willChangeColor = true
+                    }
                 }
+                
+                
             }
         }
         
-        for cell in cells {
-            if cell.willChangeColor {
-                cell.swapColor()
-                cell.willChangeColor = false
+
+        for tiles in gridCells {
+            for cell in tiles {
+                
+                if cell.willChangeColor {
+                    cell.swapColor()
+                    cell.willChangeColor = false
+                }
+                
             }
         }
         
+
         
         let methodFinish = NSDate()
         let execuationTime = methodFinish.timeIntervalSinceDate(methodStart)
@@ -195,12 +198,25 @@ var currentTileSize : Int = 0
     }
     
     class func emptyGrid() {
-        for tile in cells { tile.removeFromParent() }
-        cells = []
+        
+        for tiles in gridCells {
+            for tile in tiles {
+                tile.removeFromParent()
+            }
+        }
+        
+        gridCells = []
+
     }
     
     class func placeGridOnScreen (scene : SKScene) {
-        for tile in cells { scene.addChild(tile) }
+        
+        for tiles in gridCells {
+            for tile in tiles {
+                scene.addChild(tile)
+            }
+        }
+        
     }
     
     class func createNewGrid ( scene : SKScene ) {
@@ -257,41 +273,42 @@ class Tile : SKSpriteNode {
         
         var blocks : Tile[] = []
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-      /*
-        for rowNumber in [row - 1, row, row + 1] {
-            for columnNumber in [column - 1 , column , column + 1]{
-                
-                if columnNumber <= horizontalTiles && rowNumber <= verticalTiles {
-                    if let row = rowCells [rowNumber] {
-                        if let column = columnCells [columnNumber] {
-                            
-                            for rowCell in row {
-                                for columnCell in column {
-                                    
-                                    if rowCell === columnCell && !(rowCell === self) {
-                                        blocks.append(rowCell)
-                                    }
-                                    
-                                }
-                            }
-                            
-                        }
-                    }
-                }
-                
-            }
+        if let nwblk = Grid.getNode(self.row - 1, self.column - 1) {
+            blocks.append(nwblk)
         }
-    */
+        
+        if let nblk = Grid.getNode(self.row, self.column - 1) {
+            blocks.append(nblk)
+        }
+        
+        if let neblk = Grid.getNode(self.row + 1, self.column - 1) {
+            blocks.append(neblk)
+        }
+        
+//        if blocks.count > 3 { return blocks }
+        if let eblk = Grid.getNode(self.row + 1, self.column) {
+            blocks.append(eblk)
+        }
+        
+//        if blocks.count > 3 { return blocks }
+        if let seblk = Grid.getNode(self.row + 1, self.column + 1) {
+            blocks.append(seblk)
+        }
+        
+//        if blocks.count > 3 { return blocks }
+        if let sblk = Grid.getNode(self.row, self.column + 1) {
+            blocks.append(sblk)
+        }
+        
+//        if blocks.count > 3 { return blocks }
+        if let swblk = Grid.getNode(self.row - 1, self.column + 1) {
+            blocks.append(swblk)
+        }
+        
+//        if blocks.count > 3 { return blocks }
+        if let eblk = Grid.getNode(self.row - 1, self.column) {
+            blocks.append(eblk)
+        }
         
         return blocks
     }

@@ -3,6 +3,21 @@
 import CoreGraphics
 import Foundation
 
-var t = [1, 2, 3]
-t.extend([4,5,6])
-println(t)
+class Shoe {}
+
+var numbers : Int[][] = []
+
+
+for n in 0...10 {
+    
+    var tempArray : Array<Int> = []
+    
+    for n2 in 0...10 {
+        tempArray.append(n2)
+    }
+    numbers.append(tempArray)
+    println("\(numbers[0][0])")
+}
+
+
+

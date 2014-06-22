@@ -67,6 +67,7 @@ class GameScene : SKScene {
             timeToRandomizeGrid = false;
             
         }
+
         
         // Play Mode is active, time to shuffle critters
         if (WAFViewPlacer.isStartButtonSelected()) {
