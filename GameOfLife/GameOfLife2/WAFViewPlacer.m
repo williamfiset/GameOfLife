@@ -16,6 +16,12 @@
 
 #define SLIDER_WIDTH 165
 #define VERTICAL_SPACING 7
+#define SIDE_SPACING 10
+#define BELOW_HEIGHT view.frame.size.height - 35
+#define UPPER_HEIGHT view.frame.size.height - 75
+#define TEXT_HEIGHT 25
+#define LEFT_SEGMENT_SIZE 125
+#define RIGHT_SEGMENT_SIZE 150
 
 
 // Private Variables
@@ -33,12 +39,12 @@
     
     // Creates all the menu item text and constants
     segmentSpeeds = [NSDictionary dictionaryWithObjects: @[ @1.5, @0.75, @0 ] forKeys: @[ @"Slow", @"Med", @"Fast" ] ];
-    
     segmentSizes =  @[ @"10", @"16", @"20", @"32", @"40", @"64" ];
     gameModes = @{ @"Play" : @true , @"Stop" : @false };
+    blockAppearanceModes = @[ @"Random" , @"Empty" ];
     
     // Creates all the View Objects
-    randomButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+    blockAppearanceSegment = [[UISegmentedControl alloc] initWithItems: blockAppearanceModes];
     modeSegment = [[UISegmentedControl alloc] initWithItems: [gameModes allKeys] ];
     sizeSegment = [[UISegmentedControl alloc] initWithItems: segmentSizes];
     speedSegment = [[UISegmentedControl alloc] initWithItems: [segmentSpeeds allKeys] ];
@@ -51,22 +57,19 @@
     
     [self initVariables];
     
-  /* Buttons */
-    
-    [randomButton setFrame: CGRectMake( 10, view.frame.size.height - 100, 150, 60)];
-    [randomButton setTitle: @"Randomize" forState: UIControlStateNormal];
-    [randomButton.titleLabel setFont:[UIFont fontWithName: @"Helvetica-Bold" size:20.5]];
-    [randomButton addTarget: [WAFTouchEventHandler class] action: @selector(randomizeCells) forControlEvents: UIControlEventTouchDown];
-    
   /* SegmentControl */
 
     
-    [modeSegment setFrame: CGRectMake( 20, view.frame.size.height - 35 , 120, 25)];
+    [blockAppearanceSegment setFrame: CGRectMake(SIDE_SPACING, UPPER_HEIGHT , LEFT_SEGMENT_SIZE, TEXT_HEIGHT)];
+    [blockAppearanceSegment setTintColor: [UIColor whiteColor]];
+    [blockAppearanceSegment setSelectedSegmentIndex: 0]; // Random
+    
+    [modeSegment setFrame: CGRectMake( SIDE_SPACING, BELOW_HEIGHT , LEFT_SEGMENT_SIZE, TEXT_HEIGHT)];
     [modeSegment setTintColor: [UIColor whiteColor]];
-    [modeSegment setSelectedSegmentIndex: 0];
+    [modeSegment setSelectedSegmentIndex: 0]; // Stop
     
     
-    [sizeSegment setFrame: CGRectMake(view.frame.size.width * 0.5 , view.frame.size.height - 75 , 150, 25)];
+    [sizeSegment setFrame: CGRectMake(view.frame.size.width * 0.5 , UPPER_HEIGHT , RIGHT_SEGMENT_SIZE, TEXT_HEIGHT)];
     [sizeSegment setTintColor: [UIColor whiteColor]];
     [sizeSegment setSelectedSegmentIndex: 2]; // tileSize of 20
     [sizeSegment addTarget: [WAFTouchEventHandler class]
@@ -74,9 +77,9 @@
           forControlEvents: UIControlEventValueChanged];
     
     
-    [speedSegment setFrame: CGRectMake(view.frame.size.width * 0.5 , view.frame.size.height - 35 , 150, 25)];
+    [speedSegment setFrame: CGRectMake(view.frame.size.width * 0.5 , BELOW_HEIGHT , RIGHT_SEGMENT_SIZE, TEXT_HEIGHT)];
     [speedSegment setTintColor: [UIColor whiteColor]];
-    [speedSegment setSelectedSegmentIndex: 2]; // Loop Speed of Fast (0 pause)
+    [speedSegment setSelectedSegmentIndex: 2]; // Fast (0 pause)
 
     
    
@@ -114,20 +117,16 @@
     
   /* Place Things on Screen */
     
-    
-    // Buttons
-    [view addSubview: randomButton];
-    
     // Control Segments
     [view addSubview: sizeSegment];
     [view addSubview: speedSegment];
     [view addSubview: modeSegment];
+    [view addSubview: blockAppearanceSegment];
     
     // Labels
     [view addSubview: sizeLabel];
     [view addSubview: speedLabel];
     [view addSubview: playModeLabel];
-    
  
 }
 

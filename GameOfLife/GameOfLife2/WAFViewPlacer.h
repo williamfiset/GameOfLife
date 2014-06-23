@@ -19,12 +19,12 @@
 UISegmentedControl *sizeSegment;
 UISegmentedControl *speedSegment;
 UISegmentedControl *modeSegment;
-UIButton *randomButton;
+UISegmentedControl *blockAppearanceSegment;
 
 // Constant View Properties
 static NSDictionary *segmentSpeeds;
-
 static NSDictionary *gameModes;
+static NSArray *blockAppearanceModes;
 static NSArray *segmentSizes;
 
 
