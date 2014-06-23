@@ -42,13 +42,6 @@ var gridCells : Array< Array <Tile> > = []
             var row : Tile [] = []
             var column : Tile [] = [] // columns must be added as you go
             
-            
-            
-            // Stops Columns from forming
-//            if Float((height - (y * tileSize) - tileSize)) < verticalTileLimit { // - tileSize
-//                return
-//            }
-            
             for x in 0..horizontalTiles {
                 
                 // Stops row
@@ -141,9 +134,8 @@ var gridCells : Array< Array <Tile> > = []
         
         for tiles in gridCells {
             for cell in tiles {
-                
-                
-                let aliveNeighbors = Grid.countAliveCells(cell.getAdjacentBlocks())
+
+                let aliveNeighbors : Int = cell.getNumberOfAliveAdjacentBlocks()
                 
                 if cell.isAlive {
                     
@@ -164,8 +156,14 @@ var gridCells : Array< Array <Tile> > = []
                 
             }
         }
-        
 
+
+        let methodFinish = NSDate()
+        let execuationTime = methodFinish.timeIntervalSinceDate(methodStart)
+        println("executionTime: \(execuationTime)")
+        
+        
+        // This loop is needed to go back and actually change the color of the squares
         for tiles in gridCells {
             for cell in tiles {
                 
@@ -179,9 +177,7 @@ var gridCells : Array< Array <Tile> > = []
         
 
         
-        let methodFinish = NSDate()
-        let execuationTime = methodFinish.timeIntervalSinceDate(methodStart)
-        println("executionTime: \(execuationTime)")
+
         
     }
     
@@ -273,46 +269,98 @@ class Tile : SKSpriteNode {
         
         var blocks : Tile[] = []
         
-        if let nwblk = Grid.getNode(self.row - 1, self.column - 1) {
+        
+        if let nwblk = Grid.getNode(self.column - 1, self.row - 1) {
             blocks.append(nwblk)
         }
         
-        if let nblk = Grid.getNode(self.row, self.column - 1) {
+        if let nblk = Grid.getNode(self.column - 1, self.row) {
             blocks.append(nblk)
         }
         
-        if let neblk = Grid.getNode(self.row + 1, self.column - 1) {
+        if let neblk = Grid.getNode(self.column - 1, self.row + 1) {
             blocks.append(neblk)
         }
         
-//        if blocks.count > 3 { return blocks }
-        if let eblk = Grid.getNode(self.row + 1, self.column) {
+        if let eblk = Grid.getNode(self.column, self.row + 1) {
             blocks.append(eblk)
         }
         
-//        if blocks.count > 3 { return blocks }
-        if let seblk = Grid.getNode(self.row + 1, self.column + 1) {
+        if let seblk = Grid.getNode(self.column + 1, self.row + 1) {
             blocks.append(seblk)
         }
         
-//        if blocks.count > 3 { return blocks }
-        if let sblk = Grid.getNode(self.row, self.column + 1) {
+        if let sblk = Grid.getNode( self.column + 1, self.row) {
             blocks.append(sblk)
         }
         
-//        if blocks.count > 3 { return blocks }
-        if let swblk = Grid.getNode(self.row - 1, self.column + 1) {
+        if let swblk = Grid.getNode( self.column + 1, self.row - 1) {
             blocks.append(swblk)
         }
         
-//        if blocks.count > 3 { return blocks }
-        if let eblk = Grid.getNode(self.row - 1, self.column) {
+        if let eblk = Grid.getNode( self.column, self.row - 1) {
             blocks.append(eblk)
         }
         
         return blocks
     }
     
+    func getNumberOfAliveAdjacentBlocks() -> Int  {
+        
+        
+        var blocks = 0
+        
+        
+        if let nwblk = Grid.getNode(self.column - 1, self.row - 1) {
+            if nwblk.isAlive {
+                blocks++
+            }
+        }
+        
+        if let nblk = Grid.getNode(self.column - 1, self.row) {
+            if nblk.isAlive {
+                blocks++
+            }
+        }
+        
+        if let neblk = Grid.getNode(self.column - 1, self.row + 1) {
+            if neblk.isAlive {
+                blocks++
+            }
+        }
+        
+        if let eblk = Grid.getNode(self.column, self.row + 1) {
+            if eblk.isAlive {
+                blocks++
+            }
+        }
+        
+        if let seblk = Grid.getNode(self.column + 1, self.row + 1) {
+            if seblk.isAlive {
+                blocks++
+            }
+        }
+        
+        if let sblk = Grid.getNode( self.column + 1, self.row) {
+            if sblk.isAlive {
+                blocks++
+            }
+        }
+        
+        if let swblk = Grid.getNode( self.column + 1, self.row - 1) {
+            if swblk.isAlive {
+                blocks++
+            }
+        }
+        
+        if let wblk = Grid.getNode( self.column, self.row - 1) {
+            if wblk.isAlive {
+                blocks++
+            }
+        }
+        
+        return blocks
+    }
 
     
 }
