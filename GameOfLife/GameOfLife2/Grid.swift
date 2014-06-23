@@ -135,7 +135,7 @@ var gridCells : Array< Array <Tile> > = []
         for tiles in gridCells {
             for cell in tiles {
 
-                let aliveNeighbors : Int = cell.getNumberOfAliveAdjacentBlocks()
+                let aliveNeighbors : Int8 = cell.getNumberOfAliveAdjacentBlocks()
                 
                 if cell.isAlive {
                     
@@ -305,59 +305,29 @@ class Tile : SKSpriteNode {
         return blocks
     }
     
-    func getNumberOfAliveAdjacentBlocks() -> Int  {
+    func getNumberOfAliveAdjacentBlocks() -> Int8  {
         
+        var blocks : Int8 = 0
         
-        var blocks = 0
+        // Checks the blocks NSEW (better performance for sides)
+        if let sblk = Grid.getNode( self.column + 1, self.row) { if sblk.isAlive { blocks++ } }
+        if let nblk = Grid.getNode( self.column - 1, self.row) { if nblk.isAlive { blocks++ } }
+        if let wblk = Grid.getNode( self.column, self.row - 1) { if wblk.isAlive { blocks++ } }
+        if let eblk = Grid.getNode( self.column, self.row + 1) { if eblk.isAlive { blocks++ } }
         
-        
-        if let nwblk = Grid.getNode(self.column - 1, self.row - 1) {
-            if nwblk.isAlive {
-                blocks++
-            }
-        }
-        
-        if let nblk = Grid.getNode(self.column - 1, self.row) {
-            if nblk.isAlive {
-                blocks++
-            }
-        }
-        
-        if let neblk = Grid.getNode(self.column - 1, self.row + 1) {
-            if neblk.isAlive {
-                blocks++
-            }
-        }
-        
-        if let eblk = Grid.getNode(self.column, self.row + 1) {
-            if eblk.isAlive {
-                blocks++
-            }
-        }
-        
-        if let seblk = Grid.getNode(self.column + 1, self.row + 1) {
-            if seblk.isAlive {
-                blocks++
-            }
-        }
-        
-        if let sblk = Grid.getNode( self.column + 1, self.row) {
-            if sblk.isAlive {
-                blocks++
-            }
-        }
-        
-        if let swblk = Grid.getNode( self.column + 1, self.row - 1) {
-            if swblk.isAlive {
-                blocks++
-            }
-        }
-        
-        if let wblk = Grid.getNode( self.column, self.row - 1) {
-            if wblk.isAlive {
-                blocks++
-            }
-        }
+        /*
+        Because of the rule:
+        "Any live cell with more than three live neighbours dies, as if by overcrowding."
+        You can return when blocks is more than three
+        */
+        if blocks > 3 {return blocks}
+        if let seblk = Grid.getNode(self.column + 1, self.row + 1) { if seblk.isAlive { blocks++ } }
+        if blocks > 3 {return blocks}
+        if let swblk = Grid.getNode(self.column + 1, self.row - 1) { if swblk.isAlive { blocks++ } }
+        if blocks > 3 {return blocks}
+        if let nwblk = Grid.getNode(self.column - 1, self.row - 1) { if nwblk.isAlive { blocks++ } }
+        if blocks > 3 {return blocks}
+        if let neblk = Grid.getNode(self.column - 1, self.row + 1) { if neblk.isAlive { blocks++ } }
         
         return blocks
     }
