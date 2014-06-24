@@ -126,8 +126,8 @@ var gridCells : Array< Array <Tile> > = []
     If The cell is white and it has less than 2 neighbors or has more than 3 neighbors the cell dies
     of over population. However, if the critter as exactly three live neighbors then it respawns.
     
-    
     */
+    
     class func applyGameRules() {
 
         let methodStart = NSDate()
@@ -175,14 +175,10 @@ var gridCells : Array< Array <Tile> > = []
             }
         }
         
-
-        
-
-        
+ 
     }
     
-    
-    
+
     // Counts all alive cells in a given array of tiles
     class func countAliveCells( tiles : Tile[] ) -> Int {
         
