@@ -24,6 +24,7 @@
 #define RIGHT_SEGMENT_SIZE 150
 
 
+
 // Private Variables
 @interface WAFViewHandler ()
 + (void) initVariables;
@@ -88,30 +89,41 @@
     
     
     // Reproduction Speed
-    UILabel *speedLabel = [[UILabel alloc] initWithFrame:
+    UILabel *loopSpeedLabel = [[UILabel alloc] initWithFrame:
                            CGRectMake(speedSegment.frame.origin.x + 30, speedSegment.frame.origin.y - speedSegment.frame.size.height - VERTICAL_SPACING, 100, 50)];
     
-    [speedLabel setValue: @"Reproduction Speed" forKey: @"text"];
-    [speedLabel setFont: [UIFont fontWithName: @"Helvetica" size: 10]];
+    [loopSpeedLabel setValue: @"Reproduction Speed" forKey: @"text"];
+    [loopSpeedLabel setFont: [UIFont fontWithName: @"Helvetica" size: 10]];
+    [loopSpeedLabel setTextColor: [UIColor whiteColor]];
+
     
     
     // Critter Size
-    UILabel *sizeLabel = [[UILabel alloc] initWithFrame:
+    UILabel *tileSizeLabel = [[UILabel alloc] initWithFrame:
                           CGRectMake(sizeSegment.frame.origin.x + 57, sizeSegment.frame.origin.y - sizeSegment.frame.size.height - VERTICAL_SPACING, 100, 50)];
     
-    [sizeLabel setValue: @"Critter Size" forKey: @"text"];
-    [sizeLabel setFont: [UIFont fontWithName: @"Helvetica" size: 10]];
-    
+    [tileSizeLabel setValue: @"Critter Size" forKey: @"text"];
+    [tileSizeLabel setFont: [UIFont fontWithName: @"Helvetica" size: 10]];
+    [tileSizeLabel setTextColor: [UIColor whiteColor]];
+
     
     
     // Mode Label
-    UILabel *playModeLabel = [[UILabel alloc] initWithFrame:
+    UILabel *player_stop_label = [[UILabel alloc] initWithFrame:
                           CGRectMake(modeSegment.frame.origin.x + 50, modeSegment.frame.origin.y - modeSegment.frame.size.height - VERTICAL_SPACING, 100, 50)];
     
-    [playModeLabel setValue: @"Mode" forKey: @"text"];
-    [playModeLabel setFont: [UIFont fontWithName: @"Helvetica" size: 10]];
+    [player_stop_label setValue: @"Mode" forKey: @"text"];
+    [player_stop_label setFont: [UIFont fontWithName: @"Helvetica" size: 10]];
+    [player_stop_label setTextColor: [UIColor whiteColor]];
     
+    // startMode Label
     
+    UILabel *random_empty_label = [[UILabel alloc] initWithFrame:
+                                  CGRectMake(blockAppearanceSegment.frame.origin.x + 30, blockAppearanceSegment.frame.origin.y - blockAppearanceSegment.frame.size.height - VERTICAL_SPACING, 100, 50)];
+    
+    [random_empty_label setValue: @"Starting Mode" forKey: @"text"];
+    [random_empty_label setFont: [UIFont fontWithName: @"Helvetica" size: 10]];
+    [random_empty_label setTextColor: [UIColor whiteColor]];
     
     
     
@@ -123,11 +135,13 @@
     [view addSubview: modeSegment];
     [view addSubview: blockAppearanceSegment];
     
+    
     // Labels
-    [view addSubview: sizeLabel];
-    [view addSubview: speedLabel];
-    [view addSubview: playModeLabel];
- 
+    [view addSubview: tileSizeLabel];
+    [view addSubview: loopSpeedLabel];
+    [view addSubview: player_stop_label];
+    [view addSubview: random_empty_label];
+    
 }
 
 

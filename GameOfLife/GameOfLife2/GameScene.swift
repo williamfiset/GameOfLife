@@ -38,7 +38,7 @@ class GameScene : SKScene {
         
         
         // Create background and places buttons on the screen
-        self.backgroundColor = UIColor(red: 122/255.0, green: 122/255.0, blue: 122/255.0, alpha: 1)
+        self.backgroundColor =  UIColor(red: 55/255.0, green: 55/255.0, blue: 55/255.0, alpha: 0.75) // UIColor(red: 122/255.0, green: 122/255.0, blue: 122/255.0, alpha: 1)
         WAFViewHandler.placeMainSceneViews(view)
 
         let grid = Grid( tileSize : Int(WAFViewHandler.segmentSizeValue()) , scene : self)

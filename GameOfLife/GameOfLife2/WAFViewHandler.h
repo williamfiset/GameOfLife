@@ -31,6 +31,7 @@ static NSArray *segmentSizes;
 BOOL justChangedTileSize;
 BOOL currentlyOnEmptyGrid;
 
+
 @interface WAFViewHandler : NSObject
 
 + (void) placeMainSceneViews: (UIView*) view;
