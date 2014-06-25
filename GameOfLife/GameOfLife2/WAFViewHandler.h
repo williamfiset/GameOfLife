@@ -38,7 +38,7 @@ BOOL currentlyOnEmptyGrid;
 // Allows you to get the values on the segments
 + (double) segmentLoopSpeed;
 + (int) segmentSizeValue;
-+ (BOOL) isStartButtonSelected;
++ (BOOL) playButtonIsSelected;
 + (BOOL) randomGridIsSelected;
 + (void) setPlayModeToStop: (BOOL) predicate;
 

@@ -35,7 +35,7 @@ class GameViewController: UIViewController {
     override func touchesMoved(touches: NSSet!, withEvent event: UIEvent!) {
 
         // If the game in not running the user may draw
-        if !WAFViewHandler.isStartButtonSelected() {
+        if !WAFViewHandler.playButtonIsSelected() {
             
             for anObject : AnyObject in touches! {
                 if let touch = anObject as? UITouch {
@@ -66,7 +66,7 @@ class GameViewController: UIViewController {
             touchedNode.touched = false
         }
         
-        if touchedNodes.count == 0 && !WAFViewHandler.isStartButtonSelected(){
+        if touchedNodes.count == 0 && !WAFViewHandler.playButtonIsSelected(){
 
             for anObject : AnyObject in touches! {
                 if let touch = anObject as? UITouch {

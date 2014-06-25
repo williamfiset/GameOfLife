@@ -58,18 +58,16 @@ class GameScene : SKScene {
         let methodStart = NSDate()
         let newTileSize = (Int(WAFViewHandler.segmentSizeValue()))
         let drawRandomizedGrid : Bool = WAFViewHandler.randomGridIsSelected()
-        let playButtonSelected : Bool = WAFViewHandler.isStartButtonSelected()
+        let playButtonSelected : Bool = WAFViewHandler.playButtonIsSelected()
 
         
-        if (drawRandomizedGrid) {
-            currentlyOnEmptyGrid = false;
-        }
-        
+       
         // Change the tileSize every difference of four pixels
-        if (oldTileSize != newTileSize) {
+        if (oldTileSize != newTileSize || (drawRandomizedGrid && Bool(currentlyOnEmptyGrid)) ) {
             
             Grid.createNewGrid(self)
             oldTileSize = newTileSize
+            currentlyOnEmptyGrid = false;
         
             
         // Grid needs to be white

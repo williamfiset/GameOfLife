@@ -142,7 +142,7 @@
     return [segmentSizes[sizeSegment.selectedSegmentIndex] intValue] ;
 }
 
-+ (BOOL) isStartButtonSelected {
++ (BOOL) playButtonIsSelected {
     return [gameModes[ [modeSegment titleForSegmentAtIndex: modeSegment.selectedSegmentIndex ] ] boolValue] ;
 }
 

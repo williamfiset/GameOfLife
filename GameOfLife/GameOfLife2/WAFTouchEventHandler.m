@@ -19,9 +19,11 @@
 
 + (void) tileSizeChanged: (UISegmentedControl *) tileSizeSelector {
     
-    if ( [WAFViewHandler isStartButtonSelected] ) {
+    if ( [WAFViewHandler playButtonIsSelected] ) {
         
-        [modeSegment setSelectedSegmentIndex: 0]; // Stop
+        // turning this on will activate the stop button when changing tile size
+        // [WAFViewHandler setPlayModeToStop: YES];
+        
         justChangedTileSize = YES; // This makes sure you skip the pause at the end of the loop
         
     }
@@ -32,16 +34,18 @@
     
 }
 
+
 + (void) loopSpeedChanged:(UISegmentedControl *) selector {
     
 }
+
 
 + (void) random_empty_changed:(UISegmentedControl *)selector {
     
     currentlyOnEmptyGrid = !currentlyOnEmptyGrid;
     
-    if ( [WAFViewHandler isStartButtonSelected] ) {
-        [modeSegment setSelectedSegmentIndex: 0]; // Stop
+    if ( [WAFViewHandler playButtonIsSelected] ) {
+        // [WAFViewHandler setPlayModeToStop: YES];
     }
     
 
