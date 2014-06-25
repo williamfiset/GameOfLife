@@ -79,6 +79,7 @@
 		C6626DF81951085000630399 = {
 			isa = PBXGroup;
 			children = (
+				C6D10702195A64220097C828 /* iPad */,
 				C6C37A40195916CD0067D49D /* Default-568h@2x.png */,
 				C6626E031951085000630399 /* GameOfLife */,
 				C6626E1A1951085000630399 /* GameOfLifeTests */,
@@ -168,6 +169,13 @@
 				C6A5C8AC19511DC3007256A0 /* GameOfLife.psd */,
 			);
 			name = "Ai & Ps Files";
+			sourceTree = "<group>";
+		};
+		C6D10702195A64220097C828 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,10 +405,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = GameOfLife2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Game Of Life";
 				SWIFT_OBJC_BRIDGING_HEADER = "GameOfLife2/GameOfLife2-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -411,9 +421,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = GameOfLife2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Game Of Life";
 				SWIFT_OBJC_BRIDGING_HEADER = "GameOfLife2/GameOfLife2-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
