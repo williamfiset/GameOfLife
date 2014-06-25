@@ -48,7 +48,7 @@ var gridCells : Array< Array <Tile> > = []
                 if ( (startX + (x * tileSize) + tileSize) > sceneWidth ) {
                     break
                 }
-               
+                
                 
                 // Randomly Selects a Color for the Tile
                 var nodeColor = UIColor.blackColor()
@@ -71,7 +71,7 @@ var gridCells : Array< Array <Tile> > = []
                 if var column = columnCells[x] {
                     column.append(tile)
                     columnCells[x] = column
-                }else{
+                } else {
                     columnCells[x] = [tile]
                 }
                 
@@ -130,7 +130,7 @@ var gridCells : Array< Array <Tile> > = []
     
     class func applyGameRules() {
 
-        let methodStart = NSDate()
+
         
         for tiles in gridCells {
             for cell in tiles {
@@ -158,10 +158,7 @@ var gridCells : Array< Array <Tile> > = []
         }
 
 
-        let methodFinish = NSDate()
-        let execuationTime = methodFinish.timeIntervalSinceDate(methodStart)
-        println("executionTime: \(execuationTime)")
-        
+       
         
         // This loop is needed to go back and actually change the color of the squares
         for tiles in gridCells {
@@ -189,6 +186,7 @@ var gridCells : Array< Array <Tile> > = []
         return aliveCells
     }
     
+    /* Removes the grid from the screen */
     class func emptyGrid() {
         
         for tiles in gridCells {
@@ -199,6 +197,19 @@ var gridCells : Array< Array <Tile> > = []
         
         gridCells = []
 
+    }
+    
+    /* Makes the grid white */
+    class func makeWhiteGrid() {
+
+        for tiles in gridCells {
+            for tile in tiles {
+                if tile.isAlive {
+                    tile.swapColor()
+                }
+            }
+        }
+        
     }
     
     class func placeGridOnScreen (scene : SKScene) {
@@ -214,14 +225,13 @@ var gridCells : Array< Array <Tile> > = []
     class func createNewGrid ( scene : SKScene ) {
         
         Grid.emptyGrid()
-        Grid(tileSize: Int(WAFViewPlacer.segmentSizeValue()) , scene : scene)
+        Grid(tileSize: Int(WAFViewHandler.segmentSizeValue()) , scene : scene)
         Grid.placeGridOnScreen(scene)
         
     }
-    
-    
-    
 }
+
+
 
 class Tile : SKSpriteNode {
     

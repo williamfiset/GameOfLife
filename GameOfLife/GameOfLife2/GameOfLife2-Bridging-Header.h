@@ -3,5 +3,5 @@
 //
 
 
-#import "WAFViewPlacer.h"
+#import "WAFViewHandler.h"
 #import "GameOfLife2-Bridging-Header.h"

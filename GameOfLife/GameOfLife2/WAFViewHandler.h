@@ -1,5 +1,5 @@
 //
-//  WAFViewPlacer.h
+//  WAFViewHandler.h
 //  GameOfLife
 //
 //  Created by William Fiset on 2014-06-14.
@@ -29,9 +29,9 @@ static NSArray *segmentSizes;
 
 
 BOOL justChangedTileSize;
+BOOL currentlyOnEmptyGrid;
 
-
-@interface WAFViewPlacer : NSObject
+@interface WAFViewHandler : NSObject
 
 + (void) placeMainSceneViews: (UIView*) view;
 
@@ -39,6 +39,8 @@ BOOL justChangedTileSize;
 + (double) segmentLoopSpeed;
 + (int) segmentSizeValue;
 + (BOOL) isStartButtonSelected;
++ (BOOL) randomGridIsSelected;
++ (void) setPlayModeToStop: (BOOL) predicate;
 
 @end
 

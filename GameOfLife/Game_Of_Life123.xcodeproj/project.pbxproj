@@ -13,7 +13,7 @@
 		C6626E101951085000630399 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6626E0E1951085000630399 /* Main.storyboard */; };
 		C6626E121951085000630399 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6626E111951085000630399 /* Images.xcassets */; };
 		C6626E1E1951085000630399 /* GameOfLife2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6626E1D1951085000630399 /* GameOfLife2Tests.swift */; };
-		C6626E2A1951096A00630399 /* WAFViewPlacer.m in Sources */ = {isa = PBXBuildFile; fileRef = C6626E291951096A00630399 /* WAFViewPlacer.m */; };
+		C6626E2A1951096A00630399 /* WAFViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C6626E291951096A00630399 /* WAFViewHandler.m */; };
 		C6626E2C195109A600630399 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6626E2B195109A600630399 /* Grid.swift */; };
 		C6A5C8AD19511DC3007256A0 /* circle.ai in Resources */ = {isa = PBXBuildFile; fileRef = C6A5C8A819511DC3007256A0 /* circle.ai */; };
 		C6A5C8AE19511DC3007256A0 /* circle45.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A5C8A919511DC3007256A0 /* circle45.png */; };
@@ -45,8 +45,8 @@
 		C6626E1C1951085000630399 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6626E1D1951085000630399 /* GameOfLife2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfLife2Tests.swift; sourceTree = "<group>"; };
 		C6626E271951096900630399 /* GameOfLife2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GameOfLife2-Bridging-Header.h"; sourceTree = "<group>"; };
-		C6626E281951096A00630399 /* WAFViewPlacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAFViewPlacer.h; sourceTree = "<group>"; };
-		C6626E291951096A00630399 /* WAFViewPlacer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAFViewPlacer.m; sourceTree = "<group>"; };
+		C6626E281951096A00630399 /* WAFViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAFViewHandler.h; sourceTree = "<group>"; };
+		C6626E291951096A00630399 /* WAFViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAFViewHandler.m; sourceTree = "<group>"; };
 		C6626E2B195109A600630399 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		C6A5C8A819511DC3007256A0 /* circle.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = circle.ai; sourceTree = "<group>"; };
 		C6A5C8A919511DC3007256A0 /* circle45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle45.png; sourceTree = "<group>"; };
@@ -103,8 +103,8 @@
 				C6626E2B195109A600630399 /* Grid.swift */,
 				C6626E0A1951085000630399 /* GameScene.swift */,
 				C6626E0C1951085000630399 /* GameViewController.swift */,
-				C6626E281951096A00630399 /* WAFViewPlacer.h */,
-				C6626E291951096A00630399 /* WAFViewPlacer.m */,
+				C6626E281951096A00630399 /* WAFViewHandler.h */,
+				C6626E291951096A00630399 /* WAFViewHandler.m */,
 				C6E1588A1954F51700252FC3 /* WAFTouchEventHandler.h */,
 				C6E1588B1954F51700252FC3 /* WAFTouchEventHandler.m */,
 				C6626E041951085000630399 /* Supporting Files */,
@@ -276,7 +276,7 @@
 			files = (
 				C6626E0B1951085000630399 /* GameScene.swift in Sources */,
 				C6626E0D1951085000630399 /* GameViewController.swift in Sources */,
-				C6626E2A1951096A00630399 /* WAFViewPlacer.m in Sources */,
+				C6626E2A1951096A00630399 /* WAFViewHandler.m in Sources */,
 				C6626E2C195109A600630399 /* Grid.swift in Sources */,
 				C6E1588C1954F51700252FC3 /* WAFTouchEventHandler.m in Sources */,
 				C6626E071951085000630399 /* AppDelegate.swift in Sources */,

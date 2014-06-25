@@ -1,5 +1,5 @@
 //
-//  WAFViewPlacer.m
+//  WAFViewHandler.m
 //  GameOfLife
 //
 //  Created by William Fiset on 2014-06-14.
@@ -11,7 +11,7 @@
 @import UIKit;
 @import Foundation;
 
-#import "WAFViewPlacer.h"
+#import "WAFViewHandler.h"
 #import "WAFTouchEventHandler.h"
 
 #define SLIDER_WIDTH 165
@@ -25,12 +25,12 @@
 
 
 // Private Variables
-@interface WAFViewPlacer ()
+@interface WAFViewHandler ()
 + (void) initVariables;
 @end
 
 
-@implementation WAFViewPlacer
+@implementation WAFViewHandler
 
 
 + (void) initVariables {
@@ -144,6 +144,23 @@
 
 + (BOOL) isStartButtonSelected {
     return [gameModes[ [modeSegment titleForSegmentAtIndex: modeSegment.selectedSegmentIndex ] ] boolValue] ;
+}
+
++ (BOOL) randomGridIsSelected {
+    
+    // Tests to see if Gird is set to be random (index 0)
+    return [blockAppearanceSegment selectedSegmentIndex] == 0;
+}
+
+
++ (void) setPlayModeToStop: (BOOL) predicate {
+
+    if (predicate) {
+        [modeSegment setSelectedSegmentIndex: 0];
+    } else {
+        [modeSegment setSelectedSegmentIndex: 1];
+    }
+    
 }
 
 

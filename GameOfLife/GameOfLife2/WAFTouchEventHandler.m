@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WAFTouchEventHandler.h"
-#import "WAFViewPlacer.h"
+#import "WAFViewHandler.h"
 #import <Foundation/Foundation.h>
 #import "GameOfLife2-Bridging-Header.h"
 
@@ -19,15 +19,16 @@
 
 + (void) tileSizeChanged: (UISegmentedControl *) tileSizeSelector {
     
-    if ( [WAFViewPlacer isStartButtonSelected] ) {
+    if ( [WAFViewHandler isStartButtonSelected] ) {
         
         [modeSegment setSelectedSegmentIndex: 0]; // Stop
         justChangedTileSize = YES; // This makes sure you skip the pause at the end of the loop
+        
     }
     
 }
 
-+ (void) gameModeChanged:(UISegmentedControl *) selector {
++ (void) stop_play_changed:(UISegmentedControl *)selector {
     
 }
 
@@ -35,13 +36,15 @@
     
 }
 
-+ (void) randomizeCells {
++ (void) random_empty_changed:(UISegmentedControl *)selector {
     
-    if ( [WAFViewPlacer isStartButtonSelected] ) {
+    currentlyOnEmptyGrid = !currentlyOnEmptyGrid;
+    
+    if ( [WAFViewHandler isStartButtonSelected] ) {
         [modeSegment setSelectedSegmentIndex: 0]; // Stop
     }
     
-    timeToRandomizeGrid = YES;
+
 }
 
 

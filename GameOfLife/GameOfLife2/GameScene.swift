@@ -34,60 +34,129 @@ class GameScene : SKScene {
         sceneHeight = Int(self.size.height)
         sceneWidth = Int(self.size.width)
         verticalTileLimit = 90.0 // hardcoding this is the best option because of different screen sizes
-        timeToRandomizeGrid = false
+        currentlyOnEmptyGrid = false;
+        
         
         // Create background and places buttons on the screen
         self.backgroundColor = UIColor(red: 122/255.0, green: 122/255.0, blue: 122/255.0, alpha: 1)
-        WAFViewPlacer.placeMainSceneViews(view)
+        WAFViewHandler.placeMainSceneViews(view)
 
-        let grid = Grid( tileSize : Int(WAFViewPlacer.segmentSizeValue()) , scene : self)
+        let grid = Grid( tileSize : Int(WAFViewHandler.segmentSizeValue()) , scene : self)
         Grid.placeGridOnScreen(self)
         
-        oldTileSize = Int(WAFViewPlacer.segmentSizeValue())
-
+        oldTileSize = Int(WAFViewHandler.segmentSizeValue())
         
     }
     
+    
     /* Called before each frame is rendered */
-    override func update(currentTime: CFTimeInterval) {
+    override func update( currentTime: CFTimeInterval) {
 
-        let newTileSize = (Int(WAFViewPlacer.segmentSizeValue()) / 4 ) * 4
+        
+        
+        // Starts timer for loop
+        let methodStart = NSDate()
+        let newTileSize = (Int(WAFViewHandler.segmentSizeValue()))
+        let drawRandomizedGrid : Bool = WAFViewHandler.randomGridIsSelected()
+        let playButtonSelected : Bool = WAFViewHandler.isStartButtonSelected()
+
+        
+        if (drawRandomizedGrid) {
+            currentlyOnEmptyGrid = false;
+        }
         
         // Change the tileSize every difference of four pixels
-        if (newTileSize % 4 == 0 && oldTileSize != newTileSize) { // or time to randomize Grid
+        if (oldTileSize != newTileSize) {
             
             Grid.createNewGrid(self)
+            oldTileSize = newTileSize
+        
+            
+        // Grid needs to be white
+        } else if ( !drawRandomizedGrid && !Bool(currentlyOnEmptyGrid) ) { // and not currently on empty grid
+            
+            Grid.makeWhiteGrid()
+            WAFViewHandler.setPlayModeToStop(true)
+            currentlyOnEmptyGrid = true;
 
-            oldTileSize = newTileSize
-            
-        } else if (Bool(timeToRandomizeGrid)){
-            
-            Grid.createNewGrid(self)
-            oldTileSize = newTileSize
-            timeToRandomizeGrid = false;
-            
         }
+        
+
 
         
         // Play Mode is active, time to shuffle critters
-        if (WAFViewPlacer.isStartButtonSelected()) {
+        if (playButtonSelected) {
             Grid.applyGameRules()
         }
         
         
+        // Stop timer for loop to
+        let methodFinish = NSDate()
+        let execuationTime : Double = methodFinish.timeIntervalSinceDate(methodStart)
         
-        if (WAFViewPlacer.isStartButtonSelected()){ //  && Bool(justChangedTileSize) 
+        
+        
+        
+        if (playButtonSelected) { //  && Bool(justChangedTileSize)
 
             // Changes Loop Speed (determined by slider)
-//            let pauseTime = NSTimeInterval( NSNumber(double: WAFViewPlacer.segmentLoopSpeed()) )
-//            NSThread.sleepForTimeInterval(pauseTime)
+            
+            var loopSpeed : Double = execuationTime
+            let sliderLoopSpeed = WAFViewHandler.segmentLoopSpeed()
+            
+            // If the execution speed is less than the loopSpeedRate get the difference to find the pause speed,
+            // other wise the execution time is the loop pause speed
+            if execuationTime < sliderLoopSpeed {
+                loopSpeed = sliderLoopSpeed - execuationTime
+            }
+
+            let pauseTime = NSTimeInterval( NSNumber(double: loopSpeed  ))
+            NSThread.sleepForTimeInterval(pauseTime)
             
         } else {
             justChangedTileSize = false
         }
         
+        
+        
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

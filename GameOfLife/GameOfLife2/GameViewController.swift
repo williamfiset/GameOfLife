@@ -23,7 +23,7 @@ class GameViewController: UIViewController {
         
         let skView = self.view as SKView
         //        skView.showsFPS = true
-//        skView.showsNodeCount = true
+        skView.showsNodeCount = true
         
         let gameScene = GameScene(size: skView.frame.size)
         gameScene.scaleMode = .AspectFill
@@ -35,7 +35,7 @@ class GameViewController: UIViewController {
     override func touchesMoved(touches: NSSet!, withEvent event: UIEvent!) {
 
         // If the game in not running the user may draw
-        if !WAFViewPlacer.isStartButtonSelected() {
+        if !WAFViewHandler.isStartButtonSelected() {
             
             for anObject : AnyObject in touches! {
                 if let touch = anObject as? UITouch {
@@ -66,7 +66,7 @@ class GameViewController: UIViewController {
             touchedNode.touched = false
         }
         
-        if touchedNodes.count == 0 && !WAFViewPlacer.isStartButtonSelected(){
+        if touchedNodes.count == 0 && !WAFViewHandler.isStartButtonSelected(){
 
             for anObject : AnyObject in touches! {
                 if let touch = anObject as? UITouch {
