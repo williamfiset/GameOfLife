@@ -16,10 +16,9 @@ var rowCells : Dictionary < Int, Tile[] > = Dictionary()
 var columnCells : Dictionary < Int, Tile[] > = Dictionary()
 var horizontalTiles = 0, verticalTiles = 0
 var currentTileSize : Int = 0
-var gridCells : Array< Array <Tile> > = []
+var gridCells : Tile[][] = []
 
 @objc class Grid  {
-    
     
     init ( tileSize : Int , scene : SKScene) {
         

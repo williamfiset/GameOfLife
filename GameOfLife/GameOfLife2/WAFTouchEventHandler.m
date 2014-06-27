@@ -18,6 +18,7 @@
 
 
 + (void) tileSizeChanged: (UISegmentedControl *) tileSizeSelector {
+
     
     if ( [WAFViewHandler playButtonIsSelected] ) {
         
@@ -41,15 +42,11 @@
 
 
 + (void) random_empty_changed:(UISegmentedControl *)selector {
-    
-    currentlyOnEmptyGrid = !currentlyOnEmptyGrid;
-    
-    if ( [WAFViewHandler playButtonIsSelected] ) {
-        // [WAFViewHandler setPlayModeToStop: YES];
-    }
+    clickedToChangeMode = true;
+}
     
 
-}
+
 
 
 @end

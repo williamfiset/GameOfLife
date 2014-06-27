@@ -64,6 +64,10 @@
     [blockAppearanceSegment setFrame: CGRectMake(SIDE_SPACING, UPPER_HEIGHT , LEFT_SEGMENT_SIZE, TEXT_HEIGHT)];
     [blockAppearanceSegment setTintColor: [UIColor whiteColor]];
     [blockAppearanceSegment setSelectedSegmentIndex: 0]; // Random
+    [blockAppearanceSegment addTarget: [WAFTouchEventHandler class]
+                               action: @selector(random_empty_changed:)
+                     forControlEvents: UIControlEventValueChanged];
+    
     
     [modeSegment setFrame: CGRectMake( SIDE_SPACING, BELOW_HEIGHT , LEFT_SEGMENT_SIZE, TEXT_HEIGHT)];
     [modeSegment setTintColor: [UIColor whiteColor]];
@@ -160,7 +164,7 @@
     return [gameModes[ [modeSegment titleForSegmentAtIndex: modeSegment.selectedSegmentIndex ] ] boolValue] ;
 }
 
-+ (BOOL) randomGridIsSelected {
++ (BOOL) randomButtonIsSelected {
     
     // Tests to see if Gird is set to be random (index 0)
     return [blockAppearanceSegment selectedSegmentIndex] == 0;

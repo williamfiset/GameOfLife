@@ -10,6 +10,8 @@
 
 @class UISegmentedControl;
 
+BOOL clickedToChangeMode;
+BOOL justChangedTileSize;
 
 @interface WAFTouchEventHandler : NSObject
 

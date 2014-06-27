@@ -27,11 +27,6 @@ static NSDictionary *gameModes;
 static NSArray *blockAppearanceModes;
 static NSArray *segmentSizes;
 
-
-BOOL justChangedTileSize;
-BOOL currentlyOnEmptyGrid;
-
-
 @interface WAFViewHandler : NSObject
 
 + (void) placeMainSceneViews: (UIView*) view;
@@ -40,7 +35,7 @@ BOOL currentlyOnEmptyGrid;
 + (double) segmentLoopSpeed;
 + (int) segmentSizeValue;
 + (BOOL) playButtonIsSelected;
-+ (BOOL) randomGridIsSelected;
++ (BOOL) randomButtonIsSelected;
 + (void) setPlayModeToStop: (BOOL) predicate;
 
 @end

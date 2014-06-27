@@ -21,7 +21,7 @@ let screenWidth = 640
 
 class GameScene : SKScene {
     
-    
+    var emptyGridHasBeenDrawn = false;
     var oldTileSize : Int = 0
     
     /* Setup your scene here */
@@ -34,7 +34,7 @@ class GameScene : SKScene {
         sceneHeight = Int(self.size.height)
         sceneWidth = Int(self.size.width)
         verticalTileLimit = 90.0 // hardcoding this is the best option because of different screen sizes
-        currentlyOnEmptyGrid = false;
+        clickedToChangeMode = false;
         
         
         // Create background and places buttons on the screen
@@ -48,38 +48,64 @@ class GameScene : SKScene {
         
     }
     
+    /* Makes the choice of choosing between drawing an empty grid and drawing a randomized grid */
+    func drawGrid( #drawRandomGrid : Bool , newTileSize : Int ) -> () {
+        
+        // draw empty grid
+        if (!drawRandomGrid && !emptyGridHasBeenDrawn) {
+            
+            Grid.makeWhiteGrid()
+            WAFViewHandler.setPlayModeToStop(true)
+            emptyGridHasBeenDrawn = true;
+            
+        // Draw random blocks on the screen
+        } else if ( (oldTileSize != newTileSize || Bool(clickedToChangeMode))  && drawRandomGrid ) {
+            
+            Grid.createNewGrid(self)
+            oldTileSize = newTileSize
+            emptyGridHasBeenDrawn = false;
+            
+        }
+        
+    }
+    
+    /* Pauses loop speed depending on if the play button is pressed and how long the pause needs to be */
+    func pauseLoop (  playButtonStatus playButtonSelected : Bool , loopExecutionTime executionTime : Double ) -> ( ) {
+        
+        if (playButtonSelected) {
+            
+            // Changes Loop Speed (determined by slider)
+            var loopSpeed : Double = executionTime
+            let sliderLoopSpeed = WAFViewHandler.segmentLoopSpeed()
+            
+            // If the execution speed is less than the loopSpeedRate get the difference to find the pause speed,
+            // other wise the execution time is the loop pause speed
+            if executionTime < sliderLoopSpeed {
+                loopSpeed = sliderLoopSpeed - executionTime
+            }
+            
+            let pauseTime = NSTimeInterval( NSNumber(double: loopSpeed  ))
+            NSThread.sleepForTimeInterval(pauseTime)
+            
+        } 
+        
+    }
+    
     
     /* Called before each frame is rendered */
     override func update( currentTime: CFTimeInterval) {
 
         
-        
         // Starts timer for loop
         let methodStart = NSDate()
+        
+        
         let newTileSize = (Int(WAFViewHandler.segmentSizeValue()))
-        let drawRandomizedGrid : Bool = WAFViewHandler.randomGridIsSelected()
+        let drawRandomGrid : Bool = WAFViewHandler.randomButtonIsSelected()
         let playButtonSelected : Bool = WAFViewHandler.playButtonIsSelected()
 
         
-       
-        // Change the tileSize every difference of four pixels
-        if (oldTileSize != newTileSize || (drawRandomizedGrid && Bool(currentlyOnEmptyGrid)) ) {
-            
-            Grid.createNewGrid(self)
-            oldTileSize = newTileSize
-            currentlyOnEmptyGrid = false;
-        
-            
-        // Grid needs to be white
-        } else if ( !drawRandomizedGrid && !Bool(currentlyOnEmptyGrid) ) { // and not currently on empty grid
-            
-            Grid.makeWhiteGrid()
-            WAFViewHandler.setPlayModeToStop(true)
-            currentlyOnEmptyGrid = true;
-
-        }
-        
-
+        drawGrid(drawRandomGrid: drawRandomGrid, newTileSize: newTileSize)
 
         
         // Play Mode is active, time to shuffle critters
@@ -87,35 +113,14 @@ class GameScene : SKScene {
             Grid.applyGameRules()
         }
         
-        
-        // Stop timer for loop to
-        let methodFinish = NSDate()
-        let execuationTime : Double = methodFinish.timeIntervalSinceDate(methodStart)
-        
-        
-        
-        
-        if (playButtonSelected) { //  && Bool(justChangedTileSize)
+        // Create a new time instance at the current time and compare it to the start of the loop
+        let executionTime : Double = NSDate().timeIntervalSinceDate(methodStart)
 
-            // Changes Loop Speed (determined by slider)
-            
-            var loopSpeed : Double = execuationTime
-            let sliderLoopSpeed = WAFViewHandler.segmentLoopSpeed()
-            
-            // If the execution speed is less than the loopSpeedRate get the difference to find the pause speed,
-            // other wise the execution time is the loop pause speed
-            if execuationTime < sliderLoopSpeed {
-                loopSpeed = sliderLoopSpeed - execuationTime
-            }
-
-            let pauseTime = NSTimeInterval( NSNumber(double: loopSpeed  ))
-            NSThread.sleepForTimeInterval(pauseTime)
-            
-        } else {
-            justChangedTileSize = false
-        }
+        
+        pauseLoop(playButtonStatus: playButtonSelected, loopExecutionTime: executionTime)
         
         
+        clickedToChangeMode = false;
         
     }
 }
