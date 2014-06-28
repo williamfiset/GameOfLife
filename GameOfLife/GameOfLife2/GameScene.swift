@@ -18,6 +18,7 @@ var verticalTileLimit : Float = 0.0
 let screenHeight = 1136
 let screenWidth = 640
 
+var pauseTime : Double = 0
 
 class GameScene : SKScene {
     
@@ -36,9 +37,8 @@ class GameScene : SKScene {
         verticalTileLimit = 90.0 // hardcoding this is the best option because of different screen sizes
         clickedToChangeMode = false;
         
-        
         // Create background and places buttons on the screen
-        self.backgroundColor =  UIColor(red: 55/255.0, green: 55/255.0, blue: 55/255.0, alpha: 0.75) // UIColor(red: 122/255.0, green: 122/255.0, blue: 122/255.0, alpha: 1)
+        self.backgroundColor =  UIColor(red: 55/255.0, green: 55/255.0, blue: 55/255.0, alpha: 0.75)
         WAFViewHandler.placeMainSceneViews(view)
 
         let grid = Grid( tileSize : Int(WAFViewHandler.segmentSizeValue()) , scene : self)
@@ -70,24 +70,22 @@ class GameScene : SKScene {
     }
     
     /* Pauses loop speed depending on if the play button is pressed and how long the pause needs to be */
-    func pauseLoop (  playButtonStatus playButtonSelected : Bool , loopExecutionTime executionTime : Double ) -> ( ) {
+    func pauseLoop ( loopExecutionTime executionTime : Double ) -> ( ) {
         
-        if (playButtonSelected) {
-            
-            // Changes Loop Speed (determined by slider)
-            var loopSpeed : Double = executionTime
-            let sliderLoopSpeed = WAFViewHandler.segmentLoopSpeed()
-            
-            // If the execution speed is less than the loopSpeedRate get the difference to find the pause speed,
-            // other wise the execution time is the loop pause speed
-            if executionTime < sliderLoopSpeed {
-                loopSpeed = sliderLoopSpeed - executionTime
-            }
-            
-            let pauseTime = NSTimeInterval( NSNumber(double: loopSpeed  ))
-            NSThread.sleepForTimeInterval(pauseTime)
-            
-        } 
+      
+        // Changes Loop Speed (determined by slider)
+        var loopSpeed : Double = executionTime
+        let sliderLoopSpeed = WAFViewHandler.segmentLoopSpeed()
+        
+        // If the execution speed is less than the loopSpeedRate get the difference to find the pause speed,
+        // other wise the execution time is the loop pause speed
+        if executionTime < sliderLoopSpeed {
+            loopSpeed = sliderLoopSpeed - executionTime
+        }
+        
+        let pauseTime = NSTimeInterval( NSNumber(double: loopSpeed  ))
+        NSThread.sleepForTimeInterval(pauseTime)
+        
         
     }
     
@@ -95,6 +93,13 @@ class GameScene : SKScene {
     /* Called before each frame is rendered */
     override func update( currentTime: CFTimeInterval) {
 
+        // If the game if not being paused
+        if (pauseTime <= 0 ) {
+            
+        }
+        
+
+        
         
         // Starts timer for loop
         let methodStart = NSDate()
@@ -116,9 +121,9 @@ class GameScene : SKScene {
         // Create a new time instance at the current time and compare it to the start of the loop
         let executionTime : Double = NSDate().timeIntervalSinceDate(methodStart)
 
-        
-        pauseLoop(playButtonStatus: playButtonSelected, loopExecutionTime: executionTime)
-        
+        if (playButtonSelected) {
+            pauseLoop(loopExecutionTime: executionTime)
+        }
         
         clickedToChangeMode = false;
         

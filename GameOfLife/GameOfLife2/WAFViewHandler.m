@@ -85,7 +85,9 @@
     [speedSegment setFrame: CGRectMake(view.frame.size.width * 0.5 , BELOW_HEIGHT , RIGHT_SEGMENT_SIZE, TEXT_HEIGHT)];
     [speedSegment setTintColor: [UIColor whiteColor]];
     [speedSegment setSelectedSegmentIndex: 2]; // Fast (0 pause)
-
+    [speedSegment addTarget: [WAFTouchEventHandler class]
+                     action: @selector(loopSpeedChanged:)
+           forControlEvents: UIControlEventValueChanged];
     
    
     

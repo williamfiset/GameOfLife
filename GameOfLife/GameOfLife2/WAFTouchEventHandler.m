@@ -37,7 +37,7 @@
 
 
 + (void) loopSpeedChanged:(UISegmentedControl *) selector {
-    
+    NSLog(@"%@", @"Loop Speed Changed!");
 }
 
 
