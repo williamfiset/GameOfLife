@@ -255,15 +255,19 @@ class Tile : SKSpriteNode {
     /* Swaps the color of the cell */
     func swapColor(){
         
-        // Black
-        if isAlive {
-            isAlive = false
-            color = UIColor.whiteColor()
-        
-        // White
-        } else {
-            isAlive = true
-            color = UIColor.blackColor()
+        switch isAlive {
+            
+            // Black
+            case true:
+                isAlive = false
+                color = UIColor.whiteColor()
+            
+            //White
+            case false:
+                    isAlive = true
+                    color = UIColor.blackColor()
+            
+            default: break
         }
         
     }
@@ -273,7 +277,6 @@ class Tile : SKSpriteNode {
         
         
         var blocks : Tile[] = []
-        
         
         if let nwblk = Grid.getNode(self.column - 1, self.row - 1) {
             blocks.append(nwblk)

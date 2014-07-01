@@ -18,7 +18,12 @@ var verticalTileLimit : Float = 0.0
 let screenHeight = 1136
 let screenWidth = 640
 
-var pauseTime : Double = 0
+// Gets the current Date in the main loop to track time passed
+var pauseDate = NSDate();
+
+var executePause = false
+var executionTime = 0.0;
+
 
 class GameScene : SKScene {
     
@@ -36,6 +41,7 @@ class GameScene : SKScene {
         sceneWidth = Int(self.size.width)
         verticalTileLimit = 90.0 // hardcoding this is the best option because of different screen sizes
         clickedToChangeMode = false;
+        
         
         // Create background and places buttons on the screen
         self.backgroundColor =  UIColor(red: 55/255.0, green: 55/255.0, blue: 55/255.0, alpha: 0.75)
@@ -93,39 +99,52 @@ class GameScene : SKScene {
     /* Called before each frame is rendered */
     override func update( currentTime: CFTimeInterval) {
 
-        // If the game if not being paused
-        if (pauseTime <= 0 ) {
+        
+        let loopPauseTime : Double = WAFViewHandler.segmentLoopSpeed()
+        
+        
+        // If the game if not being paused do not execute loop body
+        if ( NSDate().timeIntervalSinceDate(pauseDate) > loopPauseTime ) {
             
+            if (executePause) {
+                pauseLoop(loopExecutionTime: executionTime)
+                executePause = false
+            }
+            
+            
+            pauseDate = NSDate()
+           
+            // Starts timer for loop
+            let methodStartTime = NSDate()
+            
+            
+            let newTileSize = (Int(WAFViewHandler.segmentSizeValue()))
+            let drawRandomGrid : Bool = WAFViewHandler.randomButtonIsSelected()
+            let playButtonSelected : Bool = WAFViewHandler.playButtonIsSelected()
+            
+            
+            drawGrid(drawRandomGrid: drawRandomGrid, newTileSize: newTileSize)
+            
+            
+            // Play Mode is active, time to shuffle critters
+            if (playButtonSelected) {
+                Grid.applyGameRules()
+            }
+            
+            // Create a new time instance at the current time and compare it to the start of the loop
+            executionTime = NSDate().timeIntervalSinceDate(methodStartTime)
+            
+            if (playButtonSelected) {
+                executePause = true
+//                pauseLoop(loopExecutionTime: executionTime)
+            }
+            
+            clickedToChangeMode = false;
+            
+           
         }
-        
 
         
-        
-        // Starts timer for loop
-        let methodStart = NSDate()
-        
-        
-        let newTileSize = (Int(WAFViewHandler.segmentSizeValue()))
-        let drawRandomGrid : Bool = WAFViewHandler.randomButtonIsSelected()
-        let playButtonSelected : Bool = WAFViewHandler.playButtonIsSelected()
-
-        
-        drawGrid(drawRandomGrid: drawRandomGrid, newTileSize: newTileSize)
-
-        
-        // Play Mode is active, time to shuffle critters
-        if (playButtonSelected) {
-            Grid.applyGameRules()
-        }
-        
-        // Create a new time instance at the current time and compare it to the start of the loop
-        let executionTime : Double = NSDate().timeIntervalSinceDate(methodStart)
-
-        if (playButtonSelected) {
-            pauseLoop(loopExecutionTime: executionTime)
-        }
-        
-        clickedToChangeMode = false;
         
     }
 }
