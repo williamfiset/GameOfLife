@@ -21,9 +21,7 @@ let screenWidth = 640
 // Gets the current Date in the main loop to track time passed
 var pauseDate = NSDate();
 
-var executePause = false
-var executionTime = 0.0;
-
+var loopPauseInfo = (executePause : false, executionTime : 0.0)
 
 class GameScene : SKScene {
     
@@ -39,6 +37,8 @@ class GameScene : SKScene {
         // Define constants
         sceneHeight = Int(self.size.height)
         sceneWidth = Int(self.size.width)
+        println("w: \(sceneWidth) h: \(sceneHeight)")
+        
         verticalTileLimit = 90.0 // hardcoding this is the best option because of different screen sizes
         clickedToChangeMode = false;
         
@@ -76,17 +76,16 @@ class GameScene : SKScene {
     }
     
     /* Pauses loop speed depending on if the play button is pressed and how long the pause needs to be */
-    func pauseLoop ( loopExecutionTime executionTime : Double ) -> ( ) {
+    func pauseLoop () -> () {
         
-      
         // Changes Loop Speed (determined by slider)
-        var loopSpeed : Double = executionTime
+        var loopSpeed : Double = loopPauseInfo.executionTime
         let sliderLoopSpeed = WAFViewHandler.segmentLoopSpeed()
         
         // If the execution speed is less than the loopSpeedRate get the difference to find the pause speed,
         // other wise the execution time is the loop pause speed
-        if executionTime < sliderLoopSpeed {
-            loopSpeed = sliderLoopSpeed - executionTime
+        if loopPauseInfo.executionTime < sliderLoopSpeed {
+            loopSpeed = sliderLoopSpeed - loopPauseInfo.executionTime
         }
         
         let pauseTime = NSTimeInterval( NSNumber(double: loopSpeed  ))
@@ -106,11 +105,10 @@ class GameScene : SKScene {
         // If the game if not being paused do not execute loop body
         if ( NSDate().timeIntervalSinceDate(pauseDate) > loopPauseTime ) {
             
-            if (executePause) {
-                pauseLoop(loopExecutionTime: executionTime)
-                executePause = false
+            if (loopPauseInfo.executePause) {
+                loopPauseInfo.executePause = false
+                pauseLoop()
             }
-            
             
             pauseDate = NSDate()
            
@@ -132,10 +130,10 @@ class GameScene : SKScene {
             }
             
             // Create a new time instance at the current time and compare it to the start of the loop
-            executionTime = NSDate().timeIntervalSinceDate(methodStartTime)
+            loopPauseInfo.executionTime = NSDate().timeIntervalSinceDate(methodStartTime)
             
             if (playButtonSelected) {
-                executePause = true
+                loopPauseInfo.executePause = true
 //                pauseLoop(loopExecutionTime: executionTime)
             }
             

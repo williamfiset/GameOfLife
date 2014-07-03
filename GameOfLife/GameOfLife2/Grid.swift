@@ -128,8 +128,6 @@ var gridCells : Tile[][] = []
     */
     
     class func applyGameRules() {
-
-
         
         for tiles in gridCells {
             for cell in tiles {
