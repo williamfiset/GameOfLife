@@ -11,6 +11,7 @@
 @import UIKit;
 @import Foundation;
 
+
 #import "WAFViewHandler.h"
 #import "WAFTouchEventHandler.h"
 
@@ -42,7 +43,6 @@ static short RIGHT_SEGMENT_POS = 0;
    
     
     if (IPAD) {
-        
         
         SEGMENT_WIDTH = view.frame.size.width * 0.25;
         TEXT_HEIGHT = 27;
@@ -150,6 +150,8 @@ static short RIGHT_SEGMENT_POS = 0;
                                      sizeSegment.frame.origin.y - sizeSegment.frame.size.height - VERTICAL_SPACING,
                                      SEGMENT_WIDTH, 50)];
     
+
+    
     [tileSizeLabel setValue: @"Critter Size" forKey: @"text"];
     [tileSizeLabel setFont: [UIFont fontWithName: @"Helvetica" size: FONT_SIZE]];
     [tileSizeLabel setTextColor: [UIColor whiteColor]];
@@ -167,7 +169,6 @@ static short RIGHT_SEGMENT_POS = 0;
     [player_stop_label setTextColor: [UIColor whiteColor]];
     
     // startMode Label
-    
     UILabel *random_empty_label = [[UILabel alloc] initWithFrame:
                                   CGRectMake(blockAppearanceSegment.frame.origin.x + 30,
                                              blockAppearanceSegment.frame.origin.y - blockAppearanceSegment.frame.size.height - VERTICAL_SPACING,
@@ -231,16 +232,6 @@ static short RIGHT_SEGMENT_POS = 0;
 
 
 @end
-
-
-
-
-
-
-
-
-
-
 
 
 
