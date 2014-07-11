@@ -14,46 +14,73 @@
 #import "WAFViewHandler.h"
 #import "WAFTouchEventHandler.h"
 
-#define SLIDER_WIDTH 165
-#define VERTICAL_SPACING 7
-#define BELOW_HEIGHT view.frame.size.height - 35
-#define UPPER_HEIGHT view.frame.size.height - 75
-#define TEXT_HEIGHT 25
-#define LEFT_SEGMENT_POS view.frame.size.width * 0.10
-#define RIGHT_SEGMENT_POS view.frame.size.width * 0.65
-#define SEGMENT_WIDTH view.frame.size.width * 0.25
 #define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
+#define VERTICAL_SPACING 7
+//#define BELOW_HEIGHT view.frame.size.height - 35
+//#define UPPER_HEIGHT view.frame.size.height - 75
+
+static short BELOW_HEIGHT = 0;
+static short UPPER_HEIGHT = 0;
+static short TEXT_HEIGHT = 0;
+static short FONT_SIZE = 0;
+static short SEGMENT_WIDTH = 0;
+static short LEFT_SEGMENT_POS = 0;
+static short RIGHT_SEGMENT_POS = 0;
 
 
 // Private Variables
 @interface WAFViewHandler ()
-+ (void) initVariables;
++ (void) initVariables: (UIView*) view;
 @end
 
 
 @implementation WAFViewHandler
 
+/*
+ * Creates all the objects that will be put on the screen
+ * Creates all the constants (Different for iPad or iPhone)
+ */
++ (void) initVariables: (UIView*) view {
+   
+    
+    if (IPAD) {
+        
+        
+        
+        TEXT_HEIGHT = 30;
+        LEFT_SEGMENT_POS = view.frame.size.width * 0.10;
+        RIGHT_SEGMENT_POS = view.frame.size.width * 0.65;
+        SEGMENT_WIDTH = view.frame.size.width * 0.25;
+        
+        segmentSizes =  @[ @"24", @"32", @"48", @"64", @"96", @"128" ];
+        FONT_SIZE = 14;
+        
+    // IPhone or IPod
+    } else {
 
-+ (void) initVariables {
+        SEGMENT_WIDTH = 140;
+        TEXT_HEIGHT = 25;
+        const int SIDE_SPACING = (view.frame.size.width - ( 2 * SEGMENT_WIDTH )) / 2;
+
+        LEFT_SEGMENT_POS = SIDE_SPACING / 2;
+        RIGHT_SEGMENT_POS = SEGMENT_WIDTH + LEFT_SEGMENT_POS * 3;
+
+        segmentSizes =  @[ @"10", @"16", @"20", @"32", @"40", @"64" ];
+        FONT_SIZE = 10;
+    }
+
     
     justChangedTileSize = NO;
     
-    
-    if (IPAD) {
-        segmentSizes =  @[ @"24", @"32", @"48", @"64", @"96", @"128" ];
-    } else {
-        segmentSizes =  @[ @"10", @"16", @"20", @"32", @"40", @"64" ];
-    }
-    
     // Creates all the menu item text and constants
-    segmentSpeeds = [NSDictionary dictionaryWithObjects: @[ @5, @0.75, @0 ] forKeys: @[ @"Slow", @"Med", @"Fast" ] ];
+    segmentSpeeds = [NSDictionary dictionaryWithObjects: @[ @.35, @0.75, @0.0 ] forKeys: @[ @"Slow", @"Med", @"Fast" ] ];
     gameModes = @{ @"Play" : @true , @"Stop" : @false };
     blockAppearanceModes = @[ @"Random" , @"Empty" ];
     
     // Creates all the View Objects
     blockAppearanceSegment = [[UISegmentedControl alloc] initWithItems: blockAppearanceModes];
-    modeSegment = [[UISegmentedControl alloc] initWithItems: [gameModes allKeys] ];
-    sizeSegment = [[UISegmentedControl alloc] initWithItems: segmentSizes];
+    modeSegment =  [[UISegmentedControl alloc] initWithItems: [gameModes allKeys] ];
+    sizeSegment =  [[UISegmentedControl alloc] initWithItems: segmentSizes];
     speedSegment = [[UISegmentedControl alloc] initWithItems: [segmentSpeeds allKeys] ];
 
 }
@@ -62,7 +89,7 @@
 /* Places all the menu objects on the screen (Labels, Sliders, buttons... ) */
 + (void) placeMainSceneViews:(UIView *) view {
     
-    [self initVariables];
+    [self initVariables: view];
     
   /* SegmentControl */
 
@@ -108,7 +135,7 @@
     
     
     [loopSpeedLabel setValue: @"Reproduction Speed" forKey: @"text"];
-    [loopSpeedLabel setFont: [UIFont fontWithName: @"Helvetica" size: 10]];
+    [loopSpeedLabel setFont: [UIFont fontWithName: @"Helvetica" size: FONT_SIZE]];
     [loopSpeedLabel setTextColor: [UIColor whiteColor]];
 
     
@@ -120,7 +147,7 @@
                                      SEGMENT_WIDTH, 50)];
     
     [tileSizeLabel setValue: @"Critter Size" forKey: @"text"];
-    [tileSizeLabel setFont: [UIFont fontWithName: @"Helvetica" size: 10]];
+    [tileSizeLabel setFont: [UIFont fontWithName: @"Helvetica" size: FONT_SIZE]];
     [tileSizeLabel setTextColor: [UIColor whiteColor]];
 
     
@@ -132,7 +159,7 @@
                                      SEGMENT_WIDTH, 50)];
     
     [player_stop_label setValue: @"Mode" forKey: @"text"];
-    [player_stop_label setFont: [UIFont fontWithName: @"Helvetica" size: 10]];
+    [player_stop_label setFont: [UIFont fontWithName: @"Helvetica" size: FONT_SIZE]];
     [player_stop_label setTextColor: [UIColor whiteColor]];
     
     // startMode Label
@@ -143,7 +170,7 @@
                                              SEGMENT_WIDTH, 50)];
     
     [random_empty_label setValue: @"Starting Mode" forKey: @"text"];
-    [random_empty_label setFont: [UIFont fontWithName: @"Helvetica" size: 10]];
+    [random_empty_label setFont: [UIFont fontWithName: @"Helvetica" size: FONT_SIZE]];
     [random_empty_label setTextColor: [UIColor whiteColor]];
     
     

@@ -48,7 +48,6 @@ var gridCells : Tile[][] = []
                     break
                 }
                 
-                
                 // Randomly Selects a Color for the Tile
                 var nodeColor = UIColor.blackColor()
                 var isAlive = true

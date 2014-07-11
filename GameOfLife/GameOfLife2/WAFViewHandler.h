@@ -38,6 +38,7 @@ static NSArray *segmentSizes;
 + (BOOL) randomButtonIsSelected;
 + (void) setPlayModeToStop: (BOOL) predicate;
 
+
 @end
 
 
