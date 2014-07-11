@@ -16,8 +16,6 @@
 
 #define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 #define VERTICAL_SPACING 7
-//#define BELOW_HEIGHT view.frame.size.height - 35
-//#define UPPER_HEIGHT view.frame.size.height - 75
 
 static short BELOW_HEIGHT = 0;
 static short UPPER_HEIGHT = 0;
@@ -46,11 +44,14 @@ static short RIGHT_SEGMENT_POS = 0;
     if (IPAD) {
         
         
+        SEGMENT_WIDTH = view.frame.size.width * 0.25;
+        TEXT_HEIGHT = 27;
         
-        TEXT_HEIGHT = 30;
         LEFT_SEGMENT_POS = view.frame.size.width * 0.10;
         RIGHT_SEGMENT_POS = view.frame.size.width * 0.65;
-        SEGMENT_WIDTH = view.frame.size.width * 0.25;
+        
+        BELOW_HEIGHT = view.frame.size.height - 35;
+        UPPER_HEIGHT = view.frame.size.height - 85;
         
         segmentSizes =  @[ @"24", @"32", @"48", @"64", @"96", @"128" ];
         FONT_SIZE = 14;
@@ -62,6 +63,9 @@ static short RIGHT_SEGMENT_POS = 0;
         TEXT_HEIGHT = 25;
         const int SIDE_SPACING = (view.frame.size.width - ( 2 * SEGMENT_WIDTH )) / 2;
 
+        BELOW_HEIGHT = view.frame.size.height - 35;
+        UPPER_HEIGHT = view.frame.size.height - 75;
+        
         LEFT_SEGMENT_POS = SIDE_SPACING / 2;
         RIGHT_SEGMENT_POS = SEGMENT_WIDTH + LEFT_SEGMENT_POS * 3;
 
