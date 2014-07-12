@@ -37,16 +37,16 @@ class GameScene : SKScene {
         // Define constants
         sceneHeight = Int(self.size.height)
         sceneWidth = Int(self.size.width)
-        println("w: \(sceneWidth) h: \(sceneHeight)")
+        println("\nw: \(sceneWidth) h: \(sceneHeight)\n")
         
         verticalTileLimit = 90.0 // hardcoding this is the best option because of different screen sizes
         clickedToChangeMode = false;
         
-        
         // Create background and places buttons on the screen
         self.backgroundColor =  UIColor(red: 55/255.0, green: 55/255.0, blue: 55/255.0, alpha: 0.75)
-        WAFViewHandler.placeMainSceneViews(view)
+        WAFViewHandler.placeMainSceneViews(view , withVerticalLimit: &verticalTileLimit)
 
+        
         let grid = Grid( tileSize : Int(WAFViewHandler.segmentSizeValue()) , scene : self)
         Grid.placeGridOnScreen(self)
         

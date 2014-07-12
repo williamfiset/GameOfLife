@@ -17,6 +17,8 @@
 
 #define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 #define VERTICAL_SPACING 7
+#define LABEL_FONT @"Helvetica"
+#define LABEL_POSITION_ABOVE_SEGMENT 47
 
 static short BELOW_HEIGHT = 0;
 static short UPPER_HEIGHT = 0;
@@ -29,7 +31,7 @@ static short RIGHT_SEGMENT_POS = 0;
 
 // Private Variables
 @interface WAFViewHandler ()
-+ (void) initVariables: (UIView*) view;
++ (void) initVariables: (UIView*) view withVerticalLimit: (float*) verticalLimit ;
 @end
 
 
@@ -39,22 +41,27 @@ static short RIGHT_SEGMENT_POS = 0;
  * Creates all the objects that will be put on the screen
  * Creates all the constants (Different for iPad or iPhone)
  */
-+ (void) initVariables: (UIView*) view {
++ (void) initVariables: (UIView*) view withVerticalLimit: (float*) verticalLimit {
    
     
     if (IPAD) {
         
-        SEGMENT_WIDTH = view.frame.size.width * 0.25;
+        // Adjusts the vertical tile limit specifically for the IPad
+        *verticalLimit = 100;
+        
+        SEGMENT_WIDTH = view.frame.size.width * 0.40;
         TEXT_HEIGHT = 27;
         
-        LEFT_SEGMENT_POS = view.frame.size.width * 0.10;
-        RIGHT_SEGMENT_POS = view.frame.size.width * 0.65;
+        const int SIDE_SPACING = (view.frame.size.width - ( 2 * SEGMENT_WIDTH )) / 2;
         
-        BELOW_HEIGHT = view.frame.size.height - 35;
-        UPPER_HEIGHT = view.frame.size.height - 85;
+        LEFT_SEGMENT_POS = SIDE_SPACING / 2;
+        RIGHT_SEGMENT_POS = SEGMENT_WIDTH + LEFT_SEGMENT_POS * 3;
+        
+        BELOW_HEIGHT = view.frame.size.height - 38;
+        UPPER_HEIGHT = view.frame.size.height - 86;
         
         segmentSizes =  @[ @"24", @"32", @"48", @"64", @"96", @"128" ];
-        FONT_SIZE = 14;
+        FONT_SIZE = 15;
         
     // IPhone or IPod
     } else {
@@ -70,7 +77,7 @@ static short RIGHT_SEGMENT_POS = 0;
         RIGHT_SEGMENT_POS = SEGMENT_WIDTH + LEFT_SEGMENT_POS * 3;
 
         segmentSizes =  @[ @"10", @"16", @"20", @"32", @"40", @"64" ];
-        FONT_SIZE = 10;
+        FONT_SIZE = 14;
     }
 
     
@@ -91,9 +98,10 @@ static short RIGHT_SEGMENT_POS = 0;
 
 
 /* Places all the menu objects on the screen (Labels, Sliders, buttons... ) */
-+ (void) placeMainSceneViews:(UIView *) view {
++ (void) placeMainSceneViews:(UIView *) view withVerticalLimit: (float*) verticalLimit {
     
-    [self initVariables: view];
+    [self initVariables:view withVerticalLimit: verticalLimit];
+
     
   /* SegmentControl */
 
@@ -130,54 +138,67 @@ static short RIGHT_SEGMENT_POS = 0;
     
   /* Labels */
     
+    // Label Text
+    NSString *reproductionSpeed = @"Reproduction Speed";
+    NSString *critterSize = @"Citter Size";
+    NSString *modeLabel = @"Mode";
+    NSString *startingMode = @"Starting Mode";
+    
+    CGSize reproductionSpeedSize = [reproductionSpeed sizeWithAttributes: @{ NSFontAttributeName: [UIFont fontWithName: LABEL_FONT size:FONT_SIZE] }];
+    CGSize critterSizeCGSize = [critterSize sizeWithAttributes: @{ NSFontAttributeName: [UIFont fontWithName: LABEL_FONT size:FONT_SIZE] }];
+    CGSize modeLabelSize = [modeLabel sizeWithAttributes: @{ NSFontAttributeName: [UIFont fontWithName: LABEL_FONT size:FONT_SIZE] }];
+    CGSize startingModeSize = [startingMode sizeWithAttributes: @{ NSFontAttributeName: [UIFont fontWithName: LABEL_FONT size:FONT_SIZE] }];
+    
+    const short sStartingMode = (blockAppearanceSegment.frame.size.width - startingModeSize.width) / 2;
+    const short sCritterSize = (sizeSegment.frame.size.width - critterSizeCGSize.width) / 2;
+    const short sMode = (modeSegment.frame.size.width - modeLabelSize.width) / 2;
+    const short sReproductionSpeed = (speedSegment.frame.size.width - reproductionSpeedSize.width) / 2;
+    
+    
+
     
     // Reproduction Speed
     UILabel *loopSpeedLabel = [[UILabel alloc] initWithFrame:
-                           CGRectMake(speedSegment.frame.origin.x + 30,
-                                      speedSegment.frame.origin.y - speedSegment.frame.size.height - VERTICAL_SPACING,
-                                      SEGMENT_WIDTH, 50)];
-    
-    
-    [loopSpeedLabel setValue: @"Reproduction Speed" forKey: @"text"];
-    [loopSpeedLabel setFont: [UIFont fontWithName: @"Helvetica" size: FONT_SIZE]];
-    [loopSpeedLabel setTextColor: [UIColor whiteColor]];
-
-    
+                           CGRectMake(speedSegment.frame.origin.x + sReproductionSpeed,
+                                      speedSegment.frame.origin.y - speedSegment.frame.size.height - VERTICAL_SPACING ,
+                                      SEGMENT_WIDTH, LABEL_POSITION_ABOVE_SEGMENT)];
     
     // Critter Size
     UILabel *tileSizeLabel = [[UILabel alloc] initWithFrame:
-                          CGRectMake(sizeSegment.frame.origin.x + 57,
+                          CGRectMake(sizeSegment.frame.origin.x + sCritterSize,
                                      sizeSegment.frame.origin.y - sizeSegment.frame.size.height - VERTICAL_SPACING,
-                                     SEGMENT_WIDTH, 50)];
-    
-
-    
-    [tileSizeLabel setValue: @"Critter Size" forKey: @"text"];
-    [tileSizeLabel setFont: [UIFont fontWithName: @"Helvetica" size: FONT_SIZE]];
-    [tileSizeLabel setTextColor: [UIColor whiteColor]];
-
-    
+                                     SEGMENT_WIDTH , LABEL_POSITION_ABOVE_SEGMENT)];
     
     // Mode Label
     UILabel *player_stop_label = [[UILabel alloc] initWithFrame:
-                          CGRectMake(modeSegment.frame.origin.x + 50,
+                          CGRectMake(modeSegment.frame.origin.x + sMode,
                                      modeSegment.frame.origin.y - modeSegment.frame.size.height - VERTICAL_SPACING,
-                                     SEGMENT_WIDTH, 50)];
-    
-    [player_stop_label setValue: @"Mode" forKey: @"text"];
-    [player_stop_label setFont: [UIFont fontWithName: @"Helvetica" size: FONT_SIZE]];
-    [player_stop_label setTextColor: [UIColor whiteColor]];
+                                     SEGMENT_WIDTH, LABEL_POSITION_ABOVE_SEGMENT)];
     
     // startMode Label
     UILabel *random_empty_label = [[UILabel alloc] initWithFrame:
-                                  CGRectMake(blockAppearanceSegment.frame.origin.x + 30,
+                                  CGRectMake(blockAppearanceSegment.frame.origin.x + sStartingMode,
                                              blockAppearanceSegment.frame.origin.y - blockAppearanceSegment.frame.size.height - VERTICAL_SPACING,
-                                             SEGMENT_WIDTH, 50)];
+                                             SEGMENT_WIDTH, LABEL_POSITION_ABOVE_SEGMENT)];
+
+    
+  /* Set Label Attributes */
+   
+    [loopSpeedLabel setValue: @"Reproduction Speed" forKey: @"text"];
+    [loopSpeedLabel setFont: [UIFont fontWithName: LABEL_FONT size: FONT_SIZE]];
+    [loopSpeedLabel setTextColor: [UIColor whiteColor]];
+    
+    [tileSizeLabel setValue: @"Critter Size" forKey: @"text"];
+    [tileSizeLabel setFont: [UIFont fontWithName: LABEL_FONT size: FONT_SIZE]];
+    [tileSizeLabel setTextColor: [UIColor whiteColor]];
+    
+    [player_stop_label setValue: @"Mode" forKey: @"text"];
+    [player_stop_label setFont: [UIFont fontWithName: LABEL_FONT size: FONT_SIZE]];
+    [player_stop_label setTextColor: [UIColor whiteColor]];
     
     [random_empty_label setValue: @"Starting Mode" forKey: @"text"];
-    [random_empty_label setFont: [UIFont fontWithName: @"Helvetica" size: FONT_SIZE]];
+    [random_empty_label setFont: [UIFont fontWithName: LABEL_FONT size: FONT_SIZE]];
     [random_empty_label setTextColor: [UIColor whiteColor]];
-    
     
     
   /* Place Things on Screen */

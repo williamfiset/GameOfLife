@@ -29,7 +29,7 @@ static NSArray *segmentSizes;
 
 @interface WAFViewHandler : NSObject
 
-+ (void) placeMainSceneViews: (UIView*) view;
++ (void) placeMainSceneViews: (UIView*) view withVerticalLimit: (float*) verticalLimit;
 
 // Allows you to get the values on the segments
 + (double) segmentLoopSpeed;
