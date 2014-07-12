@@ -25,12 +25,12 @@ var gridCells : Tile[][] = []
         currentTileSize = tileSize
         horizontalTiles = (sceneWidth / tileSize)
         verticalTiles = ((sceneHeight - Int(verticalTileLimit)) / tileSize) - 1
-        
+                
         Grid.emptyGrid()
         
         let tileDimension = CGSize(width: tileSize, height: tileSize)
-        let startX = 0 //  abs(sceneWidth -  (tileSize * horizontalTiles) ) / 2
-        let startY = 0 // abs( (sceneHeight - Int(verticalTileLimit)) - (tileSize * Grid.verticalTiles) ) / 2
+        let startX = 0
+        let startY = 0
         
         
         var height = sceneHeight
@@ -269,47 +269,7 @@ class Tile : SKSpriteNode {
         
     }
     
-    // Gets all the blocks around
-    func getAdjacentBlocks() -> Tile[]  {
-        
-        
-        var blocks : Tile[] = []
-        
-        if let nwblk = Grid.getNode(self.column - 1, self.row - 1) {
-            blocks.append(nwblk)
-        }
-        
-        if let nblk = Grid.getNode(self.column - 1, self.row) {
-            blocks.append(nblk)
-        }
-        
-        if let neblk = Grid.getNode(self.column - 1, self.row + 1) {
-            blocks.append(neblk)
-        }
-        
-        if let eblk = Grid.getNode(self.column, self.row + 1) {
-            blocks.append(eblk)
-        }
-        
-        if let seblk = Grid.getNode(self.column + 1, self.row + 1) {
-            blocks.append(seblk)
-        }
-        
-        if let sblk = Grid.getNode( self.column + 1, self.row) {
-            blocks.append(sblk)
-        }
-        
-        if let swblk = Grid.getNode( self.column + 1, self.row - 1) {
-            blocks.append(swblk)
-        }
-        
-        if let eblk = Grid.getNode( self.column, self.row - 1) {
-            blocks.append(eblk)
-        }
-        
-        return blocks
-    }
-    
+    /* Counts the amount of black blocks surrounding the tile */
     func getNumberOfAliveAdjacentBlocks() -> Int8  {
         
         var blocks : Int8 = 0
@@ -320,10 +280,10 @@ class Tile : SKSpriteNode {
         if let wblk = Grid.getNode( self.column, self.row - 1) { if wblk.isAlive { blocks++ } }
         if let eblk = Grid.getNode( self.column, self.row + 1) { if eblk.isAlive { blocks++ } }
         
-        /*
-        Because of the rule:
-        "Any live cell with more than three live neighbours dies, as if by overcrowding."
-        You can return when blocks is more than three
+       /*
+        * Because of the rule:
+        * "Any live cell with more than three live neighbours dies, as if by overcrowding."
+        * You can return when blocks is more than three
         */
         if blocks > 3 {return blocks}
         if let seblk = Grid.getNode(self.column + 1, self.row + 1) { if seblk.isAlive { blocks++ } }

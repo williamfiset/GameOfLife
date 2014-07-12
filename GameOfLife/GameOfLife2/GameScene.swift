@@ -102,7 +102,7 @@ class GameScene : SKScene {
         let loopPauseTime : Double = WAFViewHandler.segmentLoopSpeed()
         
         
-        // If the game if not being paused do not execute loop body
+        // If the game is not being paused, do not execute loop body
         if ( NSDate().timeIntervalSinceDate(pauseDate) > loopPauseTime ) {
             
             if (loopPauseInfo.executePause) {
@@ -133,17 +133,14 @@ class GameScene : SKScene {
             loopPauseInfo.executionTime = NSDate().timeIntervalSinceDate(methodStartTime)
             
             if (playButtonSelected) {
+                
                 loopPauseInfo.executePause = true
 //                pauseLoop(loopExecutionTime: executionTime)
             }
             
             clickedToChangeMode = false;
-            
            
         }
-
-        
-        
     }
 }
 

@@ -76,15 +76,15 @@ static short RIGHT_SEGMENT_POS = 0;
         LEFT_SEGMENT_POS = SIDE_SPACING / 2;
         RIGHT_SEGMENT_POS = SEGMENT_WIDTH + LEFT_SEGMENT_POS * 3;
 
-        segmentSizes =  @[ @"10", @"16", @"20", @"32", @"40", @"64" ];
+        segmentSizes =  @[ @"16", @"20", @"32", @"40", @"64" ]; // removed 10 for performance reasons
         FONT_SIZE = 14;
     }
 
     
     justChangedTileSize = NO;
     
-    // Creates all the menu item text and constants
-    segmentSpeeds = [NSDictionary dictionaryWithObjects: @[ @.35, @0.75, @0.0 ] forKeys: @[ @"Slow", @"Med", @"Fast" ] ];
+    // TIME ENTERED IN DICTIONARY GETS DOUBLED BECAUSE OF ISSUE 17! THe real pause times are: @[ @.75, @0.35, @0.0 ]
+    segmentSpeeds = [NSDictionary dictionaryWithObjects: @[ @0.6, @0.3, @0.0 ] forKeys: @[ @"Slow", @"Med", @"Fast" ] ];
     gameModes = @{ @"Play" : @true , @"Stop" : @false };
     blockAppearanceModes = @[ @"Random" , @"Empty" ];
     

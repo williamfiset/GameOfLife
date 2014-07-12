@@ -16,8 +16,6 @@
 		C6626E2A1951096A00630399 /* WAFViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C6626E291951096A00630399 /* WAFViewHandler.m */; };
 		C6626E2C195109A600630399 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6626E2B195109A600630399 /* Grid.swift */; };
 		C6A5C8AD19511DC3007256A0 /* circle.ai in Resources */ = {isa = PBXBuildFile; fileRef = C6A5C8A819511DC3007256A0 /* circle.ai */; };
-		C6A5C8AE19511DC3007256A0 /* circle45.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A5C8A919511DC3007256A0 /* circle45.png */; };
-		C6A5C8AF19511DC3007256A0 /* circle45@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A5C8AA19511DC3007256A0 /* circle45@2x.png */; };
 		C6A5C8B019511DC3007256A0 /* GameOfLife.psd in Resources */ = {isa = PBXBuildFile; fileRef = C6A5C8AC19511DC3007256A0 /* GameOfLife.psd */; };
 		C6C37A41195916CD0067D49D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6C37A40195916CD0067D49D /* Default-568h@2x.png */; };
 		C6E1588C1954F51700252FC3 /* WAFTouchEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C6E1588B1954F51700252FC3 /* WAFTouchEventHandler.m */; };
@@ -49,8 +47,6 @@
 		C6626E291951096A00630399 /* WAFViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAFViewHandler.m; sourceTree = "<group>"; };
 		C6626E2B195109A600630399 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		C6A5C8A819511DC3007256A0 /* circle.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = circle.ai; sourceTree = "<group>"; };
-		C6A5C8A919511DC3007256A0 /* circle45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle45.png; sourceTree = "<group>"; };
-		C6A5C8AA19511DC3007256A0 /* circle45@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle45@2x.png"; sourceTree = "<group>"; };
 		C6A5C8AB19511DC3007256A0 /* experimentFile.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = experimentFile.playground; sourceTree = "<group>"; };
 		C6A5C8AC19511DC3007256A0 /* GameOfLife.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = GameOfLife.psd; sourceTree = "<group>"; };
 		C6C37A40195916CD0067D49D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -156,8 +152,6 @@
 		C6A5C8B219511E05007256A0 /* img */ = {
 			isa = PBXGroup;
 			children = (
-				C6A5C8A919511DC3007256A0 /* circle45.png */,
-				C6A5C8AA19511DC3007256A0 /* circle45@2x.png */,
 			);
 			name = img;
 			sourceTree = "<group>";
@@ -258,8 +252,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6A5C8AE19511DC3007256A0 /* circle45.png in Resources */,
-				C6A5C8AF19511DC3007256A0 /* circle45@2x.png in Resources */,
 				C6626E121951085000630399 /* Images.xcassets in Resources */,
 				C6626E101951085000630399 /* Main.storyboard in Resources */,
 				C6A5C8B019511DC3007256A0 /* GameOfLife.psd in Resources */,
