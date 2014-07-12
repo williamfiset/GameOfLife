@@ -1,0 +1,39 @@
+# Splash screens 
+
+Splash screens iPhone iOS 6 and 7: 
+320 x 480 / 640 x 960 (3.5”)
+320 x 568 / 640 x 1136 (4”)
+ 
+Splash screen iPad iOS 6:
+768 x 1004 / 1536 x 2008 (portrait)
+1024 x 748 / 2048 x 1496 (landscape)
+ 
+Splash screen iPad iOS 7: 
+768 x 1024 / 1536 x 2048 (portrait)
+1024 x 768 / 2048 x 1536 (landscape)
+ 
+
+# App icons
+
+Required iOS 6:
+57 x 57 / 114 x 114 (iPhone)
+72 x 72 / 144 x 144 (iPad)
+ 
+Recommended iOS 6:
+29 x 29 / 58 x 58 (used on iPhone and iPad for Settings, on iPhone for Spotlight)
+50 x 50 / 100 x 100 (used on iPad for Spotlight)
+ 
+Required iOS 7:
+60 x 60 / 120 x 120 (iPhone)
+76 x 76 / 152 x 152 (iPad)
+ 
+Recommended iOS 7: 
+29 x 29 / 58 x 58 (used on iPhone and iPad for Settings)
+40 x 40 / 80 x 80 (used on iPhone and iPad for Spotlight)
+
+iTunes
+512 x 512 / 1024 x 1024
+
+Document icons (only used for document-based apps)
+22 x 29 / 44 x 58 (iPhone)
+64 x 64 / 128 x 128 (iPad

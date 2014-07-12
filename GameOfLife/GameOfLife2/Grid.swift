@@ -88,8 +88,8 @@ var gridCells : Tile[][] = []
     
     class func getNode ( row : Int, _ column : Int) -> Tile? {
         
-        // println("Column: \(column) VerticalTiles: \(verticalTiles) Row: \(row) HorizontalTiles: \(horizontalTiles)")
         if row >= 0 && row < horizontalTiles {
+            
             // Vertical Tiles is <= because when creating cells there's a ... 'for y in 0...verticalTiles'
             if column >= 0 && column <= verticalTiles {
                 return gridCells[column][row]
