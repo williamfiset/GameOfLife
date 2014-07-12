@@ -17,16 +17,6 @@
 		C6626E2C195109A600630399 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6626E2B195109A600630399 /* Grid.swift */; };
 		C6A5C8AD19511DC3007256A0 /* circle.ai in Resources */ = {isa = PBXBuildFile; fileRef = C6A5C8A819511DC3007256A0 /* circle.ai */; };
 		C6A5C8B019511DC3007256A0 /* GameOfLife.psd in Resources */ = {isa = PBXBuildFile; fileRef = C6A5C8AC19511DC3007256A0 /* GameOfLife.psd */; };
-		C6C41EF4197159740074D418 /* GOLIcon_29.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6C41EEA197159740074D418 /* GOLIcon_29.jpg */; };
-		C6C41EF5197159740074D418 /* GOLIcon_29@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6C41EEB197159740074D418 /* GOLIcon_29@2x.jpg */; };
-		C6C41EF6197159740074D418 /* GOLIcon_40.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6C41EEC197159740074D418 /* GOLIcon_40.jpg */; };
-		C6C41EF7197159740074D418 /* GOLIcon_40@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6C41EED197159740074D418 /* GOLIcon_40@2x.jpg */; };
-		C6C41EF8197159740074D418 /* GOLIcon_72.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6C41EEE197159740074D418 /* GOLIcon_72.jpg */; };
-		C6C41EF9197159740074D418 /* GOLIcon_72@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6C41EEF197159740074D418 /* GOLIcon_72@2x.jpg */; };
-		C6C41EFA197159740074D418 /* GOLIcon_76.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6C41EF0197159740074D418 /* GOLIcon_76.jpg */; };
-		C6C41EFB197159740074D418 /* GOLIcon_76@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6C41EF1197159740074D418 /* GOLIcon_76@2x.jpg */; };
-		C6C41EFC197159740074D418 /* GOLIcon_120@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6C41EF2197159740074D418 /* GOLIcon_120@2x.jpg */; };
-		C6C41EFD197159740074D418 /* GOLIcon_1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6C41EF3197159740074D418 /* GOLIcon_1024.jpg */; };
 		C6E1588C1954F51700252FC3 /* WAFTouchEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C6E1588B1954F51700252FC3 /* WAFTouchEventHandler.m */; };
 /* End PBXBuildFile section */
 
@@ -58,16 +48,6 @@
 		C6A5C8A819511DC3007256A0 /* circle.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = circle.ai; sourceTree = "<group>"; };
 		C6A5C8AB19511DC3007256A0 /* experimentFile.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = experimentFile.playground; sourceTree = "<group>"; };
 		C6A5C8AC19511DC3007256A0 /* GameOfLife.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = GameOfLife.psd; sourceTree = "<group>"; };
-		C6C41EEA197159740074D418 /* GOLIcon_29.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GOLIcon_29.jpg; sourceTree = "<group>"; };
-		C6C41EEB197159740074D418 /* GOLIcon_29@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "GOLIcon_29@2x.jpg"; sourceTree = "<group>"; };
-		C6C41EEC197159740074D418 /* GOLIcon_40.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GOLIcon_40.jpg; sourceTree = "<group>"; };
-		C6C41EED197159740074D418 /* GOLIcon_40@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "GOLIcon_40@2x.jpg"; sourceTree = "<group>"; };
-		C6C41EEE197159740074D418 /* GOLIcon_72.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GOLIcon_72.jpg; sourceTree = "<group>"; };
-		C6C41EEF197159740074D418 /* GOLIcon_72@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "GOLIcon_72@2x.jpg"; sourceTree = "<group>"; };
-		C6C41EF0197159740074D418 /* GOLIcon_76.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GOLIcon_76.jpg; sourceTree = "<group>"; };
-		C6C41EF1197159740074D418 /* GOLIcon_76@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "GOLIcon_76@2x.jpg"; sourceTree = "<group>"; };
-		C6C41EF2197159740074D418 /* GOLIcon_120@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "GOLIcon_120@2x.jpg"; sourceTree = "<group>"; };
-		C6C41EF3197159740074D418 /* GOLIcon_1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GOLIcon_1024.jpg; sourceTree = "<group>"; };
 		C6E1588A1954F51700252FC3 /* WAFTouchEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAFTouchEventHandler.h; sourceTree = "<group>"; };
 		C6E1588B1954F51700252FC3 /* WAFTouchEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAFTouchEventHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,7 +91,6 @@
 		C6626E031951085000630399 /* GameOfLife */ = {
 			isa = PBXGroup;
 			children = (
-				C6C41EE71971584B0074D418 /* Icons */,
 				C6A5C8B119511DEC007256A0 /* ImgFiles */,
 				C6626E061951085000630399 /* AppDelegate.swift */,
 				C6626E2B195109A600630399 /* Grid.swift */,
@@ -180,39 +159,6 @@
 				C6A5C8AC19511DC3007256A0 /* GameOfLife.psd */,
 			);
 			name = "Ai & Ps Files";
-			sourceTree = "<group>";
-		};
-		C6C41EE71971584B0074D418 /* Icons */ = {
-			isa = PBXGroup;
-			children = (
-				C6C41EEA197159740074D418 /* GOLIcon_29.jpg */,
-				C6C41EEB197159740074D418 /* GOLIcon_29@2x.jpg */,
-				C6C41EEC197159740074D418 /* GOLIcon_40.jpg */,
-				C6C41EED197159740074D418 /* GOLIcon_40@2x.jpg */,
-				C6C41EEE197159740074D418 /* GOLIcon_72.jpg */,
-				C6C41EEF197159740074D418 /* GOLIcon_72@2x.jpg */,
-				C6C41EF0197159740074D418 /* GOLIcon_76.jpg */,
-				C6C41EF1197159740074D418 /* GOLIcon_76@2x.jpg */,
-				C6C41EF2197159740074D418 /* GOLIcon_120@2x.jpg */,
-				C6C41EF3197159740074D418 /* GOLIcon_1024.jpg */,
-				C6C41EE9197158600074D418 /* iPhone */,
-				C6C41EE8197158550074D418 /* iPad */,
-			);
-			name = Icons;
-			sourceTree = "<group>";
-		};
-		C6C41EE8197158550074D418 /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = iPad;
-			sourceTree = "<group>";
-		};
-		C6C41EE9197158600074D418 /* iPhone */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = iPhone;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,20 +241,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6C41EFD197159740074D418 /* GOLIcon_1024.jpg in Resources */,
-				C6C41EF7197159740074D418 /* GOLIcon_40@2x.jpg in Resources */,
-				C6C41EFA197159740074D418 /* GOLIcon_76.jpg in Resources */,
 				C6626E121951085000630399 /* Images.xcassets in Resources */,
-				C6C41EF6197159740074D418 /* GOLIcon_40.jpg in Resources */,
-				C6C41EF9197159740074D418 /* GOLIcon_72@2x.jpg in Resources */,
-				C6C41EFB197159740074D418 /* GOLIcon_76@2x.jpg in Resources */,
 				C6626E101951085000630399 /* Main.storyboard in Resources */,
-				C6C41EF4197159740074D418 /* GOLIcon_29.jpg in Resources */,
-				C6C41EF5197159740074D418 /* GOLIcon_29@2x.jpg in Resources */,
-				C6C41EFC197159740074D418 /* GOLIcon_120@2x.jpg in Resources */,
 				C6A5C8B019511DC3007256A0 /* GameOfLife.psd in Resources */,
 				C6A5C8AD19511DC3007256A0 /* circle.ai in Resources */,
-				C6C41EF8197159740074D418 /* GOLIcon_72.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
