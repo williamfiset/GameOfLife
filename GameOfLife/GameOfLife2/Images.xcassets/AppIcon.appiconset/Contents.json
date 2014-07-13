@@ -15,7 +15,7 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "GOLIcon_120.png",
+      "filename" : "60x60@2x.png",
       "scale" : "2x"
     },
     {
@@ -43,13 +43,13 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "GOLIcon_76.jpg",
+      "filename" : "76x76.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "GOLIcon_76@2x.png",
+      "filename" : "76x76@2x.png",
       "scale" : "2x"
     }
   ],
