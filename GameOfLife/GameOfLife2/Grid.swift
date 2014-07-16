@@ -153,8 +153,6 @@ var gridCells : Tile[][] = []
             }
         }
 
-
-       
         
         // This loop is needed to go back and actually change the color of the squares
         for tiles in gridCells {
@@ -218,13 +216,19 @@ var gridCells : Tile[][] = []
         
     }
     
-    class func createNewGrid ( scene : SKScene ) {
+    class func createNewGrid ( scene : SKScene , emptyGrid : Bool = false ) {
         
+        // Removes old Grid completely (removes parent node)
         Grid.emptyGrid()
+        
         Grid(tileSize: Int(WAFViewHandler.segmentSizeValue()) , scene : scene)
         Grid.placeGridOnScreen(scene)
-        
+
+        if emptyGrid {
+            Grid.makeWhiteGrid()
+        }
     }
+    
 }
 
 
@@ -248,7 +252,7 @@ class Tile : SKSpriteNode {
 
         
     }
-    
+
     /* Swaps the color of the cell */
     func swapColor(){
         

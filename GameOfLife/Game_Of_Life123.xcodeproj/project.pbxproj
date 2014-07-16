@@ -28,6 +28,20 @@
 			remoteGlobalIDString = C6626E001951085000630399;
 			remoteInfo = GameOfLife2;
 		};
+		C6D7A85E1973532900C997EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6626DF91951085000630399 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6626E001951085000630399;
+			remoteInfo = Game_Of_Life123;
+		};
+		C6D7A8601973532900C997EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6626DF91951085000630399 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6626E001951085000630399;
+			remoteInfo = Game_Of_Life123;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -193,6 +207,8 @@
 			);
 			dependencies = (
 				C6626E191951085000630399 /* PBXTargetDependency */,
+				C6D7A85F1973532900C997EE /* PBXTargetDependency */,
+				C6D7A8611973532900C997EE /* PBXTargetDependency */,
 			);
 			name = Game_Of_Life123Tests;
 			productName = GameOfLife2Tests;
@@ -210,7 +226,7 @@
 				TargetAttributes = {
 					C6626E001951085000630399 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = 494DBJF7DL;
+						DevelopmentTeam = 7KC276AP3U;
 					};
 					C6626E161951085000630399 = {
 						CreatedOnToolsVersion = 6.0;
@@ -287,6 +303,16 @@
 			isa = PBXTargetDependency;
 			target = C6626E001951085000630399 /* Game_Of_Life123 */;
 			targetProxy = C6626E181951085000630399 /* PBXContainerItemProxy */;
+		};
+		C6D7A85F1973532900C997EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C6626E001951085000630399 /* Game_Of_Life123 */;
+			targetProxy = C6D7A85E1973532900C997EE /* PBXContainerItemProxy */;
+		};
+		C6D7A8611973532900C997EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C6626E001951085000630399 /* Game_Of_Life123 */;
+			targetProxy = C6D7A8601973532900C997EE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -419,7 +445,7 @@
 		C6626E251951085000630399 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GameOfLife2.app/GameOfLife2";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Game Of Life.app/Game Of Life";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -439,7 +465,7 @@
 		C6626E261951085000630399 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GameOfLife2.app/GameOfLife2";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Game Of Life.app/Game Of Life";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

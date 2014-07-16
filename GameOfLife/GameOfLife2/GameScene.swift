@@ -37,7 +37,7 @@ class GameScene : SKScene {
         // Define constants
         sceneHeight = Int(self.size.height)
         sceneWidth = Int(self.size.width)
-        println("\nw: \(sceneWidth) h: \(sceneHeight)\n")
+//        println("\nw: \(sceneWidth) h: \(sceneHeight)\n")
         
         verticalTileLimit = 90.0 // hardcoding this is the best option because of different screen sizes
         clickedToChangeMode = false;
@@ -58,16 +58,17 @@ class GameScene : SKScene {
     func drawGrid( #drawRandomGrid : Bool , newTileSize : Int ) -> () {
         
         // draw empty grid
-        if (!drawRandomGrid && !emptyGridHasBeenDrawn) {
-            
-            Grid.makeWhiteGrid()
+        if ( !drawRandomGrid && (!emptyGridHasBeenDrawn || oldTileSize != newTileSize) ) {
+
+            Grid.createNewGrid(self, emptyGrid: true)
             WAFViewHandler.setPlayModeToStop(true)
             emptyGridHasBeenDrawn = true;
+            oldTileSize = newTileSize
             
         // Draw random blocks on the screen
         } else if ( (oldTileSize != newTileSize || Bool(clickedToChangeMode))  && drawRandomGrid ) {
             
-            Grid.createNewGrid(self)
+            Grid.createNewGrid(self, emptyGrid: false)
             oldTileSize = newTileSize
             emptyGridHasBeenDrawn = false;
             
