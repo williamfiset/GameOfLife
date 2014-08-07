@@ -106,6 +106,7 @@ class GameScene : SKScene {
         // If the game is not being paused, do not execute loop body
         if ( NSDate().timeIntervalSinceDate(pauseDate) > loopPauseTime ) {
             
+           
             if (loopPauseInfo.executePause) {
                 loopPauseInfo.executePause = false
                 pauseLoop()
@@ -124,6 +125,11 @@ class GameScene : SKScene {
             
             drawGrid(drawRandomGrid: drawRandomGrid, newTileSize: newTileSize)
             
+            if Grid.countAliveCells() == 0 {
+                if playButtonSelected {
+                    WAFViewHandler.setPlayModeToStop(true)
+                }
+            }
             
             // Play Mode is active, time to shuffle critters
             if (playButtonSelected) {
