@@ -1,15 +1,13 @@
 {
   "images" : [
     {
-      "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "GOLIcon_29@2x-1.jpg",
+      "size" : "29x29",
       "scale" : "2x"
     },
     {
-      "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "GOLIcon_40@2x.jpg",
+      "size" : "40x40",
       "scale" : "2x"
     },
     {
@@ -29,15 +27,13 @@
       "scale" : "2x"
     },
     {
-      "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "GOLIcon_40-1.jpg",
+      "size" : "40x40",
       "scale" : "1x"
     },
     {
-      "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "GOLIcon_40@2x-1.jpg",
+      "size" : "40x40",
       "scale" : "2x"
     },
     {
