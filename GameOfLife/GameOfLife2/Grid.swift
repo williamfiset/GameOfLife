@@ -149,7 +149,7 @@ var gridCells : Tile[][] = []
                     }
                 }
                 
-                
+         
             }
         }
 
@@ -161,12 +161,12 @@ var gridCells : Tile[][] = []
                 if cell.willChangeColor {
                     cell.swapColor()
                     cell.willChangeColor = false
+                    
                 }
                 
             }
         }
         
- 
     }
     
 
@@ -176,6 +176,19 @@ var gridCells : Tile[][] = []
         var aliveCells = 0
         for cell in tiles {
             if cell.isAlive { aliveCells++ }
+        }
+        return aliveCells
+    }
+    
+    class func countAliveCells () -> Int {
+        
+        var aliveCells = 0
+        for row in gridCells {
+            for cell in row {
+                if cell.isAlive {
+                    aliveCells++
+                }
+            }
         }
         return aliveCells
     }
