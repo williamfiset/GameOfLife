@@ -12,13 +12,14 @@ import SpriteKit
 
 // All global Varibles
 
-var rowCells : Dictionary < Int, Tile[] > = Dictionary()
-var columnCells : Dictionary < Int, Tile[] > = Dictionary()
+var rowCells : Dictionary < Int, [Tile] > = Dictionary()
+var columnCells : Dictionary < Int, [Tile] > = Dictionary()
 var horizontalTiles = 0, verticalTiles = 0
 var currentTileSize : Int = 0
-var gridCells : Tile[][] = []
+var gridCells : [[Tile]] = []
 
-@objc class Grid  {
+@objc public class Grid  {
+    
     
     init ( tileSize : Int , scene : SKScene) {
         
@@ -38,10 +39,10 @@ var gridCells : Tile[][] = []
         
         for y in 0...verticalTiles {
             
-            var row : Tile [] = []
-            var column : Tile [] = [] // columns must be added as you go
+            var row : [Tile] = []
+            var column : [Tile] = [] // columns must be added as you go
             
-            for x in 0..horizontalTiles {
+            for x in 0..<horizontalTiles {
                 
                 // Stops row
                 if ( (startX + (x * tileSize) + tileSize) > sceneWidth ) {
@@ -171,7 +172,7 @@ var gridCells : Tile[][] = []
     
 
     // Counts all alive cells in a given array of tiles
-    class func countAliveCells( tiles : Tile[] ) -> Int {
+    class func countAliveCells( tiles : [Tile] ) -> Int {
         
         var aliveCells = 0
         for cell in tiles {
@@ -246,13 +247,13 @@ var gridCells : Tile[][] = []
 
 
 
-class Tile : SKSpriteNode {
+public class Tile : SKSpriteNode {
     
-    var isAlive : Bool = false
+    private var isAlive : Bool = false
+    private var willChangeColor = false
     var touched = false
-    var willChangeColor = false
     
-    let row, column : Int
+    private let row, column : Int
     
     init(color: UIColor!, size: CGSize, isAlive : Bool, row : Int, column : Int) {
 
@@ -264,6 +265,10 @@ class Tile : SKSpriteNode {
         super.init(texture: nil, color: color, size: size)
 
         
+    }
+
+    required public init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     /* Swaps the color of the cell */

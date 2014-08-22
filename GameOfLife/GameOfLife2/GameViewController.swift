@@ -14,7 +14,7 @@ import SpriteKit
 
 class GameViewController: UIViewController {
     
-    var touchedNodes : Tile[] = []
+    var touchedNodes : [Tile] = []
     
     override func viewDidLoad() {
         
