@@ -32,7 +32,7 @@ class GameViewController: UIViewController {
        
     }
     
-    override func touchesMoved(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesMoved(touches: (NSSet!), withEvent event: (UIEvent!)) {
 
         // If the game in not running the user may draw
         if !WAFViewHandler.playButtonIsSelected() {
@@ -59,7 +59,7 @@ class GameViewController: UIViewController {
         }
     }
     
-    override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!)  {
+    override func touchesEnded(touches: (NSSet!), withEvent event: (UIEvent!))  {
 
         // Reset all posibility for a block to be converted
         for touchedNode in touchedNodes {
