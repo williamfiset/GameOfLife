@@ -14,6 +14,8 @@
 
 #import "WAFViewHandler.h"
 #import "WAFTouchEventHandler.h"
+#import "UIDeviceHardware.h"
+#import <sys/sysctl.h>
 
 #define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 #define VERTICAL_SPACING 7
@@ -37,12 +39,19 @@ static short RIGHT_SEGMENT_POS = 0;
 
 @implementation WAFViewHandler
 
+
 /*
  * Creates all the objects that will be put on the screen
  * Creates all the constants (Different for iPad or iPhone)
  */
 + (void) initVariables: (UIView*) view withVerticalLimit: (float*) verticalLimit {
    
+    UIDeviceHardware *hardware = [UIDeviceHardware new];
+    
+    NSLog(@"%@", hardware.platform);
+    NSLog(@"%@", [hardware platformString] );
+    
+    NSLog( @"%d" , [hardware iPhone6Plus] );
     
     if (IPAD) {
         
@@ -62,10 +71,13 @@ static short RIGHT_SEGMENT_POS = 0;
         
         segmentSizes =  @[ @"24", @"32", @"48", @"64", @"96", @"128" ];
         FONT_SIZE = 15;
-        
+
     // IPhone or IPod
     } else {
 
+        
+        
+        
         SEGMENT_WIDTH = 140;
         TEXT_HEIGHT = 25;
         const int SIDE_SPACING = (view.frame.size.width - ( 2 * SEGMENT_WIDTH )) / 2;

@@ -17,6 +17,7 @@
 		C6626E2C195109A600630399 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6626E2B195109A600630399 /* Grid.swift */; };
 		C6A5C8AD19511DC3007256A0 /* circle.ai in Resources */ = {isa = PBXBuildFile; fileRef = C6A5C8A819511DC3007256A0 /* circle.ai */; };
 		C6A5C8B019511DC3007256A0 /* GameOfLife.psd in Resources */ = {isa = PBXBuildFile; fileRef = C6A5C8AC19511DC3007256A0 /* GameOfLife.psd */; };
+		C6C3AFE719D2F9DC0099E0CD /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C3AFE619D2F9DC0099E0CD /* UIDeviceHardware.m */; };
 		C6E1588C1954F51700252FC3 /* WAFTouchEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C6E1588B1954F51700252FC3 /* WAFTouchEventHandler.m */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,8 @@
 		C6A5C8A819511DC3007256A0 /* circle.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = circle.ai; sourceTree = "<group>"; };
 		C6A5C8AB19511DC3007256A0 /* experimentFile.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = experimentFile.playground; sourceTree = "<group>"; };
 		C6A5C8AC19511DC3007256A0 /* GameOfLife.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = GameOfLife.psd; sourceTree = "<group>"; };
+		C6C3AFE519D2F9DC0099E0CD /* UIDeviceHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDeviceHardware.h; sourceTree = "<group>"; };
+		C6C3AFE619D2F9DC0099E0CD /* UIDeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDeviceHardware.m; sourceTree = "<group>"; };
 		C6E1588A1954F51700252FC3 /* WAFTouchEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAFTouchEventHandler.h; sourceTree = "<group>"; };
 		C6E1588B1954F51700252FC3 /* WAFTouchEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAFTouchEventHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +114,8 @@
 				C6626E0A1951085000630399 /* GameScene.swift */,
 				C6626E0C1951085000630399 /* GameViewController.swift */,
 				C6626E281951096A00630399 /* WAFViewHandler.h */,
+				C6C3AFE519D2F9DC0099E0CD /* UIDeviceHardware.h */,
+				C6C3AFE619D2F9DC0099E0CD /* UIDeviceHardware.m */,
 				C6626E291951096A00630399 /* WAFViewHandler.m */,
 				C6E1588A1954F51700252FC3 /* WAFTouchEventHandler.h */,
 				C6E1588B1954F51700252FC3 /* WAFTouchEventHandler.m */,
@@ -280,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6626E0B1951085000630399 /* GameScene.swift in Sources */,
+				C6C3AFE719D2F9DC0099E0CD /* UIDeviceHardware.m in Sources */,
 				C6626E0D1951085000630399 /* GameViewController.swift in Sources */,
 				C6626E2A1951096A00630399 /* WAFViewHandler.m in Sources */,
 				C6626E2C195109A600630399 /* Grid.swift in Sources */,
@@ -345,7 +351,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: William Fiset (7KC276AP3U)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: William Fiset (7KC276AP3U)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -387,7 +394,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: William Fiset (7KC276AP3U)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: William Fiset (7KC276AP3U)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -411,13 +419,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: William Fiset (7KC276AP3U)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: William Fiset (7KC276AP3U)";
 				INFOPLIST_FILE = GameOfLife2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Game Of Life";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "07e1808b-29fd-4bb7-b027-8c630cf3847c";
 				SWIFT_OBJC_BRIDGING_HEADER = "GameOfLife2/GameOfLife2-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -430,13 +438,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: William Fiset (7KC276AP3U)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: William Fiset (855G4TCG78)";
 				INFOPLIST_FILE = GameOfLife2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Game Of Life";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "07e1808b-29fd-4bb7-b027-8c630cf3847c";
 				SWIFT_OBJC_BRIDGING_HEADER = "GameOfLife2/GameOfLife2-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
