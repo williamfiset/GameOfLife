@@ -44,10 +44,7 @@
 + (void) random_empty_changed:(UISegmentedControl *)selector {
     clickedToChangeMode = true;
 }
-    
-
-
-
+ 
 
 @end
 

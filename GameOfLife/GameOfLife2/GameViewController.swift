@@ -19,14 +19,10 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        println("Exe")
-        println(view)
-        let skView = self.view as SKView //SKView(frame: self.view.frame) //
-        println(view)
-        println( skView )
-        
-        //        skView.showsFPS = true
-//        skView.showsNodeCount = true
+
+        let skView = self.view as SKView
+//         skView.showsFPS = true
+//         skView.showsNodeCount = true
         
         let gameScene = GameScene(size: skView.frame.size)
         gameScene.scaleMode = .AspectFill

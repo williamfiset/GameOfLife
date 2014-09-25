@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 
+
 //#define IS_IPHONE       UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad
 //#define IS_IPHONE4      ([[UIScreen mainScreen] bounds].size.width == 320 && [[UIScreen mainScreen] bounds].size.height == 480)
 //#define IS_IPHONE5      ([[UIScreen mainScreen] bounds].size.width == 320 && [[UIScreen mainScreen] bounds].size.height == 568)
@@ -25,13 +26,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         
+        let IS_IPHONE4 = UIScreen.mainScreen().bounds.width == 320 && UIScreen.mainScreen().bounds.height == 480
+        let IS_IPHONE5 = UIScreen.mainScreen().bounds.width == 320 && UIScreen.mainScreen().bounds.height == 568
+        let IS_IPHONE6 = UIScreen.mainScreen().bounds.width == 375 && UIScreen.mainScreen().bounds.height == 667
+        let IS_IPHONE6_PLUS = UIScreen.mainScreen().bounds.width == 414 && UIScreen.mainScreen().bounds.height == 736
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds )
         
-        let viewController = GameViewController(nibName: "GameViewController_ipad", bundle: nil)
-        window!.rootViewController = viewController;
-//        window!.hidden = false;
+        var viewController : GameViewController? = nil;
+        
+        println("\( UIScreen.mainScreen().bounds.width ) - \( UIScreen.mainScreen().bounds.height )")
+        
+        // Selects a xib file to start with
+        if IS_IPHONE4 {
+            println("IS_IPHONE4")
+            viewController = GameViewController(nibName: "GameViewController_iphone4", bundle: nil)
+            
+        } else if IS_IPHONE5 {
+            println("IS_IPHONE5")
+            viewController = GameViewController(nibName: "GameViewController_iphone5", bundle: nil)
+            
+        } else if IS_IPHONE6 {
+            println("IS_IPHONE6")
+            viewController = GameViewController(nibName: "GameViewController_iphone6", bundle: nil)
+            
+        } else if IS_IPHONE6_PLUS {
+            println("IS_IPHONE6+")
+            viewController = GameViewController(nibName: "GameViewController_iphone6+", bundle: nil)
+            
+        } else {
+             println("IS_IPAD")
+             viewController = GameViewController(nibName: "GameViewController_ipad", bundle: nil)
+        }
 
+        
+        window!.rootViewController = viewController;
         window!.makeKeyAndVisible()
 
         
