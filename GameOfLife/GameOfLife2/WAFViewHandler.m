@@ -46,12 +46,12 @@ static short RIGHT_SEGMENT_POS = 0;
 + (void) initVariables: (UIView*) view withVerticalLimit: (float*) verticalLimit {
    
    
-    printf("IPhone 4, %d\n", IS_IPHONE4 );
-    printf("IPhone 5, %d\n", IS_IPHONE5 );
-    printf("IPhone 6, %d\n", IS_IPHONE6 );
-    printf("IPhone 6 Plus, %d\n", IS_IPHONE6_PLUS );
-    printf("IPad: %d\n", IS_IPAD );
-    printf("IPhone: %d\n", IS_IPHONE);
+//    printf("IPhone 4, %d\n", IS_IPHONE4 );
+//    printf("IPhone 5, %d\n", IS_IPHONE5 );
+//    printf("IPhone 6, %d\n", IS_IPHONE6 );
+//    printf("IPhone 6 Plus, %d\n", IS_IPHONE6_PLUS );
+//    printf("IPad: %d\n", IS_IPAD );
+//    printf("IPhone: %d\n", IS_IPHONE);
     
     printf("%4.0lf\n", [[UIScreen mainScreen] bounds].size.width);
     printf("%4.0lf\n", [[UIScreen mainScreen] bounds].size.height);
@@ -82,39 +82,37 @@ static short RIGHT_SEGMENT_POS = 0;
         if (IS_IPHONE6) {
             
             SEGMENT_WIDTH = 160;
-            TEXT_HEIGHT = 25;
-            const int SIDE_SPACING = (view.frame.size.width - ( 2 * SEGMENT_WIDTH )) / 2;
-            
-            BELOW_HEIGHT = view.frame.size.height - 35;
-            UPPER_HEIGHT = view.frame.size.height - 75;
-            
-            LEFT_SEGMENT_POS = SIDE_SPACING / 2;
-            RIGHT_SEGMENT_POS = SEGMENT_WIDTH + LEFT_SEGMENT_POS * 3;
-            printf("Width: %.0f\n", view.frame.size.width );
-            printf("Height: %.0f\n", view.frame.size.height );
 
             // Based on 375 (1, 3, 5, 15, 25, 75, 125)
             segmentSizes =  @[ @"15", @"25", @"34", @"53", @"75" ];
+        
+        } else if (IS_IPHONE6_PLUS) {
             
+            SEGMENT_WIDTH = 160;
+            
+            // Based on 414 (1, 2, 3, 6, 9, 18, 23, 46, 69, 138, 207)
+            segmentSizes =  @[ @"18", @"23" , @"34", @"46", @"69" ];
+        
+        // IPhone models 5 and below
         } else {
             
             SEGMENT_WIDTH = 140;
-            TEXT_HEIGHT = 25;
-            const int SIDE_SPACING = (view.frame.size.width - ( 2 * SEGMENT_WIDTH )) / 2;
-            
-            BELOW_HEIGHT = view.frame.size.height - 35;
-            UPPER_HEIGHT = view.frame.size.height - 75;
-            
-            LEFT_SEGMENT_POS = SIDE_SPACING / 2;
-            RIGHT_SEGMENT_POS = SEGMENT_WIDTH + LEFT_SEGMENT_POS * 3;
-            
             
             segmentSizes =  @[ @"16", @"20", @"32", @"40", @"64" ]; 
             
         }
         
+        TEXT_HEIGHT = 25;
+        const int SIDE_SPACING = (view.frame.size.width - ( 2 * SEGMENT_WIDTH )) / 2;
+        
+        BELOW_HEIGHT = view.frame.size.height - 35;
+        UPPER_HEIGHT = view.frame.size.height - 75;
+        
+        LEFT_SEGMENT_POS = SIDE_SPACING / 2;
+        RIGHT_SEGMENT_POS = SEGMENT_WIDTH + LEFT_SEGMENT_POS * 3;
 
         FONT_SIZE = 14;
+        
     }
 
     

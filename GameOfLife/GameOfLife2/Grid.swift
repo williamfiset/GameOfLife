@@ -21,19 +21,21 @@ var gridCells : [[Tile]] = []
 @objc public class Grid  {
     
     
-    init ( tileSize : Int , scene : SKScene) {
+    init ( let tileSize : Int , scene : SKScene!) {
         
         currentTileSize = tileSize
         horizontalTiles = (sceneWidth / tileSize)
         verticalTiles = ((sceneHeight - Int(verticalTileLimit)) / tileSize) - 1
                 
         Grid.emptyGrid()
+
+        let spacing = abs( sceneWidth - (sceneWidth / tileSize) * tileSize ) / 2
         
         let tileDimension = CGSize(width: tileSize, height: tileSize)
-        let startX = 0
+        let startX = sceneWidth % tileSize == 0 ? 0 : spacing
         let startY = 0
         
-        
+       
         var height = sceneHeight
         var rowIndex = 0
         
