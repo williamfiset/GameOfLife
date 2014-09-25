@@ -14,10 +14,8 @@
 
 #import "WAFViewHandler.h"
 #import "WAFTouchEventHandler.h"
-#import "UIDeviceHardware.h"
 #import <sys/sysctl.h>
 
-#define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 #define VERTICAL_SPACING 7
 #define LABEL_FONT @"Helvetica"
 #define LABEL_POSITION_ABOVE_SEGMENT 47
@@ -53,10 +51,12 @@ static short RIGHT_SEGMENT_POS = 0;
     printf("IPhone 6, %d\n", IS_IPHONE6 );
     printf("IPhone 6 Plus, %d\n", IS_IPHONE6_PLUS );
     printf("IPad: %d\n", IS_IPAD );
-    printf("IPhone: %d", IS_IPHONE);
+    printf("IPhone: %d\n", IS_IPHONE);
     
+    printf("%4.0lf\n", [[UIScreen mainScreen] bounds].size.width);
+    printf("%4.0lf\n", [[UIScreen mainScreen] bounds].size.height);
     
-    if (IPAD) {
+    if (IS_IPAD) {
         
         // Adjusts the vertical tile limit specifically for the IPad
         *verticalLimit = 100;
@@ -76,22 +76,44 @@ static short RIGHT_SEGMENT_POS = 0;
         FONT_SIZE = 15;
 
     // IPhone or IPod
-    } else {
+    } else if (IS_IPHONE) {
+        
+        
+        if (IS_IPHONE6) {
+            
+            SEGMENT_WIDTH = 160;
+            TEXT_HEIGHT = 25;
+            const int SIDE_SPACING = (view.frame.size.width - ( 2 * SEGMENT_WIDTH )) / 2;
+            
+            BELOW_HEIGHT = view.frame.size.height - 35;
+            UPPER_HEIGHT = view.frame.size.height - 75;
+            
+            LEFT_SEGMENT_POS = SIDE_SPACING / 2;
+            RIGHT_SEGMENT_POS = SEGMENT_WIDTH + LEFT_SEGMENT_POS * 3;
+            printf("Width: %.0f\n", view.frame.size.width );
+            printf("Height: %.0f\n", view.frame.size.height );
 
+            // Based on 375 (1, 3, 5, 15, 25, 75, 125)
+            segmentSizes =  @[ @"15", @"25", @"34", @"53", @"75" ];
+            
+        } else {
+            
+            SEGMENT_WIDTH = 140;
+            TEXT_HEIGHT = 25;
+            const int SIDE_SPACING = (view.frame.size.width - ( 2 * SEGMENT_WIDTH )) / 2;
+            
+            BELOW_HEIGHT = view.frame.size.height - 35;
+            UPPER_HEIGHT = view.frame.size.height - 75;
+            
+            LEFT_SEGMENT_POS = SIDE_SPACING / 2;
+            RIGHT_SEGMENT_POS = SEGMENT_WIDTH + LEFT_SEGMENT_POS * 3;
+            
+            
+            segmentSizes =  @[ @"16", @"20", @"32", @"40", @"64" ]; 
+            
+        }
         
-        
-        
-        SEGMENT_WIDTH = 140;
-        TEXT_HEIGHT = 25;
-        const int SIDE_SPACING = (view.frame.size.width - ( 2 * SEGMENT_WIDTH )) / 2;
 
-        BELOW_HEIGHT = view.frame.size.height - 35;
-        UPPER_HEIGHT = view.frame.size.height - 75;
-        
-        LEFT_SEGMENT_POS = SIDE_SPACING / 2;
-        RIGHT_SEGMENT_POS = SEGMENT_WIDTH + LEFT_SEGMENT_POS * 3;
-
-        segmentSizes =  @[ @"16", @"20", @"32", @"40", @"64" ]; // removed 10 for performance reasons
         FONT_SIZE = 14;
     }
 
