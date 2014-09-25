@@ -18,6 +18,7 @@
 		C694C72E19D3CF2300019AFC /* GameViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C694C72D19D3CF2300019AFC /* GameViewController_ipad.xib */; };
 		C694C73019D3D4C300019AFC /* GameViewController_iphone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = C694C72F19D3D4C300019AFC /* GameViewController_iphone5.xib */; };
 		C694C73219D3D58A00019AFC /* GameViewController_iphone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = C694C73119D3D58A00019AFC /* GameViewController_iphone6.xib */; };
+		C694C73519D3D8E700019AFC /* GameViewController_iphone6+.xib in Resources */ = {isa = PBXBuildFile; fileRef = C694C73419D3D8E700019AFC /* GameViewController_iphone6+.xib */; };
 		C6A5C8AD19511DC3007256A0 /* circle.ai in Resources */ = {isa = PBXBuildFile; fileRef = C6A5C8A819511DC3007256A0 /* circle.ai */; };
 		C6A5C8B019511DC3007256A0 /* GameOfLife.psd in Resources */ = {isa = PBXBuildFile; fileRef = C6A5C8AC19511DC3007256A0 /* GameOfLife.psd */; };
 		C6E1588C1954F51700252FC3 /* WAFTouchEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C6E1588B1954F51700252FC3 /* WAFTouchEventHandler.m */; };
@@ -65,6 +66,7 @@
 		C694C72D19D3CF2300019AFC /* GameViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController_ipad.xib; sourceTree = "<group>"; };
 		C694C72F19D3D4C300019AFC /* GameViewController_iphone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController_iphone5.xib; sourceTree = "<group>"; };
 		C694C73119D3D58A00019AFC /* GameViewController_iphone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController_iphone6.xib; sourceTree = "<group>"; };
+		C694C73419D3D8E700019AFC /* GameViewController_iphone6+.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "GameViewController_iphone6+.xib"; sourceTree = "<group>"; };
 		C6A5C8A819511DC3007256A0 /* circle.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = circle.ai; sourceTree = "<group>"; };
 		C6A5C8AB19511DC3007256A0 /* experimentFile.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = experimentFile.playground; sourceTree = "<group>"; };
 		C6A5C8AC19511DC3007256A0 /* GameOfLife.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = GameOfLife.psd; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				C694C72919D3C5CA00019AFC /* GameViewController_iphone4.xib */,
 				C694C72F19D3D4C300019AFC /* GameViewController_iphone5.xib */,
 				C694C73119D3D58A00019AFC /* GameViewController_iphone6.xib */,
+				C694C73419D3D8E700019AFC /* GameViewController_iphone6+.xib */,
 			);
 			name = xib_files;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				C6626E121951085000630399 /* Images.xcassets in Resources */,
 				C6A5C8B019511DC3007256A0 /* GameOfLife.psd in Resources */,
 				C694C72A19D3C5CA00019AFC /* GameViewController_iphone4.xib in Resources */,
+				C694C73519D3D8E700019AFC /* GameViewController_iphone6+.xib in Resources */,
 				C694C73219D3D58A00019AFC /* GameViewController_iphone6.xib in Resources */,
 				C6A5C8AD19511DC3007256A0 /* circle.ai in Resources */,
 				C694C73019D3D4C300019AFC /* GameViewController_iphone5.xib in Resources */,

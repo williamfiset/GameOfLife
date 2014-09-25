@@ -70,7 +70,6 @@ static short RIGHT_SEGMENT_POS = 0;
         
         
         if (IS_IPHONE6) {
-            printf("HERE!\n");
             SEGMENT_WIDTH = 160;
 
             // Based on 375 (1, 3, 5, 15, 25, 75, 125)
