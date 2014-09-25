@@ -10,11 +10,12 @@
 		C6626E071951085000630399 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6626E061951085000630399 /* AppDelegate.swift */; };
 		C6626E0B1951085000630399 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6626E0A1951085000630399 /* GameScene.swift */; };
 		C6626E0D1951085000630399 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6626E0C1951085000630399 /* GameViewController.swift */; };
-		C6626E101951085000630399 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6626E0E1951085000630399 /* Main.storyboard */; };
 		C6626E121951085000630399 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6626E111951085000630399 /* Images.xcassets */; };
 		C6626E1E1951085000630399 /* GameOfLife2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6626E1D1951085000630399 /* GameOfLife2Tests.swift */; };
 		C6626E2A1951096A00630399 /* WAFViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C6626E291951096A00630399 /* WAFViewHandler.m */; };
 		C6626E2C195109A600630399 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6626E2B195109A600630399 /* Grid.swift */; };
+		C694C72A19D3C5CA00019AFC /* GameViewController_iphone4.xib in Resources */ = {isa = PBXBuildFile; fileRef = C694C72919D3C5CA00019AFC /* GameViewController_iphone4.xib */; };
+		C694C72E19D3CF2300019AFC /* GameViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C694C72D19D3CF2300019AFC /* GameViewController_ipad.xib */; };
 		C6A5C8AD19511DC3007256A0 /* circle.ai in Resources */ = {isa = PBXBuildFile; fileRef = C6A5C8A819511DC3007256A0 /* circle.ai */; };
 		C6A5C8B019511DC3007256A0 /* GameOfLife.psd in Resources */ = {isa = PBXBuildFile; fileRef = C6A5C8AC19511DC3007256A0 /* GameOfLife.psd */; };
 		C6E1588C1954F51700252FC3 /* WAFTouchEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C6E1588B1954F51700252FC3 /* WAFTouchEventHandler.m */; };
@@ -50,7 +51,6 @@
 		C6626E061951085000630399 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6626E0A1951085000630399 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		C6626E0C1951085000630399 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		C6626E0F1951085000630399 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6626E111951085000630399 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C6626E171951085000630399 /* Game_Of_Life123Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Game_Of_Life123Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6626E1C1951085000630399 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +59,8 @@
 		C6626E281951096A00630399 /* WAFViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAFViewHandler.h; sourceTree = "<group>"; };
 		C6626E291951096A00630399 /* WAFViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAFViewHandler.m; sourceTree = "<group>"; };
 		C6626E2B195109A600630399 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		C694C72919D3C5CA00019AFC /* GameViewController_iphone4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController_iphone4.xib; sourceTree = "<group>"; };
+		C694C72D19D3CF2300019AFC /* GameViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController_ipad.xib; sourceTree = "<group>"; };
 		C6A5C8A819511DC3007256A0 /* circle.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = circle.ai; sourceTree = "<group>"; };
 		C6A5C8AB19511DC3007256A0 /* experimentFile.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = experimentFile.playground; sourceTree = "<group>"; };
 		C6A5C8AC19511DC3007256A0 /* GameOfLife.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = GameOfLife.psd; sourceTree = "<group>"; };
@@ -114,6 +116,9 @@
 				C6626E291951096A00630399 /* WAFViewHandler.m */,
 				C6E1588A1954F51700252FC3 /* WAFTouchEventHandler.h */,
 				C6E1588B1954F51700252FC3 /* WAFTouchEventHandler.m */,
+				C694C72D19D3CF2300019AFC /* GameViewController_ipad.xib */,
+				C694C72919D3C5CA00019AFC /* GameViewController_iphone4.xib */,
+				C6626E051951085000630399 /* Info.plist */,
 				C6626E111951085000630399 /* Images.xcassets */,
 				C6626E041951085000630399 /* Supporting Files */,
 			);
@@ -125,9 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				C6A5C8AB19511DC3007256A0 /* experimentFile.playground */,
-				C6626E0E1951085000630399 /* Main.storyboard */,
 				C6626E271951096900630399 /* GameOfLife2-Bridging-Header.h */,
-				C6626E051951085000630399 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -154,16 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				C6A5C8B319511E15007256A0 /* Ai & Ps Files */,
-				C6A5C8B219511E05007256A0 /* img */,
 			);
 			name = ImgFiles;
-			sourceTree = "<group>";
-		};
-		C6A5C8B219511E05007256A0 /* img */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = img;
 			sourceTree = "<group>";
 		};
 		C6A5C8B319511E15007256A0 /* Ai & Ps Files */ = {
@@ -258,9 +253,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C694C72E19D3CF2300019AFC /* GameViewController_ipad.xib in Resources */,
 				C6626E121951085000630399 /* Images.xcassets in Resources */,
-				C6626E101951085000630399 /* Main.storyboard in Resources */,
 				C6A5C8B019511DC3007256A0 /* GameOfLife.psd in Resources */,
+				C694C72A19D3C5CA00019AFC /* GameViewController_iphone4.xib in Resources */,
 				C6A5C8AD19511DC3007256A0 /* circle.ai in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,17 +311,6 @@
 			targetProxy = C6D7A8601973532900C997EE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		C6626E0E1951085000630399 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C6626E0F1951085000630399 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C6626E1F1951085000630399 /* Debug */ = {

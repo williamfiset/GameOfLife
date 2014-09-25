@@ -20,18 +20,18 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.2</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>NSMainNibFile~ipad</key>
-	<string>Main-iPad</string>
-	<key>UILaunchStoryboardName</key>
-	<string>Main</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
+<!--	<key>NSMainNibFile~ipad</key>-->
+<!--	<string>Main-iPad</string>-->
+<!--	<key>UILaunchStoryboardName</key>-->
+<!--	<string>Main</string>-->
+<!--	<key>UIMainStoryboardFile</key>-->
+<!--	<string>Main</string>-->
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
 	<key>UIStatusBarHidden</key>
 	<true/>
 </dict>

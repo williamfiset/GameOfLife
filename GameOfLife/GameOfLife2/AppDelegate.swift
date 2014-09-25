@@ -7,6 +7,15 @@
 //
 
 import UIKit
+import SpriteKit
+
+//#define IS_IPHONE       UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad
+//#define IS_IPHONE4      ([[UIScreen mainScreen] bounds].size.width == 320 && [[UIScreen mainScreen] bounds].size.height == 480)
+//#define IS_IPHONE5      ([[UIScreen mainScreen] bounds].size.width == 320 && [[UIScreen mainScreen] bounds].size.height == 568)
+//#define IS_IPHONE6      ([[UIScreen mainScreen] bounds].size.width == 375 && [[UIScreen mainScreen] bounds].size.height == 667)
+//#define IS_IPHONE6_PLUS ([[UIScreen mainScreen] bounds].size.width == 414 && [[UIScreen mainScreen] bounds].size.height == 736)
+//#define IS_IPAD         UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
+//
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +24,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
+        
+        
+        window = UIWindow(frame: UIScreen.mainScreen().bounds )
+        
+        let viewController = GameViewController(nibName: "GameViewController_ipad", bundle: nil)
+        window!.rootViewController = viewController;
+//        window!.hidden = false;
+
+        window!.makeKeyAndVisible()
+
         
         // Override point for customization after application launch.
         return true

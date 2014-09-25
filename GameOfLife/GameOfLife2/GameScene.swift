@@ -45,13 +45,13 @@ class GameScene : SKScene {
         // Create background and places buttons on the screen
         self.backgroundColor =  UIColor(red: 55/255.0, green: 55/255.0, blue: 55/255.0, alpha: 0.75)
         WAFViewHandler.placeMainSceneViews(view , withVerticalLimit: &verticalTileLimit)
-
+        
         
         let grid = Grid( tileSize : Int(WAFViewHandler.segmentSizeValue()) , scene : self)
         Grid.placeGridOnScreen(self)
         
         oldTileSize = Int(WAFViewHandler.segmentSizeValue())
-        
+
     }
     
     /* Makes the choice of choosing between drawing an empty grid and drawing a randomized grid */
