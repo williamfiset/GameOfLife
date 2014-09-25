@@ -86,7 +86,7 @@ static short RIGHT_SEGMENT_POS = 0;
         // IPhone models 5 and below
         } else {
             
-            SEGMENT_WIDTH = 140;
+            SEGMENT_WIDTH = 150;
             
             segmentSizes =  @[ @"16", @"20", @"32", @"40", @"64" ]; 
             

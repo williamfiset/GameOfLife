@@ -416,7 +416,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: William Fiset (7KC276AP3U)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: William Fiset (7KC276AP3U)";
 				INFOPLIST_FILE = GameOfLife2/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Game Of Life";
 				PROVISIONING_PROFILE = "07e1808b-29fd-4bb7-b027-8c630cf3847c";
@@ -435,7 +435,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: William Fiset (7KC276AP3U)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: William Fiset (855G4TCG78)";
 				INFOPLIST_FILE = GameOfLife2/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Game Of Life";
 				PROVISIONING_PROFILE = "07e1808b-29fd-4bb7-b027-8c630cf3847c";
