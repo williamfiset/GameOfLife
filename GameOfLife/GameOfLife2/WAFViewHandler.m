@@ -45,16 +45,6 @@ static short RIGHT_SEGMENT_POS = 0;
 
 + (void) initVariables: (UIView*) view withVerticalLimit: (float*) verticalLimit {
    
-   
-//    printf("IPhone 4, %d\n", IS_IPHONE4 );
-//    printf("IPhone 5, %d\n", IS_IPHONE5 );
-//    printf("IPhone 6, %d\n", IS_IPHONE6 );
-//    printf("IPhone 6 Plus, %d\n", IS_IPHONE6_PLUS );
-//    printf("IPad: %d\n", IS_IPAD );
-//    printf("IPhone: %d\n", IS_IPHONE);
-    
-    printf("%4.0lf\n", [[UIScreen mainScreen] bounds].size.width);
-    printf("%4.0lf\n", [[UIScreen mainScreen] bounds].size.height);
     
     if (IS_IPAD) {
         
