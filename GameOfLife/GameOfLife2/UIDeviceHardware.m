@@ -8,7 +8,44 @@
 #include <sys/types.h>
 #include <sys/sysctl.h>
 
+#define IS_IPHONE       UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad
+#define IS_IPHONE4      ([[UIScreen mainScreen] bounds].size.width == 480 || [[UIScreen mainScreen] bounds].size.height == 480)
+#define IS_IPHONE5      ([[UIScreen mainScreen] bounds].size.width == 568 || [[UIScreen mainScreen] bounds].size.height == 568)
+#define IS_IPHONE6      ([[UIScreen mainScreen] bounds].size.width == 375 && [[UIScreen mainScreen] bounds].size.height == 667)
+#define IS_IPHONE6_PLUS ([[UIScreen mainScreen] bounds].size.width == 414 && [[UIScreen mainScreen] bounds].size.height == 736)
+#define IS_IPAD         UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
+
+// ([[UIScreen mainScreen] bounds].size.width == 768 || [[UIScreen mainScreen] bounds].size.height == 768)
+
+// 1334
+// 1920
+
+
 @implementation UIDeviceHardware
+
+- (BOOL) isIPhone4 {
+    printf("%f\n", [[UIScreen mainScreen] bounds].size.width);
+    printf("%f\n", [[UIScreen mainScreen] bounds].size.height);
+    return IS_IPHONE4;
+}
+
+- (BOOL) isIPhone5 {
+    return IS_IPHONE5;
+}
+
+- (BOOL) isIPhone6 {
+    return IS_IPHONE6;
+}
+
+- (BOOL) isIPhone6Plus {
+    return IS_IPHONE6_PLUS;
+}
+
+- (BOOL) isIPad {
+    return IS_IPAD;
+}
+
+
 
 - (NSString *) platform{
     size_t size;
@@ -36,8 +73,10 @@
     if ([platform isEqualToString:@"iPad2,1"])      return @"iPad 2 (WiFi)";
     if ([platform isEqualToString:@"iPad2,2"])      return @"iPad 2 (GSM)";
     if ([platform isEqualToString:@"iPad2,3"])      return @"iPad 2 (CDMA)";
+    
     if ([platform isEqualToString:@"i386"])         return @"Simulator";
     if ([platform isEqualToString:@"x86_64"])       return @"Simulator";
+    
     return platform;
 }
 

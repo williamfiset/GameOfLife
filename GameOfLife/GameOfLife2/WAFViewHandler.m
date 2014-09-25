@@ -44,14 +44,17 @@ static short RIGHT_SEGMENT_POS = 0;
  * Creates all the objects that will be put on the screen
  * Creates all the constants (Different for iPad or iPhone)
  */
+
 + (void) initVariables: (UIView*) view withVerticalLimit: (float*) verticalLimit {
    
-    UIDeviceHardware *hardware = [UIDeviceHardware new];
+   
+    printf("IPhone 4, %d\n", IS_IPHONE4 );
+    printf("IPhone 5, %d\n", IS_IPHONE5 );
+    printf("IPhone 6, %d\n", IS_IPHONE6 );
+    printf("IPhone 6 Plus, %d\n", IS_IPHONE6_PLUS );
+    printf("IPad: %d\n", IS_IPAD );
+    printf("IPhone: %d", IS_IPHONE);
     
-    NSLog(@"%@", hardware.platform);
-    NSLog(@"%@", [hardware platformString] );
-    
-    NSLog( @"%d" , [hardware iPhone6Plus] );
     
     if (IPAD) {
         
