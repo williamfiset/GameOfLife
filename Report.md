@@ -40,12 +40,7 @@ The design portion of this assignment was created largely in part by [Dr. Andrew
 
 ###Dump Email Records
 
-``` python
 
-for x in range(0, 100): print "Hello World"
-
-
-```
 
 ###Dump Phone Records
 
