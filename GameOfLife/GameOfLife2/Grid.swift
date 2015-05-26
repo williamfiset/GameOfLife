@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 
 
-// All global Varibles
+// All global Varibles (In the new version of swift static variables are allowed in classes, should migrate to this)
 
 var rowCells : Dictionary < Int, [Tile] > = Dictionary()
 var columnCells : Dictionary < Int, [Tile] > = Dictionary()
@@ -42,7 +42,7 @@ var gridCells : [[Tile]] = []
         for y in 0...verticalTiles {
             
             var row : [Tile] = []
-            var column : [Tile] = [] // columns must be added as you go
+            var column : [Tile] = []
             
             for x in 0..<horizontalTiles {
                 
@@ -65,7 +65,7 @@ var gridCells : [[Tile]] = []
                 
                 // anchorPoint means that the image is relative to the top left
                 tile.anchorPoint = CGPoint(x: 0, y: 1)
-                tile.position = CGPoint(x: startX + (x * tileSize), y:  height - (y * tileSize) - startY) //  - tileSize/2
+                tile.position = CGPoint(x: startX + (x * tileSize), y:  height - (y * tileSize) - startY)
                 
                 
                 // Add elements to the columns as they go

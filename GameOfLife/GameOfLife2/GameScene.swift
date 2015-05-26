@@ -37,9 +37,8 @@ class GameScene : SKScene {
         // Define constants
         sceneHeight = Int(self.size.height)
         sceneWidth = Int(self.size.width)
-//        println("\nw: \(sceneWidth) h: \(sceneHeight)\n")
         
-        verticalTileLimit = 90.0 // hardcoding this is the best option because of different screen sizes
+        verticalTileLimit = 90.0
         clickedToChangeMode = false;
         
         // Create background and places buttons on the screen
@@ -140,9 +139,7 @@ class GameScene : SKScene {
             loopPauseInfo.executionTime = NSDate().timeIntervalSinceDate(methodStartTime)
             
             if (playButtonSelected) {
-                
                 loopPauseInfo.executePause = true
-//                pauseLoop(loopExecutionTime: executionTime)
             }
             
             clickedToChangeMode = false;
