@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
 
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         
         let IS_IPHONE4 = (UIScreen.mainScreen().bounds.width == 320 && UIScreen.mainScreen().bounds.height == 480)
         let IS_IPHONE5 = (UIScreen.mainScreen().bounds.width == 320 && UIScreen.mainScreen().bounds.height == 568)
@@ -24,31 +24,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let IS_IPHONE6_PLUS = (UIScreen.mainScreen().bounds.width == 414 && UIScreen.mainScreen().bounds.height == 736)
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds )
-        
         var viewController : GameViewController? = nil;
         
-//        println("\( UIScreen.mainScreen().bounds.width ) - \( UIScreen.mainScreen().bounds.height )")
-        
         // Selects a xib file to start with
-        // Doesn't seem to execute IS_IPHONE6 or IS_IPHONE6_PLUS
+        // Doesn't seem to execute IS_IPHONE6 or IS_IPHONE6_PLUS (is this still true??)
         if IS_IPHONE4 {
-//            println("IS_IPHONE4")
             viewController = GameViewController(nibName: "GameViewController_iphone4", bundle: nil)
             
         } else if IS_IPHONE5 {
-//            println("IS_IPHONE5")
             viewController = GameViewController(nibName: "GameViewController_iphone5", bundle: nil)
         
         } else if IS_IPHONE6 {
-//            println("IS_IPHONE6")
             viewController = GameViewController(nibName: "GameViewController_iphone6", bundle: nil)
             
         } else if IS_IPHONE6_PLUS {
-//            println("IS_IPHONE6+")
             viewController = GameViewController(nibName: "GameViewController_iphone6+", bundle: nil)
             
         } else {
-//             println("IS_IPAD")
              viewController = GameViewController(nibName: "GameViewController_ipad", bundle: nil)
         }
 

@@ -20,9 +20,7 @@ class GameViewController: UIViewController {
         
         super.viewDidLoad()
 
-        let skView = self.view as SKView
-//         skView.showsFPS = true
-//         skView.showsNodeCount = true
+        let skView = self.view as! SKView
         
         let gameScene = GameScene(size: skView.frame.size)
         gameScene.scaleMode = .AspectFill
@@ -31,12 +29,12 @@ class GameViewController: UIViewController {
        
     }
     
-    override func touchesMoved(touches: (NSSet!), withEvent event: (UIEvent!)) {
+    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
 
         // If the game in not running the user may draw
         if !WAFViewHandler.playButtonIsSelected() {
             
-            for anObject : AnyObject in touches! {
+            for anObject : AnyObject in touches {
                 if let touch = anObject as? UITouch {
                     
                     // Gets the correct touch position by flipping the Y-Axis
@@ -58,7 +56,7 @@ class GameViewController: UIViewController {
         }
     }
     
-    override func touchesEnded(touches: (NSSet!), withEvent event: (UIEvent!))  {
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
 
         // Reset all posibility for a block to be converted
         for touchedNode in touchedNodes {
@@ -67,7 +65,7 @@ class GameViewController: UIViewController {
         
         if touchedNodes.count == 0 && !WAFViewHandler.playButtonIsSelected(){
 
-            for anObject : AnyObject in touches! {
+            for anObject : AnyObject in touches {
                 if let touch = anObject as? UITouch {
                     
                     // Gets the correct touch position by flipping the Y-Axis
@@ -102,9 +100,9 @@ class GameViewController: UIViewController {
     override func supportedInterfaceOrientations() -> Int {
         
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return Int(UIInterfaceOrientationMask.AllButUpsideDown.toRaw())
+            return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
         } else {
-            return Int(UIInterfaceOrientationMask.All.toRaw())
+            return Int(UIInterfaceOrientationMask.All.rawValue)
         }
         
     }
