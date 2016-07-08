@@ -2,8 +2,9 @@
 
 [comment]: # ( [![Foo](https://raw.githubusercontent.com/william-fiset/GameOfLife/master/download-on-the-app-store-button.png)](https://itunes.apple.com/us/artist/william-fiset/id918743897) )
 
-### John Conway Game of Life now available for IOS!
+[comment]: # ( ### John Conway Game of Life now available for IOS! )
 
+### In app screenshots:
 <table border="0" cellspacing="0" cellpadding="0" style="border: none;">
 
   <tr>
