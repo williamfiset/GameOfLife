@@ -5,10 +5,6 @@
     <td>
       <img src="https://raw.githubusercontent.com/william-fiset/GameOfLife/master/ScreenShots/gameoflife.png" style="float: left;">
     </td>
-    
-    <td>
-      <img src="https://raw.githubusercontent.com/william-fiset/GameOfLife/master/ScreenShots/gameoflife_draw.png" style="float: right;">
-    </td>
   </tr>
 
 </table>
